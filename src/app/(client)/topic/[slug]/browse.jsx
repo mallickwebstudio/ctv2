@@ -1,0 +1,528 @@
+"use client"
+import { Button, buttonVariants } from '@/components/ui/button'
+import { ListFilter, Plus, X } from 'lucide-react'
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { cn, formatNumber } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import FilterCourseCard from '@/components/ui/card/filter-course-card'
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from '@/components/ui/label'
+import { StarEmpty, StarFull, StarHalf } from '@/components/ui/svgs'
+import { Checkbox } from "@/components/ui/checkbox"
+import Image from 'next/image'
+import Link from 'next/link'
+import RenderStars from '@/components/ui/render-stars'
+
+const cities = [
+    { id: 'dubai', label: 'Dubai', count: 1234 },
+    { id: 'abu-dhabi', label: 'Abu Dhabi', count: 1234 },
+    { id: 'sharjah', label: 'Sharjah', count: 1234 },
+    { id: 'ajman', label: 'Ajman', count: 1234 },
+    { id: 'al-ain', label: 'Al Ain', count: 1234 },
+    { id: 'fujairah', label: 'Fujairah', count: 1234 },
+    { id: 'ras-al-khaimah', label: 'Ras al Khaimah', count: 1234 },
+    { id: 'umm-al-quwain', label: 'Umm al Quwain', count: 1234 },
+];
+
+const ratings = [
+    { id: '4.5-up', value: '4.5&up', stars: [StarFull, StarFull, StarFull, StarFull, StarHalf], label: '4.5 & up', count: 1234 },
+    { id: '4-up', value: '4&up', stars: [StarFull, StarFull, StarFull, StarFull, StarEmpty], label: '4 & up', count: 1234 },
+    { id: '3.5-up', value: '3.5&up', stars: [StarFull, StarFull, StarFull, StarHalf, StarEmpty], label: '3.5 & up', count: 1234 },
+    { id: '3-up', value: '3&up', stars: [StarFull, StarFull, StarFull, StarEmpty, StarEmpty], label: '3 & up', count: 1234 },
+];
+
+const videoDurations = [
+    { id: '0-1-hour', label: '0-1 Hour', count: 1234 },
+    { id: '1-3-hours', label: '1-3 Hours', count: 1234 },
+    { id: '3-6-hours', label: '3-6 Hours', count: 1234 },
+    { id: '6-17-hours', label: '6-17 Hours', count: 1234 },
+    { id: '17-plus-hours', label: '17+ Hours', count: 1234 },
+];
+
+const topics = [
+    { id: 'python', label: 'Python', count: 1234 },
+    { id: 'data-science', label: 'Data Science', count: 1234 },
+    { id: 'machine-learning', label: 'Machine Learning', count: 1234 },
+    { id: 'rust', label: 'Rust', count: 1234 },
+    { id: 'javascript', label: 'JavaScript', count: 1234 },
+    { id: 'typescript', label: 'TypeScript', count: 1234 },
+    { id: 'ai', label: 'AI', count: 1234 },
+    { id: 'django', label: 'Django', count: 1234 },
+];
+const subcategories = [
+    { id: "python", label: "Python", count: 1234 },
+    { id: "data-science", label: "Data Science", count: 1234 },
+    { id: "machine-learning", label: "Machine Learning", count: 1234 },
+    { id: "rust", label: "Rust", count: 1234 },
+    { id: "java-script", label: "Java Script", count: 1234 },
+    { id: "type-script", label: "Type Script", count: 1234 },
+    { id: "ai", label: "AI", count: 1234 },
+    { id: "django", label: "Django", count: 1234 },
+];
+
+const levels = [
+    { id: "beginner", label: "Beginner", count: 1234 },
+    { id: "all-level", label: "All Level", count: 1234 },
+    { id: "intermediate", label: "Intermediate", count: 1234 },
+    { id: "expert", label: "Expert", count: 1234 },
+];
+
+const languages = [
+    { id: "english", label: "English", count: 1234 },
+    { id: "spanish", label: "Spanish", count: 1234 },
+    { id: "french", label: "French", count: 1234 },
+    { id: "german", label: "German", count: 1234 },
+    { id: "chinese", label: "Chinese", count: 1234 },
+    { id: "japanese", label: "Japanese", count: 1234 },
+    { id: "russian", label: "Russian", count: 1234 },
+    { id: "arabic", label: "Arabic", count: 1234 },
+    { id: "hindi", label: "Hindi", count: 1234 },
+    { id: "portuguese", label: "Portuguese", count: 1234 },
+    { id: "italian", label: "Italian", count: 1234 },
+    { id: "korean", label: "Korean", count: 1234 },
+];
+
+const prices = [
+    { id: "free", label: "Free", count: 1234 },
+    { id: "paid", label: "Paid", count: 1234 },
+];
+
+const features = [
+    { id: "subtitles", label: "Subtitles", count: 1234 },
+    { id: "quizzes", label: "Quizzes", count: 1234 },
+    { id: "features", label: "Features", count: 1234 },
+    { id: "practice-tests", label: "Practice Tests", count: 1234 },
+];
+
+const subtitle = [
+    { id: "english", label: "English", count: 1234 },
+    { id: "spanish", label: "Spanish", count: 1234 },
+    { id: "french", label: "French", count: 1234 },
+    { id: "german", label: "German", count: 1234 },
+    { id: "chinese", label: "Chinese", count: 1234 },
+    { id: "japanese", label: "Japanese", count: 1234 },
+    { id: "russian", label: "Russian", count: 1234 },
+    { id: "arabic", label: "Arabic", count: 1234 },
+    { id: "hindi", label: "Hindi", count: 1234 },
+    { id: "portuguese", label: "Portuguese", count: 1234 },
+    { id: "italian", label: "Italian", count: 1234 },
+    { id: "korean", label: "Korean", count: 1234 },
+];
+
+export default function Browse({
+    className,
+}) {
+    const [filterOpen, setFilterOpen] = useState(false);
+
+    useEffect(() => {
+        function handleResize() {
+            if (window.innerWidth < 1024) {
+                setFilterOpen(false)
+            } else {
+                setFilterOpen(true)
+            }
+        }
+
+        handleResize(); // Initial check on mount
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return (
+        <section className={cn('mx-auto container p-6 sm:py-12 md:py-16 lg:py-20', className)}>
+            <h2>All Accounting, Banking and Finance courses in
+                Johannesburg, South Africa</h2>
+            <p className='sub-heading md:w-3/5'>See why millions of people turn to Udemy&apos;s real-world experts to learn Python. Learn at your own pace with hands-on exercises and quizzes. Our courses are frequently updated so you&apos;ll always be working from the latest information. This is the training you&apos;ll need to become a professional Python developer.</p>
+
+            <div className="my-base p-sm border border-foreground flex items-center gap-base">
+                <div className="p-1 size-7 aspect-square flex-center bg-foreground text-background font-bold rounded-full">i</div>
+                <div className="font-bold">Not sure? All courses have a 30-day money-back guarantee</div>
+            </div>
+
+            {/* Filter-Open & Sorting Product */}
+            <div className="flex-between gap-base items-center">
+                <div className=" w-full ">
+                    <div className="flex gap-sm w-full lg:w-72">
+                        <Button variant="outlineSecondary" onClick={() => setFilterOpen(!filterOpen)}>
+                            <ListFilter className='mr-2 size-base shrink-0' />
+                            Filter
+                        </Button>
+
+                        <Select>
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Sort By" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="most popular">Most Popular</SelectItem>
+                                <SelectItem value="highest rated">Highest Rated</SelectItem>
+                                <SelectItem value="newest">Newest</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                </div>
+
+                <div className="hidden md:block font-bold text-muted-foreground text-nowrap">
+                    1323 Results
+                </div>
+            </div>
+
+            {/* Filter & Display Product */}
+            <div className="mt-base flex gap-base">
+                {/* Filters */}
+                <div className={cn(
+                    "transition-all overflow-hidden z-50",
+                    (filterOpen ? "lg:w-72" : "w-0"),
+                    "fixed lg:relative inset-0 w-full",
+                    (filterOpen ? "flex w-full lg:block" : "hidden"),
+                )}>
+                    <div className="lg:hidden relative flex-1 h-full bg-foreground/50" onClick={() => setFilterOpen(false)}>
+                        <div className="absolute top-base right-base">
+                            <Button className="rounded-full" variant="secondary" size="icon">
+                                <X className='size-6' />
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="lg:size-full w-72 bg-background flex flex-col lg:block">
+                        <div className="lg:hidden p-base shadow-md">
+                            3291 results
+                        </div>
+
+                        {/* Accordions */}
+                        <div className="p-base w-full flex-1 overflow-y-scroll">
+                            <Accordion type="multiple" defaultValue="item-select-city">
+
+                                {/* Select City */}
+                                <AccordionSection title="Select City" items={cities} renderItem={renderCheckboxItem} />
+
+                                {/* Rating */}
+                                <AccordionSection title="Rating" items={ratings} renderItem={renderRatingItem} groupType="radio" />
+
+                                {/* Video Duration */}
+                                <AccordionSection title="Video Duration" items={videoDurations} renderItem={renderCheckboxItem} />
+
+                                {/* Topic */}
+                                <AccordionSection title="Topic" items={topics} renderItem={renderCheckboxItem} />
+
+                                {/* subcategories */}
+                                <AccordionSection title="Subcategory" items={subcategories} renderItem={renderCheckboxItem} />
+
+                                {/* levels */}
+                                <AccordionSection title="Level" items={levels} renderItem={renderCheckboxItem} />
+
+                                {/* languages */}
+                                <AccordionSection title="Language" items={languages} renderItem={renderCheckboxItem} />
+
+                                {/* prices */}
+                                <AccordionSection title="Price" items={prices} renderItem={renderCheckboxItem} />
+
+                                {/* features */}
+                                <AccordionSection title="Features" items={features} renderItem={renderCheckboxItem} />
+
+                                {/* subtitles */}
+                                <AccordionSection title="Subtitles" items={subtitle} renderItem={renderCheckboxItem} />
+
+                            </Accordion>
+                        </div>
+
+                        <div className="lg:hidden p-base shadow-[0px_-10px_20px_0px_rgba(0,0,0,0.1)]">
+                            <Button className="w-full" variant="tertiary">Done</Button>
+                        </div>
+                    </div>
+
+                </div>
+
+                {/* CourseCards */}
+                <div className="flex-1">
+                    <div className="">
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <BrowseAuthority />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <BrowseTestimony />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <BrowseComboCourse />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                        <FilterCourseCard />
+                    </div>
+                    <div className="mt-base">
+                        <Pagination>
+                            <PaginationContent>
+                                <PaginationItem>
+                                    <PaginationPrevious href="#" />
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationLink href="#">1</PaginationLink>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationLink href="#">2</PaginationLink>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationEllipsis />
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationNext href="#" />
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+
+
+const AccordionSection = ({ title, items, renderItem, groupType = 'checkbox' }) => (
+    <AccordionItem value={`item-${title.toLowerCase().replace(/ /g, '-')}`}>
+        <AccordionTrigger className="text-xl font-bold">{title}</AccordionTrigger>
+        <AccordionContent>
+            <div className="space-y-base">
+                {groupType === 'radio' ? (
+                    <RadioGroup>{items.map(renderItem)}</RadioGroup>
+                ) : (
+                    items.map(renderItem)
+                )}
+            </div>
+        </AccordionContent>
+    </AccordionItem>
+);
+
+const renderCheckboxItem = (item) => (
+    <CheckboxItem key={item.id} id={item.id} value={item.id} label={item.label} count={item.count} />
+);
+
+const renderRatingItem = (item) => (
+    <RatingItem key={item.id} id={item.id} value={item.value} stars={item.stars} label={item.label} count={item.count} />
+);
+const RatingItem = ({ value, id, stars, label, count }) => (
+    <div className="flex items-center space-x-2">
+        <RadioGroupItem value={value} id={id} />
+        <Label className="flex items-center gap-1" htmlFor={id}>
+            <div className="flex items-center gap-1">
+                {stars.map((Star, index) => (
+                    <Star key={index} />
+                ))}
+            </div>
+            <div>{label}</div>
+            <div className='text-muted-foreground'>({formatNumber(count)})</div>
+        </Label>
+    </div>
+);
+const CheckboxItem = ({ value, id, label, count }) => (
+    <div className="flex items-center space-x-2">
+        <Checkbox value={value} id={id} />
+        <Label className="flex items-center gap-1" htmlFor={id}>
+            <div>{label}</div>
+            <div className='text-muted-foreground'>({formatNumber(count)})</div>
+        </Label>
+    </div>
+);
+
+
+
+const BrowseAuthority = () => {
+    return (
+        <div className="relative py-sm border-b flex group transition-all">
+            <div className="p-base w-full border">
+                <div className="h3">Top companies trust Courseakers</div>
+                <p>Get your team access to Coursetakers&apos;s top 27,000+ courses</p>
+                <div className="my-xl w-full flex justify-center sm:justify-start gap-base flex-wrap">
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/volkswagen.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/samsung.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/cisco.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/vimeo.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/pg.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                </div>
+                <Button variant="outlineSecondary">Try Coursetakers Business</Button>
+            </div>
+        </div>
+    )
+}
+
+const BrowseTestimony = () => {
+    return (
+        <div className="relative py-sm border-b flex group transition-all">
+            <div className="p-base w-full sm:flex gap-base bg-secondary">
+                <div className="size-20 mb-base shrink-0">
+                    <svg className='size-full' viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.6846 16.599C16.2946 16.599 17.6006 15.256 17.6006 13.599C17.6006 11.943 16.2946 10.599 14.6846 10.599C11.7696 10.599 13.612 4 17.5 4L17.6006 3.4C10.6616 3.399 7.94259 16.599 14.6846 16.599ZM6.28459 16.599C7.89359 16.599 9.19959 15.256 9.19959 13.599C9.19959 11.943 7.89359 10.599 6.28459 10.599C3.36859 10.599 5.112 4 9 4L9.19959 3.4C2.26159 3.399 -0.457414 16.599 6.28459 16.599Z" fill="black" />
+                    </svg>
+                </div>
+                <div className="">
+                    <div className="h3">
+                        From a Udemy Python student
+                    </div>
+
+                    <p className="text-xl">
+                        I am glad that I took this course. There was always something to learn in every lesson. The Jupyter notebooks provided are very helpful. The two milestone projects and the final capstone project helped me gain a lot of confidence. Moreover, there were short challenges, assignments, and quizzes which also helped a lot.
+                    </p>
+
+                    <Link className='mt-base block w-fit text-link underline underline-offset-4' href="#">The Complete Python Bootcamp From Zero to Hero in Python</Link>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+const BrowseComboCourse = () => {
+    return (
+        <div className="relative py-sm border-b flex transition-all">
+            <div className="p-base w-full border">
+                <h2>Frequently Bought Together</h2>
+                <div className="relative z-0">
+                    {/* Card */}
+                    <div className="relative py-xs flex group transition-all z-0">
+                        {/* Card Image */}
+                        <div className="relative w-20 md:h-full md:w-auto aspect-[1/.5625] overflow-hidden shrink-0">
+                            <Image
+                                className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
+                                src="/images/common/1.jpg"
+                                width={320}
+                                height={180}
+                                alt="Course Image"
+                            />
+                        </div>
+
+                        {/* Card Details */}
+                        <div className="px-base lg:flex gap-base bg-background">
+                            <div className="relative space-y-1 md:space-y-2">
+                                <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
+                                    {"The Complete Python boot camp from zero to hero in just a few months."}
+                                </div>
+
+                                <p className='text-sm line-clamp-1 text-muted-foreground'>{"Dr. Angela Yu, Developer and Leader of the community"}</p>
+
+                                <div className="flex gap-1 items-center">
+                                    <div className="font-sm font-bold">{5}</div>
+                                    <div className="flex items-center gap-px">
+                                        {<RenderStars className="size-3 lg:size-4" rating={5} />}
+                                    </div>
+                                    <div className='font-xs text-muted-foreground'>({332})</div>
+                                </div>
+                            </div>
+
+                            <div className="my-1">
+                                <span className="text-2xl font-bold">${"99.99"}</span>
+                                <s className="text-lg ml-1 font-semibold text-muted-foreground">${"199.99"}</s>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="-my-6 relative left-block size-12 aspect-square flex-center bg-background rounded-full border z-10 shadow-md">
+                        <Plus className='size-6 shrink-0' strokeWidth={2} />
+                    </div>
+                    {/* Card */}
+                    <div className="relative py-xs flex group transition-all z-0">
+                        {/* Card Image */}
+                        <div className="relative w-20 md:h-full md:w-auto aspect-[1/.5625] overflow-hidden shrink-0">
+                            <Image
+                                className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
+                                src="/images/common/1.jpg"
+                                width={320}
+                                height={180}
+                                alt="Course Image"
+                            />
+                        </div>
+
+                        {/* Card Details */}
+                        <div className="px-base lg:flex gap-base bg-background">
+                            <div className="relative space-y-1 md:space-y-2">
+                                <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
+                                    {"The Complete Python boot camp from zero to hero in just a few months."}
+                                </div>
+
+                                <p className='text-sm line-clamp-1 text-muted-foreground'>{"Dr. Angela Yu, Developer and Leader of the community"}</p>
+
+                                <div className="flex gap-1 items-center">
+                                    <div className="font-sm font-bold">{5}</div>
+                                    <div className="flex items-center gap-px">
+                                        {<RenderStars className="size-3 lg:size-4" rating={5} />}
+                                    </div>
+                                    <div className='font-xs text-muted-foreground'>({332})</div>
+                                </div>
+                            </div>
+
+                            <div className="my-1">
+                                <span className="text-2xl font-bold">${"99.99"}</span>
+                                <s className="text-lg ml-1 font-semibold text-muted-foreground">${"199.99"}</s>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-between">
+                    <div className="text-2xl">Total: <b>199.98</b></div>
+
+                    <Button>Buy Now</Button>
+                </div>
+            </div>
+        </div>
+    )
+}

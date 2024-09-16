@@ -2,26 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 275 88% 58%;
+    --primary-dark: 276 86% 45%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --dark: 210 4% 18%;
+    --dark-foreground: 0 0% 100%;
+    --dark-hover: 220, 10%, 23%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 207, 5%, 35%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --active: 260 70% 45%;
+    --active-hover: 260 70% 35%;
+
+    --info: 59 78% 72%;
+    --active-hover: 257 70% 33%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 70%;
+    --border-light: 207 14% 90%;
+    --border-dark: 224 71.4% 4.1%;
+
+    --input: 207 4% 43%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.3rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  *, ::before,::after {
+    @apply border-border box-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+@layer components {
+
+  h1,
+  .h1 {
+    @apply mb-4 text-3xl md:text-4xl lg:text-5xl lg:text-[3.2rem] font-semibold tracking-tight;
+  }
+
+  h2,
+  .h2 {
+    @apply mb-3 text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  h3,
+  .h3 {
+    @apply mb-2 text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  h4,
+  .h4 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  p,
+  .p {
+    @apply leading-6 text-lg md:text-lg text-foreground;
+  }
+
+  .sub-heading {
+    @apply text-foreground text-lg leading-[26px];
+  }
+
+  .text-link {
+    @apply text-active hover:text-active-hover;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
   }
 }
