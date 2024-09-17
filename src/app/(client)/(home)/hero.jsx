@@ -83,8 +83,8 @@ export default function Hero() {
 
           <div className="relative mt-block" ref={searchBarRef}>
             {/* Desktop Search Bar */}
-            <div className="hidden md:block px-3 py-3 h-12 font-normal w-full bg-background border border-foreground relative">
-              <div className="flex gap-xs items-center w-full">
+            <div className="hidden md:block px-3 py-3 h-12 font-normal w-full bg-background border border-foreground rounded-md relative ">
+              <div className="flex gap-xs items-center w-full ">
                 <input
                   ref={inputRef}
                   className="text-muted-foreground text-left flex-1 bg-transparent focus:outline-none"
@@ -98,7 +98,7 @@ export default function Hero() {
             </div>
 
             {/* Mobile Search Bar */}
-            <div className="block md:hidden px-3 py-3 h-12 font-normal w-full bg-background border border-foreground relative" onClick={() => setSearchbarOpen(true)}>
+            <div className="block md:hidden px-3 py-3 h-12 font-normal w-full bg-background border border-foreground relative rounded-md" onClick={() => setSearchbarOpen(true)}>
               <div className="flex gap-xs items-center w-full pointer-events-none select-none">
                 <div className="text-input flex-1">What do you want to learn?</div>
                 <Search className='size-4 text-secondary-foreground shrink-0 pointer-events-auto' />

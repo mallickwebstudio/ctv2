@@ -112,7 +112,7 @@ export default function FullSearchBox() {
                     <XIcon className='size-4 text-secondary-foreground shrink-0' onClick={() => setSearchbarOpen(false)} />
                 </div>
                 <div className="sticky top-base flex items-center gap-xs">
-                    <div className="py-1 pl-2 h-10 w-full bg-secondary flex items-center flex-1 overflow-hidden">
+                    <div className="py-1 pl-2 h-10 w-full bg-secondary flex items-center flex-1 overflow-hidden rounded-md">
                         <Search className='size-5 text-secondary-foreground shrink-0' />
                         <Input
                             ref={inputRef}
@@ -124,11 +124,11 @@ export default function FullSearchBox() {
                         />
                         <SelectCountry
                             className="w-fit"
-                            triggerClassName="focus:ring-0"
+                            triggerClassName="focus:ring-0 focus-within:ring-0 rounded-tr-none rounded-br-none"
                             contentClassName="z-[10000]"
                         />
 
-                        <Button className="h-10 font-medium text-base" variant="tertiary" size="sm">
+                        <Button className="h-10 font-medium text-base rounded-tl-none rounded-bl-none" variant="tertiary" size="sm">
                             <Search />
                         </Button>
                     </div>
