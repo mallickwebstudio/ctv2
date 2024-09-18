@@ -2,7 +2,7 @@ import Image from "next/image";
 import { StarFull } from "@/components/ui/svgs";
 import { formatNumber } from "@/lib/utils";
 
-export default function CreatorCard({ data }) {
+export default function InstructorCard({ data }) {
     const {
         imageUrl = "/images/common/person.jpg",
         name = "John Doe",

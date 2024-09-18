@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Play } from "@/components/ui/svgs";
 import Link from "next/link";
 
 export default function TestimonialCard({ data }) {

@@ -101,6 +101,7 @@ export default function Footer() {
             <p className="my-base text-background 2xl:w-3/4">
               Coursetakers Online is your destination to upskill and learn with our self-paced pre-recorded video lessons from Top instructors worldwide. For instructors, it is a means to monetize their knowledge and efforts while reaching millions of students through Coursetakers Online.
             </p>
+
             <div className="my-base flex gap-base items-center">
               <Link className={cn(buttonVariants({ variant: 'outline' }), "aspect-square overflow-hidden bg-foreground text-background hover:bg-background border-none hover:text-foreground")} href="/">
                 <Instagram className="size-6 shrink-0" />
@@ -128,7 +129,7 @@ export default function Footer() {
           </div>
 
           {/* Right */}
-          <div className="grid gap-block md:grid-cols-2 md:place-items-center 2xl:place-items-end">
+          <div className="flex flex-col gap-block md:gap-40 md:flex-row justify-end ">
             <div className="self-start">
               <div className="font-bold">Courses</div>
               <ul className="mt-base space-y-2">

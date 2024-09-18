@@ -89,7 +89,7 @@ const DesktopCategory = () => {
                 <div className="bg-transparent h-base w-28" />
 
                 {/* Category */}
-                <div className="relative w-64 h-[40rem] bg-background shadow-md border">
+                <div className="relative w-64 h-[40rem] bg-background border shadow-md">
                     {categoryList.map(item => (
                         <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category" key={item.name + "DesketopCategory"}>
                             {/* Category List */}
@@ -99,7 +99,7 @@ const DesktopCategory = () => {
                             </div>
 
                             {/* Sub Category */}
-                            <div className="absolute -inset-px left-full size-full bg-background hidden group-hover/category:block border">
+                            <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
                                 {item.subList.map(item => (
                                     <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.name + "DesketopCategory"}>
                                         {/* Sub Category List */}
@@ -109,7 +109,7 @@ const DesktopCategory = () => {
                                         </div>
 
                                         {/* Item */}
-                                        <div className="absolute -inset-px left-full size-full bg-background hidden group-hover/subcategory:block border">
+                                        <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
                                             {/* List */}
                                             <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
 

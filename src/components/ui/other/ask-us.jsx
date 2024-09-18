@@ -50,6 +50,7 @@ export default function AskUs({ children }) {
             <DialogTrigger>
                 {children}
             </DialogTrigger>
+            
             <DialogContent className="overflow-y-scroll">
                 <DialogHeader className="h-fit">
                     <DialogTitle className="h-fit">

@@ -1,7 +1,7 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { useSiteState } from '@/components/providers/site-state-provider';
 import { Search } from 'lucide-react';
-import { useEffect, useRef, useState } from "react";
 import { cn } from '@/lib/utils';
 
 export default function DesktopSearchbar() {

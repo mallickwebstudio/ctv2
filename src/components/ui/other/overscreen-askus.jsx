@@ -30,7 +30,7 @@ export default function OverscreenAskus() {
     return (
         <div className={cn("fixed top-1/2 bottom-1/2 left-0 z-50", scrolledQuartered ? "block" : "hidden")}>
             <AskUs>
-                <div className={cn(buttonVariants({size:"lg"}), "font-bold")}>Ask Us</div>
+                <div className={cn(buttonVariants({size:"lg"}), "font-bold rounded-tl-none rounded-bl-none")}>Ask Us</div>
             </AskUs>
         </div>
     )

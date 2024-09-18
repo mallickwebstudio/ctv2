@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import CourseCard from "@/components/ui/card/course-card";
 import PopOverCard from "@/components/ui/card/pop-over-card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export default function CourseCarousel({ datas }) {
@@ -35,12 +35,14 @@ export default function CourseCarousel({ datas }) {
             <CarouselContent className="md:py-[8rem] w-full">
                 {datas.map((item, index) => (
                     <CarouselItem
-                        key={`CourseCarousel-${index}`}
                         className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                        key={`CourseCarousel-${index}`}
                     >
                         <HoverCard className="z-[9999]" openDelay={0} closeDelay={0}>
-                            <HoverCardTrigger>
-                                <CourseCard data={item} />
+                            <HoverCardTrigger asChild>
+                                <div>
+                                    <CourseCard data={item} />
+                                </div>
                             </HoverCardTrigger>
 
                             <HoverCardContent

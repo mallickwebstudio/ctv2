@@ -1,6 +1,6 @@
 "use client"
 import Section from "@/components/ui/section";
-import CreatorCard from "@/components/ui/card/creator-card";
+import InstructorCard from "@/components/ui/card/instructor-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { useState } from "react";
 import { Button } from "../button";
@@ -24,7 +24,7 @@ export default function InstructorSection({
                 <div className="space-y-2">
                     {Array.from({ length: 12 }).slice(0, (showMore ? 12 : 3)).map((item, index) => (
                         <div key={index} className="basis-[80%] sm:basis-1/3  lg:basis-1/4">
-                            <CreatorCard data={{}} />
+                            <InstructorCard data={{}} />
                         </div>
                     ))}
                 </div>
@@ -42,7 +42,7 @@ export default function InstructorSection({
                     <CarouselContent>
                         {Array.from({ length: 12 }).map((item, index) => (
                             <CarouselItem key={index + "InstructorCard"} className="basis-[80%] sm:basis-1/2 md:basis-1/3  lg:basis-1/4">
-                                <CreatorCard data={{}} />
+                                <InstructorCard data={{}} />
                             </CarouselItem>
                         ))}
                     </CarouselContent>

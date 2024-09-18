@@ -1,6 +1,7 @@
+"use client"
+import Link from "next/link";
 import Image from "next/image";
 import RenderStars from "@/components/ui/render-stars";
-import Link from "next/link";
 
 export default function CourseCard({ data }) {
     const {
@@ -18,11 +19,7 @@ export default function CourseCard({ data }) {
     } = data;
 
     return (
-        <div className="relative block rounded group transition-all">
-            <Link className="absolute inset-0 z-10" href={courseHref}>
-                <span className="sr-only">{title} Link</span>
-            </Link>
-            
+        <Link className="relative block rounded group transition-all" href={courseHref}>
             {/* Card Image */}
             <div className="relative aspect-[16/9] overflow-hidden rounded-md">
                 <Image
@@ -70,6 +67,6 @@ export default function CourseCard({ data }) {
 
                 {bestseller && <div className="py-[2px] px-2 text-sm size-fit flex-center bg-info font-semibold rounded-md">Bestseller</div>}
             </div>
-        </div>
+        </Link>
     );
 }
