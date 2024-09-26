@@ -2,7 +2,7 @@ import Image from "next/image";
 import { StarFull } from "@/components/ui/svgs";
 import { formatNumber } from "@/lib/utils";
 import { GraduationCap, Users } from "lucide-react";
-import { Badge } from "../badge";
+import { Badge } from "../ui/badge";
 import Link from "next/link";
 
 export default function InstructorCard({ data }) {

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import CourseCard from "@/components/ui/card/course-card";
-import PopOverCard from "@/components/ui/card/pop-over-card";
+import CourseCard from "@/components/card/course-card";
+import PopOverCard from "@/components/card/pop-over-card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 

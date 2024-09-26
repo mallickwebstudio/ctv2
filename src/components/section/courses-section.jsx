@@ -1,7 +1,7 @@
 "use client"
 import Section from '@/components/ui/section'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
-import CourseCrousal from '@/components/ui/other/course-crousal';
+import CourseCrousal from '@/components/other/course-crousal';
 import { chunkArray, cn } from '@/lib/utils';
 import CourseChunkCard from '../card/course-chunk-card';
 

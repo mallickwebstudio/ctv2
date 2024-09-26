@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ChevronRightIcon } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
-import AskUs from "@/components/ui/other/ask-us"
-import LanguageSelect from "@/components/ui/other/language-select"
-import SelectCountry from '@/components/ui/other/select-country';
-import DesktopSearchbar from '@/components/ui/other/desktop-searchbar';
+import AskUs from "@/components/other/ask-us"
+import LanguageSelect from "@/components/other/language-select"
+import SelectCountry from '@/components/other/select-country';
+import DesktopSearchbar from '@/components/other/desktop-searchbar';
 import CartButton from './cart-button';
 import { useSiteState } from '@/components/providers/site-state-provider';
 import { cn } from '@/lib/utils';

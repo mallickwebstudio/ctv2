@@ -1,6 +1,6 @@
 "use client"
 import { Button, buttonVariants } from '@/components/ui/button'
-import { ListFilter, Plus, X } from 'lucide-react'
+import { Info, ListFilter, Plus, X } from 'lucide-react'
 import {
     Select,
     SelectContent,
@@ -16,7 +16,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import FilterCourseCard from '@/components/ui/card/filter-course-card'
+import FilterCourseCard from '@/components/card/filter-course-card'
 import {
     Pagination,
     PaginationContent,
@@ -31,7 +31,7 @@ import { Label } from '@/components/ui/label'
 import { StarEmpty, StarFull, StarHalf } from '@/components/ui/svgs'
 import { Checkbox } from "@/components/ui/checkbox"
 import Link from 'next/link'
-import CourseCard from '@/components/ui/card/course-card'
+import CourseCard from '@/components/card/course-card'
 
 const cities = [
     { id: 'dubai', label: 'Dubai', count: 1234 },
@@ -157,8 +157,8 @@ export default function Browse({
                 Johannesburg, South Africa</h2>
             <p className='sub-heading md:w-3/5'>See why millions of people turn to Udemy&apos;s real-world experts to learn Python. Learn at your own pace with hands-on exercises and quizzes. Our courses are frequently updated so you&apos;ll always be working from the latest information. This is the training you&apos;ll need to become a professional Python developer.</p>
 
-            <div className="my-base p-sm border border-foreground flex items-center gap-base">
-                <div className="p-1 size-7 aspect-square flex-center bg-foreground text-background font-bold rounded-full">i</div>
+            <div className="my-base p-sm flex items-center gap-base bg-info  rounded-md">
+                <Info className='shrink-0 size-6' />
                 <div className="font-bold">Not sure? All courses have a 30-day money-back guarantee</div>
             </div>
 

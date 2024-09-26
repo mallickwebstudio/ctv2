@@ -8,7 +8,7 @@ export default function Header() {
             <div className="text-base font-normal md:text-lg md:text-muted-foreground">
                 Home / Professional / Accounting, Finance and Banking / Anti-Money Laundering (AML) / CGSS (Certified Global Sanctions Specialist)
             </div>
-            <h1 className="my-base h2 leading-8 md:w-2/3">TOP 10 ACCOUNTING, FINANCE AND BANKING COURSES IN DUBAI, ABU DHABI, SHARJAH - UAE</h1>
+            <h1 className="my-base h2 leading-8 md:w-2/3 capitalize">Top 10 Accounting, finance and banking courses in dubai, abu dhabi, sharjha - UAE</h1>
 
             <p className="sub-heading flex items-center gap-1">
                 <Users className="size-base shrink-0" strokeWidth={2} />

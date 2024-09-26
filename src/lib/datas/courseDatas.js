@@ -1,3 +1,28 @@
+export const courseOne = {
+    id: 'data-science1',
+    imageUrl: "/images/common/1.jpg",
+    title: "The Complete Python boot camp from zero to hero in just a few months.",
+    instructor: "Dr. Angela Yu, Developer and Leader of the community",
+    rating: 5,
+    totalRatings: "42,329",
+    price: "99.99",
+    originalPrice: "149.99",
+    bestseller: true,
+    href: "/"
+}
+
+export const courseTwo = {
+    id: 'data-science1',
+    imageUrl: "/images/common/2.jpg",
+    title: "The Complete Python boot camp from zero to hero in just a few months.",
+    instructor: "Dr. Angela Yu, Developer and Leader of the community",
+    rating: 5,
+    totalRatings: "42,329",
+    price: "99.99",
+    originalPrice: "149.99",
+    bestseller: true,
+    href: "/"
+}
 
 export const datas = [
     {

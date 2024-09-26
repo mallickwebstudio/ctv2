@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import { Play } from "@/components/ui/svgs";
 import Link from "next/link";
+import Image from "next/image";
 
 const demoItems = [
   {
@@ -61,17 +62,30 @@ export default function FreeLesson({ sectionClassName, className, data = {} }) {
           <CarouselContent className="py-1">
             {items.map((item, i) => (
               <CarouselItem
-                className="basis-[40%] md:basis-[30%]"
+                className="basis-[80%] sm:basis-[40%] md:basis-[30%]"
                 key={item.title + "FreeVideoCard" + i}
               >
-                <div className="p-base flex flex-col aspect-[2/2.5] border border-foreground/30">
-                  <div className="p-2 size-fit bg-foreground rounded-full">
-                    <Play className="shrink-0 size-5 text-background" />
+
+                <Link className="relative flex flex-col aspect-video rounded-md border border-foreground/30" href="#">
+                  <div className="absolute inset-0">
+                    <Image
+                      className="size-full object-cover object-center"
+                      src={"/images/common/1.jpg"}
+                      width={320}
+                      height={180}
+                      alt={"Image" + " icon"}
+                    />
                   </div>
-                  <div className="mt-base font-bold">{item.title}</div>
-                  <div className="flex-1" />
-                  <div className="text-sm text-muted-foreground">{item.minutes}min video</div>
-                </div>
+
+                  <div className="p-1 bg-black/50 size-full flex flex-col items-center justify-center z-10">
+                    <div className="p-1 size-fit bg-black rounded-full">
+                      <Play className="shrink-0 size-4 text-neutral-950" />
+                    </div>
+                    <div className="text-sm font-bold text-white/90">{item.title}</div>
+                    <div className="text-xs text-white/90">{item.minutes}min video</div>
+                  </div>
+                </Link>
+
               </CarouselItem>
             ))}
           </CarouselContent>

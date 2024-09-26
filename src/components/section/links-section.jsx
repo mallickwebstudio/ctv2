@@ -30,7 +30,7 @@ const demoLinks = [
 ];
 
 
-export default function LinksSection({ sectionClassName, className, data = {} }) {
+export default function LinksSection({ sectionClassName, className, h2, p, data = {} }) {
   const {
     links = demoLinks
   } = data;
@@ -58,7 +58,8 @@ export default function LinksSection({ sectionClassName, className, data = {} })
 
   return (
     <Section sectionClassName={sectionClassName} className={className}>
-      <h2>Python students also learn</h2>
+      {h2 && <h2>{h2}</h2>}
+      {p && <p>{p}</p>}
 
       {/* Mobile Version */}
       <div className="block md:hidden overflow-x-scroll">

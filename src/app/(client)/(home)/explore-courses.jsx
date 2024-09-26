@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import Section from "@/components/ui/section";
-import ExploreCard from "@/components/ui/card/explore-card";
+import ExploreCard from "@/components/card/explore-card";
 import { cn } from "@/lib/utils";
 
 const itemOne = {

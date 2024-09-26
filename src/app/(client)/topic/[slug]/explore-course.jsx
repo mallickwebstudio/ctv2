@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Section from '@/components/ui/section'
 import { buttonVariants } from '@/components/ui/button'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import CourseCrousal from '@/components/ui/other/course-crousal'
+import CourseCrousal from '@/components/other/course-crousal'
 import { useData } from '@/components/providers/data-provider'
 import { cn } from '@/lib/utils'
 

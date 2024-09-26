@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import LanguageSelect from "@/components/ui/other/language-select";
+import LanguageSelect from "@/components/other/language-select";
 import { useSiteState } from "@/components/providers/site-state-provider";
 
 const coursesLinks = [

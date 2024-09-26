@@ -6,10 +6,11 @@ import Testimonial from "./testimonial";
 import ExploreCourses from "./explore-courses";
 import BecomeInstructor from "./become-instructor";
 import CompareCourse from "./compare-course";
-import OverscreenAskus from "@/components/ui/other/overscreen-askus";
-import InstructorSection from "@/components/ui/section/instructor-section";
-import CoursesSection from "@/components/ui/section/courses-section";
+import OverscreenAskus from "@/components/other/overscreen-askus";
+import InstructorSection from "@/components/section/instructor-section";
+import CoursesSection from "@/components/section/courses-section";
 import { useData } from "@/components/providers/data-provider";
+import CategorySection from "@/components/section/category-section";
 
 export default function Page() {
   const { courses } = useData();
@@ -20,7 +21,11 @@ export default function Page() {
       <Hero />
       <CompareCourse />
       <Authority />
-      <Courses />
+      <CategorySection
+        h2="Explore Our Course Categories"
+        p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
+        data={courses}
+      />
       <Testimonial />
       <InstructorSection
         subHeading="Learn directly from top creative experts on CourseTakers. Enhance your skills with their practical insights and experience."

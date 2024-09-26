@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Search, XIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import SelectCountry from '@/components/ui/other/select-country';
+import SelectCountry from '@/components/other/select-country';
 import { useSiteState } from '@/components/providers/site-state-provider';
 
 export default function FullSearchBox() {

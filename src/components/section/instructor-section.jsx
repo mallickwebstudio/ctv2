@@ -1,9 +1,9 @@
 "use client"
 import Section from "@/components/ui/section";
-import InstructorCard from "@/components/ui/card/instructor-card";
+import InstructorCard from "@/components/card/instructor-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { useState } from "react";
-import { Button } from "../button";
+import { Button } from "../ui/button";
 
 export default function InstructorSection({
     sectionClassName,

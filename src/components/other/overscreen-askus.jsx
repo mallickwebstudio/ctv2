@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
-import AskUs from "@/components/ui/other/ask-us";
+import AskUs from "@/components/other/ask-us";
 import { cn } from "@/lib/utils";
 
 export default function OverscreenAskus() {

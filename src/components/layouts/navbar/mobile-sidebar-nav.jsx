@@ -1,7 +1,7 @@
 "use client";
 import { ArrowLeft, ChevronRightIcon, XIcon } from 'lucide-react';
-import LanguageSelect from '@/components/ui/other/language-select';
-import AskUs from '@/components/ui/other/ask-us';
+import LanguageSelect from '@/components/other/language-select';
+import AskUs from '@/components/other/ask-us';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useState } from 'react';

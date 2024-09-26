@@ -1,5 +1,5 @@
 import Section from "@/components/ui/section";
-import TestimonialCard from "@/components/ui/card/testimonial-card";
+import TestimonialCard from "@/components/card/testimonial-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export default function Testimonial() {

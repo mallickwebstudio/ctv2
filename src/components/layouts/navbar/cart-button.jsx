@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { useData } from '@/components/providers/data-provider';
-import CartCard from '@/components/ui/card/cart-card';
+import CartCard from '@/components/card/cart-card';
 import { cn } from '@/lib/utils';
 
 export default function CartButton({ children, className }) {
