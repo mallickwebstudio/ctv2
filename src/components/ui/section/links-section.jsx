@@ -86,7 +86,7 @@ export default function LinksSection({ sectionClassName, className, data = {} })
               >
                 {subItem.map(item => (
                   <Link
-                    className={cn(buttonVariants({ variant: "outlineSecondaryLight" }), "min-h-14 h-auto w-full border-[1.5px] leading-5 text-wrap text-center")}
+                    className={cn(buttonVariants({ variant: "outlineSecondaryLight" }), "min-h-14 h-auto w-full border-[1.5px] leading-5 text-wrap text-center rounded-full")}
                     href={item.href}
                     key={item.label + "LinksCrousal"}
                   >

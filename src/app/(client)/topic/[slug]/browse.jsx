@@ -30,9 +30,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from '@/components/ui/label'
 import { StarEmpty, StarFull, StarHalf } from '@/components/ui/svgs'
 import { Checkbox } from "@/components/ui/checkbox"
-import Image from 'next/image'
 import Link from 'next/link'
-import RenderStars from '@/components/ui/render-stars'
+import CourseCard from '@/components/ui/card/course-card'
 
 const cities = [
     { id: 'dubai', label: 'Dubai', count: 1234 },
@@ -262,10 +261,6 @@ export default function Browse({
                         <FilterCourseCard />
                         <FilterCourseCard />
                         <FilterCourseCard />
-                        <BrowseAuthority />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
                         <BrowseTestimony />
                         <FilterCourseCard />
                         <FilterCourseCard />
@@ -308,7 +303,6 @@ export default function Browse({
 }
 
 
-
 const AccordionSection = ({ title, items, renderItem, groupType = 'checkbox' }) => (
     <AccordionItem value={`item-${title.toLowerCase().replace(/ /g, '-')}`}>
         <AccordionTrigger className="text-xl font-bold">{title}</AccordionTrigger>
@@ -334,21 +328,21 @@ const renderRatingItem = (item) => (
 const RatingItem = ({ value, id, stars, label, count }) => (
     <div className="flex items-center space-x-2">
         <RadioGroupItem value={value} id={id} />
-        <Label className="flex items-center gap-1" htmlFor={id}>
+        <Label className="flex items-center gap-1 text-muted-foreground" htmlFor={id}>
             <div className="flex items-center gap-1">
                 {stars.map((Star, index) => (
                     <Star key={index} />
                 ))}
             </div>
             <div>{label}</div>
-            <div className='text-muted-foreground'>({formatNumber(count)})</div>
+            <div>({formatNumber(count)})</div>
         </Label>
     </div>
 );
 const CheckboxItem = ({ value, id, label, count }) => (
     <div className="flex items-center space-x-2">
         <Checkbox value={value} id={id} />
-        <Label className="flex items-center gap-1" htmlFor={id}>
+        <Label className="flex items-center gap-1 text-muted-foreground" htmlFor={id}>
             <div>{label}</div>
             <div className='text-muted-foreground'>({formatNumber(count)})</div>
         </Label>
@@ -356,76 +350,20 @@ const CheckboxItem = ({ value, id, label, count }) => (
 );
 
 
-
-const BrowseAuthority = () => {
-    return (
-        <div className="relative py-sm border-b flex group transition-all">
-            <div className="p-base w-full border">
-                <div className="h3">Top companies trust Courseakers</div>
-                <p>Get your team access to Coursetakers&apos;s top 27,000+ courses</p>
-                <div className="my-xl w-full flex justify-center sm:justify-start gap-base flex-wrap">
-                    <Image
-                        className="max-h-8 w-fit select-none"
-                        src="/images/svg/authority/volkswagen.svg"
-                        width={200}
-                        height={100}
-                        alt="volkswagen Logo"
-                    />
-                    <Image
-                        className="max-h-8 w-fit select-none"
-                        src="/images/svg/authority/samsung.svg"
-                        width={200}
-                        height={100}
-                        alt="volkswagen Logo"
-                    />
-                    <Image
-                        className="max-h-8 w-fit select-none"
-                        src="/images/svg/authority/cisco.svg"
-                        width={200}
-                        height={100}
-                        alt="volkswagen Logo"
-                    />
-                    <Image
-                        className="max-h-8 w-fit select-none"
-                        src="/images/svg/authority/vimeo.svg"
-                        width={200}
-                        height={100}
-                        alt="volkswagen Logo"
-                    />
-                    <Image
-                        className="max-h-8 w-fit select-none"
-                        src="/images/svg/authority/pg.svg"
-                        width={200}
-                        height={100}
-                        alt="volkswagen Logo"
-                    />
-                </div>
-                <Button variant="outlineSecondary">Try Coursetakers Business</Button>
-            </div>
-        </div>
-    )
-}
-
 const BrowseTestimony = () => {
     return (
         <div className="relative py-sm border-b flex group transition-all">
-            <div className="p-base w-full sm:flex gap-base bg-secondary">
-                <div className="size-20 mb-base shrink-0">
-                    <svg className='size-full' viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.6846 16.599C16.2946 16.599 17.6006 15.256 17.6006 13.599C17.6006 11.943 16.2946 10.599 14.6846 10.599C11.7696 10.599 13.612 4 17.5 4L17.6006 3.4C10.6616 3.399 7.94259 16.599 14.6846 16.599ZM6.28459 16.599C7.89359 16.599 9.19959 15.256 9.19959 13.599C9.19959 11.943 7.89359 10.599 6.28459 10.599C3.36859 10.599 5.112 4 9 4L9.19959 3.4C2.26159 3.399 -0.457414 16.599 6.28459 16.599Z" fill="black" />
+            <div className="p-base w-full bg-secondary rounded-md border">
+                <div className="size-16">
+                    <svg className="size-full" width="20" height="20" viewBox="0 0 20 20" fill="#78787835" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.6846 16.599C16.2946 16.599 17.6006 15.256 17.6006 13.599C17.6006 11.943 16.2946 10.599 14.6846 10.599C11.7696 10.599 13.612 4 17.5 4L17.6006 3.4C10.6616 3.399 7.94259 16.599 14.6846 16.599ZM6.28459 16.599C7.89359 16.599 9.19959 15.256 9.19959 13.599C9.19959 11.943 7.89359 10.599 6.28459 10.599C3.36859 10.599 5.112 4 9 4L9.19959 3.4C2.26159 3.399 -0.457414 16.599 6.28459 16.599Z" fill="" />
                     </svg>
                 </div>
-                <div className="">
-                    <div className="h3">
-                        From a Udemy Python student
-                    </div>
+                <p className="md:text-xl">
+                    I am glad that I took this course. There was always something to learn in every lesson. The Jupyter notebooks provided are very helpful. The two milestone projects and the final capstone project helped me gain a lot of confidence. Moreover, there were short challenges, assignments, and quizzes which also helped a lot.
+                </p>
 
-                    <p className="text-xl">
-                        I am glad that I took this course. There was always something to learn in every lesson. The Jupyter notebooks provided are very helpful. The two milestone projects and the final capstone project helped me gain a lot of confidence. Moreover, there were short challenges, assignments, and quizzes which also helped a lot.
-                    </p>
-
-                    <Link className='mt-base block w-fit text-link underline underline-offset-4' href="#">The Complete Python Bootcamp From Zero to Hero in Python</Link>
-                </div>
+                <Link className='mt-base block w-fit text-link underline underline-offset-4' href="#">The Complete Python Bootcamp From Zero to Hero in Python</Link>
 
             </div>
         </div>
@@ -435,89 +373,22 @@ const BrowseTestimony = () => {
 const BrowseComboCourse = () => {
     return (
         <div className="relative py-sm border-b flex transition-all">
-            <div className="p-base w-full border">
+            <div className="p-base w-full  border rounded-md">
                 <h2>Frequently Bought Together</h2>
-                <div className="relative z-0">
+                <div className="relative flex z-0 gap-2">
                     {/* Card */}
-                    <div className="relative py-xs flex group transition-all z-0">
-                        {/* Card Image */}
-                        <div className="relative w-20 md:h-full md:w-auto aspect-[1/.5625] overflow-hidden shrink-0">
-                            <Image
-                                className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                                src="/images/common/1.jpg"
-                                width={320}
-                                height={180}
-                                alt="Course Image"
-                            />
-                        </div>
+                    <CourseCard />
 
-                        {/* Card Details */}
-                        <div className="px-base lg:flex gap-base bg-background">
-                            <div className="relative space-y-1 md:space-y-2">
-                                <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
-                                    {"The Complete Python boot camp from zero to hero in just a few months."}
-                                </div>
-
-                                <p className='text-sm line-clamp-1 text-muted-foreground'>{"Dr. Angela Yu, Developer and Leader of the community"}</p>
-
-                                <div className="flex gap-1 items-center">
-                                    <div className="font-sm font-bold">{5}</div>
-                                    <div className="flex items-center gap-px">
-                                        {<RenderStars className="size-3 lg:size-4" rating={5} />}
-                                    </div>
-                                    <div className='font-xs text-muted-foreground'>({332})</div>
-                                </div>
-                            </div>
-
-                            <div className="my-1">
-                                <span className="text-2xl font-bold">${"99.99"}</span>
-                                <s className="text-lg ml-1 font-semibold text-muted-foreground">${"199.99"}</s>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="-my-6 relative left-block size-12 aspect-square flex-center bg-background rounded-full border z-10 shadow-md">
+                    {/* Plus icon */}
+                    <div className="-mx-6 size-12 aspect-square flex-center bg-background rounded-full border shadow-md self-center z-10">
                         <Plus className='size-6 shrink-0' strokeWidth={2} />
                     </div>
+
                     {/* Card */}
-                    <div className="relative py-xs flex group transition-all z-0">
-                        {/* Card Image */}
-                        <div className="relative w-20 md:h-full md:w-auto aspect-[1/.5625] overflow-hidden shrink-0">
-                            <Image
-                                className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                                src="/images/common/1.jpg"
-                                width={320}
-                                height={180}
-                                alt="Course Image"
-                            />
-                        </div>
-
-                        {/* Card Details */}
-                        <div className="px-base lg:flex gap-base bg-background">
-                            <div className="relative space-y-1 md:space-y-2">
-                                <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
-                                    {"The Complete Python boot camp from zero to hero in just a few months."}
-                                </div>
-
-                                <p className='text-sm line-clamp-1 text-muted-foreground'>{"Dr. Angela Yu, Developer and Leader of the community"}</p>
-
-                                <div className="flex gap-1 items-center">
-                                    <div className="font-sm font-bold">{5}</div>
-                                    <div className="flex items-center gap-px">
-                                        {<RenderStars className="size-3 lg:size-4" rating={5} />}
-                                    </div>
-                                    <div className='font-xs text-muted-foreground'>({332})</div>
-                                </div>
-                            </div>
-
-                            <div className="my-1">
-                                <span className="text-2xl font-bold">${"99.99"}</span>
-                                <s className="text-lg ml-1 font-semibold text-muted-foreground">${"199.99"}</s>
-                            </div>
-                        </div>
-                    </div>
+                    <CourseCard />
                 </div>
 
-                <div className="flex-between">
+                <div className="mt-base pt-base flex-between border-t">
                     <div className="text-2xl">Total: <b>199.98</b></div>
 
                     <Button>Buy Now</Button>

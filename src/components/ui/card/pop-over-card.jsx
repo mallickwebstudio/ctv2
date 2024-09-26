@@ -48,15 +48,16 @@ export default function PopOverCard({ data }) {
                 <p className='my-2 text-sm leading-4'>{instructor}</p>
             </div>
 
-            <div className="flex gap-1 text-muted-foreground text-xs">
-                <span>{courseHour} total hours</span>
-                <span className="flex-center">.</span>
-                <span>{level} Level</span>
-                {subtitles && (<>
-                    <span className="flex-center">.</span>
-                    <span>Subtitles</span>
-                </>
-                )}
+            <div className="flex gap-1 flex-wrap items-center">
+                <div className="px-1.5 bg-secondary border rounded-full overflow-hidden flex flex-nowrap text-xs flex-center">
+                    {courseHour} Total Hours
+                </div>
+                <div className="px-1.5 bg-secondary border rounded-full overflow-hidden flex flex-nowrap text-xs flex-center">
+                    {level} Level
+                </div>
+                <div className="px-1.5 bg-secondary border rounded-full overflow-hidden flex flex-nowrap text-xs flex-center">
+                    {subtitles && (<span>Subtitles</span>)}
+                </div>
             </div>
 
             <div className="my-3 leading-5">{description}</div>

@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRightIcon } from "lucide-react"
+import { ArrowRight, ChevronRightIcon } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import AskUs from "@/components/ui/other/ask-us"
 import LanguageSelect from "@/components/ui/other/language-select"
@@ -41,22 +41,7 @@ export default function DesktopNav() {
                 <DesktopSearchbar />
 
                 {/* Teach On Coursetakers */}
-                <div className='relative'>
-                    <div className="hover:text-primary-dark cursor-pointer peer text-nowrap">Teach On Coursetakers</div>
-                    <div className="hidden peer-hover:block hover:block absolute top-[100%] right-0 w-72">
-                        <div className="h-2xl" />
-
-                        <div className="p-base bg-background shadow-md">
-                            <div className="text-xl leading-6 font-bold text-center">
-                                Turn what you know into an opportunity and reach millions around the world.
-                            </div>
-                            <Link className={cn(buttonVariants({ variant: "tertiary" }), "mt-xs text-xl w-full")} href="/">
-                                Learn More
-                            </Link>
-                        </div>
-
-                    </div>
-                </div>
+                <div className="hover:text-active-hover hover:underline cursor-pointer peer text-nowrap">Teach On Coursetakers</div>
 
                 {/* Cart */}
                 <CartButton />
@@ -95,7 +80,7 @@ const DesktopCategory = () => {
                             {/* Category List */}
                             <div className="flex items-center gap-base justify-between group-hover/category:text-active">
                                 <span>{item.name}</span>
-                                <ChevronRightIcon className='size-4 shrink-0' />
+                                <ArrowRight className='size-4 shrink-0' />
                             </div>
 
                             {/* Sub Category */}
@@ -105,7 +90,7 @@ const DesktopCategory = () => {
                                         {/* Sub Category List */}
                                         <div className="flex items-center gap-base justify-between group-hover/subcategory:text-active">
                                             <span>{item.name}</span>
-                                            <ChevronRightIcon className='size-4 shrink-0' />
+                                            <ArrowRight className='size-4 shrink-0' />
                                         </div>
 
                                         {/* Item */}

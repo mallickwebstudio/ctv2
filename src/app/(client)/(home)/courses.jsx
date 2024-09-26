@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CourseCrousal from '@/components/ui/other/course-crousal'
 import { useData } from '@/components/providers/data-provider'
 import { cn } from '@/lib/utils'
+import { ArrowRight } from 'lucide-react'
 
 export default function Courses({ sectionClassName, className }) {
   const { courses } = useData();
@@ -40,13 +41,15 @@ export default function Courses({ sectionClassName, className }) {
 
         <div className="relative mt-xs p-base border rounded-md">
           <div className="relative z-10">
-            <h3>{currentData.title}</h3>
+            <div className="flex items-center gap-base">
+              <h3>{currentData.title}</h3>
+              <Link className="text-active hover:text-active-hover inline-flex items-center gap-1 hover:underline hover:gap-2 transition-all" href={currentData.href}>
+                Explore {tab} <ArrowRight className='size-base' />
+              </Link>
+            </div>
             <p className='hidden md:block'>
               {currentData.subTitle}
             </p>
-            <Link className={cn(buttonVariants({ variant: "tertiary" }), "mt-sm")} href={currentData.href}>
-              Explore {tab}
-            </Link>
           </div>
 
           <div className="rleative pt-base w-full z-0">
