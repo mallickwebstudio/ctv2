@@ -190,7 +190,7 @@ export default function Browse({
             </div>
 
             {/* Filter & Display Product */}
-            <div className="mt-base flex gap-base">
+            <div className="mt-base md:flex gap-base">
                 {/* Filters */}
                 <div className={cn(
                     "transition-all overflow-hidden z-50",

@@ -17,7 +17,7 @@ export default function InstructorCard({ data }) {
     } = data;
 
     return (
-        <Link className="relative block aspect-square overflow-hidden rounded-md border group transition-all" href={href}>
+        <Link className="relative block aspect-square overflow-hidden rounded-md group transition-all" href={href}>
             <div className="absolute inset-0 size-full z-0">
                 <Image
                     className="size-full object-cover object-center border"
@@ -28,18 +28,19 @@ export default function InstructorCard({ data }) {
                 />
             </div>
 
-            <div className="absolute z-10 size-full inset-0 bg-gradient-to-t from-dark/80 group-hover:from-dark transition-all " />
+            <div className="absolute z-10 size-full inset-0 bg-gradient-to-t from-dark/80 to-transparent group-hover:from-dark transition-all " />
+
+            <div className="absolute top-xs left-xs px-1 bg-white border rounded-full flex items-center gap-1">
+                <div className="font-bold">{rating}</div>
+                <StarFull className="size-4" />
+            </div>
 
             <div className="relative size-full text-white flex flex-col justify-end p-xs overflow-hidden z-20">
                 <div className="flex justify-between gap-base">
                     <div className="font-bold text-lg leading-6 line-clamp-1">{name}</div>
-                    <div className="flex items-center gap-1">
-                        <div className="font-bold text-lg">{rating}</div>
-                        <StarFull className="size-4" />
-                    </div>
                 </div>
 
-                <p className="-my-1 text-white/90 font-medium">{profession}</p>
+                <p className="text-white/90">{profession}</p>
 
                 <div className="mt-1 flex gap-base">
                     <div className="flex gap-1 items-center">
