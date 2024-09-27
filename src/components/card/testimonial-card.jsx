@@ -26,9 +26,9 @@ export default function TestimonialCard({ data }) {
                 {testimonial}
             </p>
 
-            <hr />
+            <hr className="my-xs" />
 
-            <div className="mt-xs flex items-center gap-xs">
+            <div className="flex items-center gap-xs">
                 <Image
                     className="aspect-square w-8 object-cover rounded-full border"
                     src={imageUrl}

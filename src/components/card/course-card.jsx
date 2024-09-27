@@ -10,7 +10,7 @@ export default function CourseCard({ data = {}, i }) {
         instituteImageUrl = "/images/common/person.jpg",
         title = "The Complete Python boot camp from zero to hero in just a few months.",
         instructor = "Dr. Angela Yu, Developer and Leader of the community",
-        rating = 4.7,
+        rating = 4.3,
         totalRatings = 42329,
         enrolled = 50000,
         price = 99.99,
@@ -40,7 +40,7 @@ export default function CourseCard({ data = {}, i }) {
                 <div className="my-2 flex gap-xs items-center">
                     <Image
                         className="rounded-full size-5 aspect-square object-cover"
-                        src={instituteImageUrl}
+                        src={i ? `/images/person/${i}.jpg` : instituteImageUrl}
                         width={32}
                         height={32}
                         alt="Course Image"

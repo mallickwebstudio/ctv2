@@ -40,13 +40,12 @@ export default function InstructorCard({ data, i }) {
                     <div className="font-bold text-lg leading-6 line-clamp-1">{name}</div>
                 </div>
 
-                <p className="text-white/90">{profession}</p>
+                <p className="text-white/90 text-sm line-clamp-2">{profession}</p>
 
                 <div className="mt-1 flex gap-base">
                     <div className="flex gap-1 items-center">
                         <Users className="size-base shrink-0 text-white/70" strokeWidth={2} />
                         <span className="text-sm font-medium"> {formatNumber(students)} </span>
-                        {/* <span className="text-muted-foreground text-xs"> Students </span> */}
                     </div>
                     <div className="flex gap-1 items-center">
                         <GraduationCap className="size-base shrink-0 text-white/70" strokeWidth={2} />
