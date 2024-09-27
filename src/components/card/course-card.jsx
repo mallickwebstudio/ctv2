@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RenderStars from "@/components/ui/render-stars";
 
-export default function CourseCard({ data = {} }) {
+export default function CourseCard({ data = {}, i }) {
     const {
         courseHref = "#",
         imageUrl = "/images/common/1.jpg",
@@ -24,7 +24,7 @@ export default function CourseCard({ data = {} }) {
             <div className="relative aspect-[16/9] overflow-hidden rounded-md">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                    src={imageUrl}
+                    src={i ? `/images/course/${i}.jpg` : "/images/common/1.jpg"}
                     width={320}
                     height={180}
                     alt="Course Image"

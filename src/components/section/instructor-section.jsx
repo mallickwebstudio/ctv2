@@ -39,9 +39,9 @@ export default function InstructorSection({
             {/* Desktop Version */}
             <Carousel className="w-full" opts={{ align: "start" }}>
                 <CarouselContent>
-                    {Array.from({ length: 12 }).map((item, index) => (
-                        <CarouselItem key={index + "InstructorCard"} className="basis-[70%] sm:basis-1/2 md:basis-1/3  lg:basis-1/4">
-                            <InstructorCard data={{}} />
+                    {Array.from({ length: 12 }).map((item, i) => (
+                        <CarouselItem key={i + "InstructorCard"} className="basis-[70%] sm:basis-1/2 md:basis-1/3  lg:basis-1/4">
+                            <InstructorCard data={{}} i={i} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
