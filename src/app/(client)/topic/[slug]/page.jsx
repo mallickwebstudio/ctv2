@@ -8,9 +8,9 @@ import CoursesSection from "@/components/section/courses-section"
 import InstructorSection from "@/components/section/instructor-section"
 import { useData } from "@/components/providers/data-provider"
 import Link from "next/link"
-import CategorySection from "@/components/section/category-section"
 import FeatureSection from "@/components/section/feature-section"
 import { courseOne, courseTwo } from '@/lib/datas/courseDatas'
+import CoursesCategorySection from "@/components/section/courses-category-section"
 
 const datas = [
   {
@@ -60,7 +60,7 @@ export default function Page({ params }) {
     <main>
       <Header />
 
-      <CategorySection
+      <CoursesCategorySection 
         className="md:pt-0 lg:pt-0"
         h2="Courses to get you started"
         p="Explore courses from experienced, real-world experts."

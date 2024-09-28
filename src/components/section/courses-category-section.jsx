@@ -7,51 +7,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CourseCrousal from '@/components/other/course-crousal'
 import { useData } from '@/components/providers/data-provider'
 import { cn } from '@/lib/utils'
-import { buttonVariants } from '../ui/button'
-import { courseOne, courseTwo } from '@/lib/datas/courseDatas'
 
-const datas = [
-    {
-        category: "Most Popular",
-        items: [
-            courseOne,
-            courseTwo,
-            courseOne,
-            courseOne,
-            courseOne,
-            courseOne,
-            courseOne,
-        ]
-    },
-    {
-        category: "Latest",
-        items: [
-            courseTwo,
-            courseOne,
-            courseTwo,
-            courseTwo,
-            courseTwo,
-            courseTwo,
-            courseTwo,
-            courseTwo,
-            courseTwo,
-        ]
-    },
-    {
-        category: "Beginner Friendly",
-        items: [
-            courseOne,
-            courseTwo,
-            courseOne,
-            courseOne,
-            courseOne,
-            courseOne,
-            courseOne,
-        ]
-    },
-]
-
-export default function CategorySection({ sectionClassName, className, h2, p, data }) {
+export default function CoursesCategorySection({ sectionClassName, className, h2, p, data }) {
     const { courses } = useData();
     const [tab, setTab] = useState(data[0].category)
     const currentData = data.find(data => data.category === tab)

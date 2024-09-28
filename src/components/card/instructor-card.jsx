@@ -20,7 +20,7 @@ export default function InstructorCard({ data, i }) {
         <Link className="relative block aspect-square overflow-hidden rounded-md group transition-all" href={href}>
             <div className="absolute inset-0 size-full z-0">
                 <Image
-                    className="size-full object-cover object-center border"
+                    className="size-full object-cover object-center"
                     src={`/images/person/${i}.jpg`}
                     width={250}
                     height={250}

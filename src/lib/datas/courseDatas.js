@@ -1,5 +1,5 @@
 export const courseOne = {
-    id: 'data-science1',
+    id: '1',
     imageUrl: "/images/common/1.jpg",
     title: "The Complete Python boot camp from zero to hero in just a few months.",
     instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -12,7 +12,7 @@ export const courseOne = {
 }
 
 export const courseTwo = {
-    id: 'data-science1',
+    id: '1',
     imageUrl: "/images/common/2.jpg",
     title: "The Complete Python boot camp from zero to hero in just a few months.",
     instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -32,7 +32,7 @@ export const datas = [
         href: "/",
         items: [
             {
-                id: 'data-science1',
+                id: '1',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -44,7 +44,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science2',
+                id: '2',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -56,7 +56,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science3',
+                id: '3',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -68,7 +68,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science4',
+                id: '4',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -80,7 +80,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science5',
+                id: '5',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -92,7 +92,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science6',
+                id: '6',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -104,7 +104,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science7',
+                id: '7',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -116,7 +116,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science8',
+                id: '8',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -128,7 +128,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science9',
+                id: '9',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -140,7 +140,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science10',
+                id: '10',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -152,7 +152,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science11',
+                id: '11',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -164,7 +164,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'data-science12',
+                id: '12',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -184,7 +184,7 @@ export const datas = [
         href: "/",
         items: [
             {
-                id: 'digital-marketing1',
+                id: '1',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -196,7 +196,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing2',
+                id: '2',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -208,7 +208,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing3',
+                id: '3',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -220,7 +220,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing4',
+                id: '4',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -232,7 +232,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing5',
+                id: '5',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -244,7 +244,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing6',
+                id: '6',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -256,7 +256,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing7',
+                id: '7',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -268,7 +268,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing8',
+                id: '8',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -280,7 +280,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing9',
+                id: '9',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -292,7 +292,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing10',
+                id: '10',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -304,7 +304,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing11',
+                id: '11',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -316,7 +316,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'digital-marketing12',
+                id: '12',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -336,7 +336,7 @@ export const datas = [
         href: "/",
         items: [
             {
-                id: 'graphic-designing1',
+                id: '1',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -348,7 +348,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing2',
+                id: '2',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -360,7 +360,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing3',
+                id: '3',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -372,7 +372,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing4',
+                id: '4',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -384,7 +384,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing5',
+                id: '5',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -396,7 +396,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing6',
+                id: '6',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -408,7 +408,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing7',
+                id: '7',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -420,7 +420,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing8',
+                id: '8',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -432,7 +432,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing9',
+                id: '9',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -444,7 +444,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing10',
+                id: '10',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -456,7 +456,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing11',
+                id: '11',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -468,7 +468,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'graphic-designing12',
+                id: '12',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -488,7 +488,7 @@ export const datas = [
         href: "/",
         items: [
             {
-                id: 'cybersecurity1',
+                id: '1',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -500,7 +500,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity2',
+                id: '2',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -512,7 +512,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity3',
+                id: '3',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -524,7 +524,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity4',
+                id: '4',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -536,7 +536,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity5',
+                id: '5',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -548,7 +548,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity6',
+                id: '6',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -560,7 +560,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity7',
+                id: '7',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -572,7 +572,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity8',
+                id: '8',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -584,7 +584,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity9',
+                id: '9',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -596,7 +596,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity10',
+                id: '10',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -608,7 +608,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity11',
+                id: '11',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -620,7 +620,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'cybersecurity12',
+                id: '12',
                 imageUrl: "/images/common/2.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -640,7 +640,7 @@ export const datas = [
         href: "/",
         items: [
             {
-                id: 'ai1',
+                id: '1',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -652,7 +652,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai2',
+                id: '2',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -664,7 +664,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai3',
+                id: '3',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -676,7 +676,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai4',
+                id: '4',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -688,7 +688,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai5',
+                id: '5',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -700,7 +700,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai6',
+                id: '6',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -712,7 +712,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai7',
+                id: '7',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -724,7 +724,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai8',
+                id: '8',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -736,7 +736,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai9',
+                id: '9',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -748,7 +748,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai10',
+                id: '10',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -760,7 +760,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai11',
+                id: '11',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",
@@ -772,7 +772,7 @@ export const datas = [
                 href: "/"
             },
             {
-                id: 'ai12',
+                id: '12',
                 imageUrl: "/images/common/1.jpg",
                 title: "The Complete Python boot camp from zero to hero in just a few months.",
                 instructor: "Dr. Angela Yu, Developer and Leader of the community",

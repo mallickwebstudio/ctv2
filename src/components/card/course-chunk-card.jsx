@@ -3,9 +3,10 @@ import Image from "next/image";
 import RenderStars from "@/components/ui/render-stars";
 import { cn, formatNumber } from '@/lib/utils';
 
-export default function CourseChunkCard({ data }) {
+export default function CourseChunkCard({ data,i }) {
     const {
         courseHref = "/",
+        id,
         imageUrl = "/images/common/1.jpg",
         title = "The Complete Python boot camp from zero to hero in just a few months.",
         instructor = "Dr. Angela Yu, Developer and Leader of the community",
@@ -26,7 +27,7 @@ export default function CourseChunkCard({ data }) {
             <div className="relative w-20 md:w-full aspect-square md:aspect-video overflow-hidden md:border shrink-0">
                 <Image
                     className="object-cover object-center w-full select-none group-hover:brightness-75"
-                    src={imageUrl}
+                    src={`/images/course/${id}.jpg`||imageUrl}
                     width={160}
                     height={90}
                     alt="volkswagen Logo"

@@ -80,7 +80,7 @@ export default function ExploreCard({ data }) {
     } = data;
 
     return (
-        <div className="p-xs md:p-base flex items-center gap-sm bg-background hover:shadow-md">
+        <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md">
             <div className="h-8 md:h-20 shrink-0">
                 <Image
                     className="size-full object-contain object-center"
@@ -97,12 +97,12 @@ export default function ExploreCard({ data }) {
                     {title}
                 </Link>
 
-                <Link className="mt-sm hidden md:block text-sm hover:underline" href={subTitleHref}>
+                <Link className="mt-sm hidden md:block text-sm hover:underline w-fit" href={subTitleHref}>
                     {subTitle}
                 </Link>
 
                 <Dialog>
-                    <DialogTrigger>
+                    <DialogTrigger className="w-fit">
                         <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
                             View All
                         </div>

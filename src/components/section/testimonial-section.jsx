@@ -2,12 +2,18 @@ import Section from "@/components/ui/section";
 import TestimonialCard from "@/components/card/testimonial-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-export default function Testimonial() {
+export default function Testimonial({
+    sectionClassName,
+    className,
+    h2,
+    p,
+    data = [],
+}) {
     return (
-        <Section sectionClassName="bg-secondary">
-            <h2 className="md:text-center">
-                See what others are achieving through learning
-            </h2>
+        <Section sectionClassName={sectionClassName} className={className}>
+            {h2 && <h2>{h2}</h2>}
+            {p && (<p>{p}</p>)}
+            
             <div className="mt-block">
                 <Carousel
                     opts={{
