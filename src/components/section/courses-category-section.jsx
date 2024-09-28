@@ -5,11 +5,9 @@ import { ArrowRight } from 'lucide-react'
 import Section from '@/components/ui/section'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import CourseCrousal from '@/components/other/course-crousal'
-import { useData } from '@/components/providers/data-provider'
 import { cn } from '@/lib/utils'
 
 export default function CoursesCategorySection({ sectionClassName, className, h2, p, data }) {
-    const { courses } = useData();
     const [tab, setTab] = useState(data[0].category)
     const currentData = data.find(data => data.category === tab)
 

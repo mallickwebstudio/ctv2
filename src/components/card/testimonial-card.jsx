@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export default function TestimonialCard({ data }) {
     const {
+        id,
         testimonial = (
             <>
                 This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
@@ -10,8 +11,8 @@ export default function TestimonialCard({ data }) {
         ),
         imageUrl = "/images/common/person.jpg",
         testimonialBy = "James Taylor",
-        onVideo = "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
-        videoHref = "/",
+        courseTitle = "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
+        courseHref = "/",
     } = data;
 
     return (
@@ -31,15 +32,15 @@ export default function TestimonialCard({ data }) {
             <div className="flex items-center gap-xs">
                 <Image
                     className="aspect-square w-8 object-cover rounded-full border"
-                    src={imageUrl}
+                    src={`/images/person/${id}.jpg`||imageUrl}
                     width={32}
                     height={32}
                     alt="Person Avatar"
                 />
                 <div className="">
                     <div className="font-semibold">{testimonialBy}</div>
-                    <Link className="text-link text-sm hover:underline line-clamp-2 leading-4" href={videoHref}>
-                        {onVideo}
+                    <Link className="text-link text-sm hover:underline line-clamp-2 leading-4" href={courseHref}>
+                        {courseTitle}
                     </Link>
                 </div>
             </div>

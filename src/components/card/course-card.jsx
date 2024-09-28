@@ -21,7 +21,7 @@ export default function CourseCard({ data = {}, i }) {
     return (
         <Link className="relative block rounded group transition-all" href={courseHref}>
             {/* Card Image */}
-            <div className="relative aspect-[16/9] overflow-hidden rounded-md">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
                     src={i ? `/images/course/${i}.jpg` : "/images/common/1.jpg"}
@@ -32,7 +32,7 @@ export default function CourseCard({ data = {}, i }) {
             </div>
 
             {/* Card Details */}
-            <div className="relative mt-1 bg-background">
+            <div className="relative p-xs bg-background rounded-bl-md rounded-br-md">
                 <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
                     {title}
                 </div>

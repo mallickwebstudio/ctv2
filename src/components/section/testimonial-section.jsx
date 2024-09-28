@@ -7,24 +7,19 @@ export default function Testimonial({
     className,
     h2,
     p,
-    data = [],
+    data,
 }) {
     return (
         <Section sectionClassName={sectionClassName} className={className}>
             {h2 && <h2>{h2}</h2>}
             {p && (<p>{p}</p>)}
-            
+
             <div className="mt-block">
-                <Carousel
-                    opts={{
-                        align: "start",
-                    }}
-                    className="w-full"
-                >
+                <Carousel className="w-full" opts={{ align: "start" }}>
                     <CarouselContent>
-                        {Array.from({ length: 10 }).map((_, index) => (
+                        {data.map((item, index) => (
                             <CarouselItem key={index} className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                                <TestimonialCard data={{}} />
+                                <TestimonialCard data={item} />
                             </CarouselItem>
                         ))}
                     </CarouselContent>

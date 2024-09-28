@@ -2,11 +2,11 @@ import Image from "next/image";
 import { StarFull } from "@/components/ui/svgs";
 import { formatNumber } from "@/lib/utils";
 import { GraduationCap, Users } from "lucide-react";
-import { Badge } from "../ui/badge";
 import Link from "next/link";
 
 export default function InstructorCard({ data, i }) {
     const {
+        id,
         href = "#",
         imageUrl = "/images/common/person.jpg",
         name = "John Doe",
@@ -21,7 +21,7 @@ export default function InstructorCard({ data, i }) {
             <div className="absolute inset-0 size-full z-0">
                 <Image
                     className="size-full object-cover object-center"
-                    src={`/images/person/${i}.jpg`}
+                    src={`/images/person/${id}.jpg`||imageUrl}
                     width={250}
                     height={250}
                     alt={name + " Image"}
