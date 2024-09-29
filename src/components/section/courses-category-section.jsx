@@ -13,23 +13,25 @@ export default function CoursesCategorySection({ sectionClassName, className, h2
 
     return (
         <Section sectionClassName={sectionClassName} className={className}>
-           {h2 && <h2>{h2}</h2>}
-           {p && <p>{p}</p>}
+            {h2 && <h2>{h2}</h2>}
+            {p && <p>{p}</p>}
 
             {/* Desktop Version */}
             <div className="hidden md:block">
-                <div className="mt-base flex gap-1 overflow-x-scroll">
-                    {data.map(item => (
-                        <div className={cn(
-                            "px-xs py-xs text-sm font-bold text-muted-foreground border-none rounded-md cursor-pointer",
-                            (tab === item.category && "bg-secondary text-secondary-foreground")
-                        )}
-                            key={item.category + "CategoryTab"}
-                            onClick={() => setTab(item.category)}
-                        >
-                            {item.category}
-                        </div>
-                    ))}
+                <div className="overflow-x-scroll">
+                    <div className="mt-base p-1 w-fit bg-background flex gap-1 border rounded-md">
+                        {data.map(item => (
+                            <div className={cn(
+                                "px-xs py-xs text-sm font-bold text-muted-foreground hover:text-foreground border-none rounded-md cursor-pointer",
+                                (tab === item.category && "bg-secondary text-secondary-foreground")
+                            )}
+                                key={item.category + "CategoryTab"}
+                                onClick={() => setTab(item.category)}
+                            >
+                                {item.category}
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="relative mt-xs p-base border rounded-md">

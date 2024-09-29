@@ -23,22 +23,23 @@ export default function ExploreCourses({
     <Section sectionClassName={sectionClassName} className={className}>
       {h2 && (<h2>{h2}</h2>)}
       {p && (<p>{p}</p>)}
-
-      <div className="mt-base flex gap-1 overflow-x-scroll">
-        {data.map(item => (
-          <div className={cn(
-            "px-xs py-xs text-sm font-bold text-muted-foreground border-none rounded-md cursor-pointer",
-            (tab === item.category && "bg-secondary text-secondary-foreground")
-          )}
-            key={item.category + "CategoryTab"}
-            onClick={() => handleTabChange(item.category)}
-          >
-            {item.category}
-          </div>
-        ))}
+      <div className="overflow-x-scroll">
+        <div className="mt-base p-1 w-fit bg-background flex rounded-md border">
+          {data.map(item => (
+            <div className={cn(
+              "px-xs py-xs text-sm font-bold text-muted-foreground hover:text-foreground border-none rounded-md cursor-pointer",
+              (tab === item.category && "bg-secondary text-secondary-foreground")
+            )}
+              key={item.category + "CategoryTab"}
+              onClick={() => handleTabChange(item.category)}
+            >
+              {item.category}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-base grid gap-xs md:gap-base sm:grid-cols-2 md:grid-cols-3">
+      <div className="mt-xs grid gap-xs md:gap-base sm:grid-cols-2 md:grid-cols-3">
         {currentData.map((item, i) => (
           <ExploreCard data={item} key={item + i + "ExploreCard"} />
         ))}

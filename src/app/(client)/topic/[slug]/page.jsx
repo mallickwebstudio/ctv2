@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import Browse from "./browse"
 import FAQ from "./faq"
 import FreeLesson from "./free-lesson"
@@ -7,10 +8,10 @@ import LinksSection from "@/components/section/links-section"
 import CoursesSection from "@/components/section/courses-section"
 import InstructorSection from "@/components/section/instructor-section"
 import { useData } from "@/components/providers/data-provider"
-import Link from "next/link"
 import FeatureSection from "@/components/section/feature-section"
 import { courseOne, courseTwo } from '@/lib/datas/courseDatas'
 import CoursesCategorySection from "@/components/section/courses-category-section"
+import { instructors } from "@/lib/datas/datas"
 
 const datas = [
   {
@@ -69,7 +70,6 @@ export default function Page({ params }) {
 
       <FeatureSection
         sectionClassName="bg-secondary"
-        // className="md:pt-0 lg:pt-0"
         h2="Featured courses"
         p="Many learners enjoyed this highly rated course for its engaging content."
       />
@@ -81,23 +81,27 @@ export default function Page({ params }) {
 
       <CoursesSection
         className="md:pt-0 lg:pt-0"
-        heading={<>Top courses in Python and <Link className="text-link underline" href="#">Django</Link></>}
+        h2={<>Top courses in Python and <Link className="text-link underline" href="#">Django</Link></>}
         data={courses[0].items}
       />
 
       <CoursesSection
         className="md:pt-0 lg:pt-0"
-        heading={<>Top courses in Python and <Link className="text-link underline" href="#">Machine Learning</Link></>}
+        h2={<>Top courses in Python and <Link className="text-link underline" href="#">Machine Learning</Link></>}
         data={courses[1].items}
       />
       
       <InstructorSection
         className="md:pt-0 lg:pt-0"
-        heading="Popular Instructors"
-        subHeading="These real-world experts are highly rated by learners like you."
+        h2="Popular Instructors"
+        p="These real-world experts are highly rated by learners like you."
+        data={instructors}
       />
+
       <Browse className="md:pt-0 lg:pt-0" />
+
       <FAQ />
+      
       <FreeLesson className="md:pt-0 lg:pt-0" />
     </main>
   )

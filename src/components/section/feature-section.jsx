@@ -14,10 +14,7 @@ export default function FeatureSection({ sectionClassName, className, h2, p }) {
             {h2 && <h2>{h2}</h2>}
             {p && <p>{p}</p>}
 
-            <Carousel
-                className="mt-base"
-                opts={{ align: "start", loop: true }}
-            >
+            <Carousel className="mt-base" opts={{ align: "start", loop: true }}>
                 <CarouselContent>
                     {[1, 2, 3].map((item, i) => (
                         <CarouselItem key={item + "FeatureCrousel" + i}>
