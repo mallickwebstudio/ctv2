@@ -35,11 +35,11 @@ export default function AskUs({ children }) {
                     Thank you for applying. We&apos;ll be in touch soon!,
                     In the meantime, check out <Link className="underline underline-offset-2 hover:text-primary" href="/"> how it works </Link> for more info.
                 </div>
-                {/* <div>
+                <div>
                     <pre className="mt-2">
                         <code>{JSON.stringify(formData, null, 2)}</code>
                     </pre>
-                </div> */}
+                </div>
             </>,
             duration: 15000
         });
@@ -58,7 +58,7 @@ export default function AskUs({ children }) {
                     </DialogTitle>
                 </DialogHeader>
 
-                <DialogDescription className="p-sm pb-12 md:pb-base h-fit w-full">
+                <DialogDescription className="pb-12 md:pb-base h-fit w-full">
                     <form className="space-y-base">
                         <Input
                             placeholder="Your Full Name*"
