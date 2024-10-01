@@ -8,10 +8,40 @@ import { useSiteState } from "@/components/providers/site-state-provider"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogClose } from "@/components/ui/dialog"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function AskUs({ children }) {
-    const { countries, cities } = useSiteState();
+    // const { countries, cities } = useSiteState();
+    const [countries, setCountries] = useState([]);
+    const [cities, setCities] = useState([]);
+
+    const fetchCountries = async () => {
+        try {
+            const response = await fetch('/api/get-country'); // Fetch from Next.js API route
+            const data = await response.json();
+            setCountries(data.data); // Set fetched data to state
+        } catch (error) {
+            console.error('Error fetching Countries data:', error);
+        }
+    };
+
+    const fetchCities = async (country) => {
+        try {
+            const response = await fetch(`/api/get-cities/${country || "India"}`); // Fetch from Next.js API route
+            const data = await response.json();
+            // console.log("DATA~", Object.values(data.data))
+            setCities(Object.values(data.data)); // Set fetched data to state
+        } catch (error) {
+            console.error('Error fetching Cities data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCountries();
+        fetchCities();
+    }, []);
+
+
     const [formData, setFormData] = useState({
         firstname: "",
         contactNumber: "",
@@ -25,6 +55,11 @@ export default function AskUs({ children }) {
 
     const handleInputChange = (key, value) => {
         setFormData(prev => ({ ...prev, [key]: value }))
+    }
+
+    const handleSelectChange = (key, value) => {
+        setFormData(prev => ({ ...prev, [key]: value }));
+        fetchCities(value);
     }
 
     const handleSubmit = () => {
@@ -50,7 +85,7 @@ export default function AskUs({ children }) {
             <DialogTrigger>
                 {children}
             </DialogTrigger>
-            
+
             <DialogContent className="overflow-y-scroll">
                 <DialogHeader className="h-fit">
                     <DialogTitle className="h-fit">
@@ -58,7 +93,7 @@ export default function AskUs({ children }) {
                     </DialogTitle>
                 </DialogHeader>
 
-                <DialogDescription className="pb-12 md:pb-base h-fit w-full">
+                <div className="pb-12 md:pb-base">
                     <form className="space-y-base">
                         <Input
                             placeholder="Your Full Name*"
@@ -70,17 +105,21 @@ export default function AskUs({ children }) {
                             value={formData.contactNumber}
                             onChange={(e) => handleInputChange('contactNumber', e.target.value)}
                         />
+
                         <Select
                             defaultValue={formData.country}
-                            onValueChange={(value) => handleInputChange('country', value)}
+                            onValueChange={(value) => handleSelectChange('country', value)}
                         >
                             <SelectTrigger>
                                 <SelectValue placeholder="Select a Country" />
                             </SelectTrigger>
                             <SelectContent>
-                                {countries.map(item => (
-                                    <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
-                                ))}
+                                {countries.length < 1
+                                    ? <SelectItem value="Searching">Searching...</SelectItem>
+
+                                    : countries.map(item => (
+                                        <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
+                                    ))}
                             </SelectContent>
                         </Select>
 
@@ -92,9 +131,11 @@ export default function AskUs({ children }) {
                                 <SelectValue placeholder="Select a City" />
                             </SelectTrigger>
                             <SelectContent>
-                                {cities.map(item => (
-                                    <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
-                                ))}
+                                {cities.length < 1
+                                    ? <SelectItem value="Searching">Searching...</SelectItem>
+                                    : cities.map(item => (
+                                        <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
+                                    ))}
                             </SelectContent>
                         </Select>
 
@@ -141,7 +182,7 @@ export default function AskUs({ children }) {
                             </div>
                         </div>
                     </form>
-                </DialogDescription>
+                </div>
             </DialogContent>
         </Dialog>
     )

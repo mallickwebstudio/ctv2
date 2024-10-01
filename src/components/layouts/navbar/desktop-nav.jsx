@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ChevronRightIcon } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import AskUs from "@/components/other/ask-us"
 import LanguageSelect from "@/components/other/language-select"
