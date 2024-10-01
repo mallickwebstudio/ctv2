@@ -54,7 +54,7 @@ export default function CompareCourse() {
         </div>
 
         <div className="mt-block flex-center">
-          <Button>Share Your Requirements</Button>
+          <Button className="px-8 py-8">Share Your Requirements</Button>
         </div>
       </div>
     </Section>

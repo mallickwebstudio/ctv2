@@ -42,14 +42,14 @@ export default function InstructorCard({ data, i }) {
 
                 <p className="text-white/90 text-sm line-clamp-2">{profession}</p>
 
-                <div className="mt-1 flex gap-base">
-                    <div className="flex gap-1 items-center">
-                        <Users className="size-base shrink-0 text-white/70" strokeWidth={2} />
-                        <span className="text-sm font-medium"> {formatNumber(students)} </span>
+                <div className="mt-1 text-sm flex">
+                    <div className="pr-2 border-r">
+                        <span className="font-medium"> {formatNumber(students)} </span>
+                        <span className="text-white/75 text-xs">Enrolled</span>
                     </div>
-                    <div className="flex gap-1 items-center">
-                        <GraduationCap className="size-base shrink-0 text-white/70" strokeWidth={2} />
-                        <span className="text-sm font-medium"> {courses} </span>
+                    <div className="pl-2">
+                        <span className="font-medium"> {courses} </span>
+                        <span className="text-white/75 text-xs">Courses</span>
                     </div>
                 </div>
             </div>
