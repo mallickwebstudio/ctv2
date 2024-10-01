@@ -9,24 +9,32 @@ export default function Testimonial({
     p,
     data,
 }) {
-    return (
-        <Section sectionClassName={sectionClassName} className={className}>
-            {h2 && <h2>{h2}</h2>}
-            {p && (<p>{p}</p>)}
+    if (data.length == 0) {
+        return (
+            <Section>
+                Loading...
+            </Section>
+        )
+    } else {
+        return (
+            <Section sectionClassName={sectionClassName} className={className}>
+                {h2 && <h2>{h2}</h2>}
+                {p && (<p>{p}</p>)}
 
-            <div className="mt-block">
-                <Carousel className="w-full" opts={{ align: "start" }}>
-                    <CarouselContent>
-                        {data.map((item, index) => (
-                            <CarouselItem key={index} className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                                <TestimonialCard data={item} />
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious variant="tertiary" />
-                    <CarouselNext variant="tertiary" />
-                </Carousel>
-            </div>
-        </Section>
-    )
+                <div className="mt-block">
+                    <Carousel className="w-full" opts={{ align: "start" }}>
+                        <CarouselContent>
+                            {data.length > 0 &&data.map((item, index) => (
+                                <CarouselItem key={index} className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                                    <TestimonialCard data={item} />
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious variant="tertiary" />
+                        <CarouselNext variant="tertiary" />
+                    </Carousel>
+                </div>
+            </Section>
+        )
+    }
 }

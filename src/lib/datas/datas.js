@@ -3,11 +3,11 @@
 export const testimonials = [
     {
         id: 1,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -15,11 +15,11 @@ export const testimonials = [
     },
     {
         id: 2,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -27,11 +27,11 @@ export const testimonials = [
     },
     {
         id: 3,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -39,11 +39,11 @@ export const testimonials = [
     },
     {
         id: 4,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -51,11 +51,11 @@ export const testimonials = [
     },
     {
         id: 5,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -63,11 +63,11 @@ export const testimonials = [
     },
     {
         id: 6,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -75,11 +75,11 @@ export const testimonials = [
     },
     {
         id: 7,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -87,11 +87,11 @@ export const testimonials = [
     },
     {
         id: 8,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -99,11 +99,11 @@ export const testimonials = [
     },
     {
         id: 9,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -111,11 +111,11 @@ export const testimonials = [
     },
     {
         id: 10,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -123,11 +123,11 @@ export const testimonials = [
     },
     {
         id: 11,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -135,11 +135,11 @@ export const testimonials = [
     },
     {
         id: 12,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -147,11 +147,11 @@ export const testimonials = [
     },
     {
         id: 13,
-        testimonial: (
-            <>
-                This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
-            </>
-        ),
+        testimonial:
+
+            "This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces."
+
+        ,
         imageUrl: "/images/common/person.jpg",
         testimonialBy: "James Taylor",
         courseTitle: "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
@@ -291,39 +291,38 @@ const itemOne = {
     title: "Accounting, Finance and Banking",
     subTitle: "ACCA",
     href: "/"
-  };
-  const itemTwo = {
+};
+const itemTwo = {
     iconUrl: "/images/svg/icon/plane.svg",
     title: "Aviation and Management",
     subTitle: "Pilot Training",
     href: "/"
-  };
-  const itemThree = {
+};
+const itemThree = {
     iconUrl: "/images/svg/icon/makeup.svg",
     title: "Beauty and Makeup",
     subTitle: "Makeup Artistry",
     href: "/"
-  };
-  export const exploreCourse = [
+};
+export const exploreCourse = [
     {
-      category: "Professional",
-      subCategories: [itemOne, itemOne, itemOne, itemOne, itemOne, itemOne],
+        category: "Professional",
+        subCategories: [itemOne, itemOne, itemOne, itemOne, itemOne, itemOne],
     },
     {
-      category: "Academic",
-      subCategories: [itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo],
+        category: "Academic",
+        subCategories: [itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo, itemTwo],
     },
     {
-      category: "Language",
-      subCategories: [itemThree, itemThree, itemThree, itemThree, itemThree, itemThree, itemThree],
+        category: "Language",
+        subCategories: [itemThree, itemThree, itemThree, itemThree, itemThree, itemThree, itemThree],
     },
     {
-      category: "Cooking",
-      subCategories: [itemOne, itemOne, itemOne, itemOne, itemOne, itemOne],
+        category: "Cooking",
+        subCategories: [itemOne, itemOne, itemOne, itemOne, itemOne, itemOne],
     },
     {
-      category: "Sports",
-      subCategories: [itemOne, itemOne, itemThree, itemThree, itemTwo, itemTwo],
+        category: "Sports",
+        subCategories: [itemOne, itemOne, itemThree, itemThree, itemTwo, itemTwo],
     },
-  ];
-  
+];

@@ -11,9 +11,25 @@ import CoursesSection from "@/components/section/courses-section";
 import { useData } from "@/components/providers/data-provider";
 import CoursesCategorySection from "@/components/section/courses-category-section";
 import { exploreCourse, instructors, testimonials } from "@/lib/datas/datas";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const { courses } = useData();
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch('/api/datas'); // Fetch data from API
+        const data = await response.json();
+        setTestimonials(data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   return (
     <main>
@@ -46,7 +62,7 @@ export default function Page() {
       <CoursesSection
         h2="Trending Courses on Coursetakers"
         data={courses[1].items}
-        />
+      />
 
       <ExploreCourses
         sectionClassName="bg-secondary"
