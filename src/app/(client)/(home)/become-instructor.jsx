@@ -22,7 +22,7 @@ export default function BecomeInstructor() {
           <p className="sub-heading">Get the exposure that your course deserves. Our team is ready to upload your courses for you</p>
 
           <div className="mt-xl flex-center md:block">
-            <div className={cn(buttonVariants(), "w-full md:w-fit h-12 text-lg cursor-pointer")}>Teach on Coursetakers Now</div>
+            <div className={cn(buttonVariants({size:"cta"}), "cursor-pointer")}>Teach on Coursetakers Now</div>
           </div>
         </div>
       </div>
