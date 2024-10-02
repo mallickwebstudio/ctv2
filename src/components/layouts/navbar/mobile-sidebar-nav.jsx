@@ -45,7 +45,6 @@ export default function MobileSidebarNav({ setIsNavbarOpen }) {
                 const response = await fetch('/api/get-categories'); // Fetch data from API
                 const data = await response.json();
                 setCategories(data.data); // Set fetched data to state
-                console.log(data.data)
             } catch (error) {
                 console.error('Error fetching Categories:', error);
             }

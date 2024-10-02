@@ -70,7 +70,6 @@ const DesktopCategory = () => {
                 const response = await fetch('/api/get-categories'); // Fetch data from API
                 const data = await response.json();
                 setCategories(data.data); // Set fetched data to state
-                console.log(data.data)
             } catch (error) {
                 console.error('Error fetching Categories:', error);
             }
@@ -113,7 +112,9 @@ const DesktopCategory = () => {
                                                 {/* Sub Category List */}
                                                 <div className="flex items-center gap-base justify-between group-hover/subcategory:text-active">
                                                     <span>{item.category_name}</span>
-                                                    <ArrowRight className='size-4 shrink-0' />
+                                                    {item.subSubCategories.length > 0 &&
+                                                        <ArrowRight className='size-4 shrink-0' />
+                                                    }
                                                 </div>
 
                                                 {/* Item */}
