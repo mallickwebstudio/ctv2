@@ -1,6 +1,6 @@
 export async function GET() {
     try {
-        const response = await fetch('http://52.215.93.118/api/get-country');
+        const response = await fetch('http://52.215.93.118/api/get-categories');
         const data = await response.json();
 
         return new Response(JSON.stringify(data), {

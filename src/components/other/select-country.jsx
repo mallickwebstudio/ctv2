@@ -16,6 +16,25 @@ export default function SelectCountry({ className, triggerClassName, contentClas
             }
         };
 
+        
+        // const fetchCountries = async () => {
+        //     try {
+        //         const response = await fetch(`${baseUrl}/api/get-country`, {
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //                 'Access-Control-Allow-Origin': '*',
+        //                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        //                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        //             },
+        //         }); // Fetch from Next.js API route
+        //         const data = await response.json();
+        //         console.log(data)
+        //         // setCountries(data.data); // Set fetched data to state
+        //     } catch (error) {
+        //         console.error('Error fetching Countries data:', error);
+        //     }
+        // };
+
         fetchCountries();
     }, []);
 
