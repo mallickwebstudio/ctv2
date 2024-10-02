@@ -62,7 +62,6 @@ export default function DesktopNav() {
 }
 
 const DesktopCategory = () => {
-    const { categoryList } = useSiteState();
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -70,7 +69,7 @@ const DesktopCategory = () => {
             try {
                 const response = await fetch('/api/get-categories'); // Fetch data from API
                 const data = await response.json();
-                  setCategories(data.data); // Set fetched data to state
+                setCategories(data.data); // Set fetched data to state
                 console.log(data.data)
             } catch (error) {
                 console.error('Error fetching Categories:', error);
@@ -101,37 +100,41 @@ const DesktopCategory = () => {
                                 {/* Category List */}
                                 <div className="flex items-center gap-base justify-between group-hover/category:text-active">
                                     <span>{item.category_name}</span>
-                                    <ArrowRight className='size-4 shrink-0' />
+                                    {item.subCategories.length > 0 &&
+                                        <ArrowRight className='size-4 shrink-0' />
+                                    }
                                 </div>
 
                                 {/* Sub Category */}
-                                <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
-                                    {item.subCategories.map(item => (
-                                        <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopCategory"}>
-                                            {/* Sub Category List */}
-                                            <div className="flex items-center gap-base justify-between group-hover/subcategory:text-active">
-                                                <span>{item.category_name}</span>
-                                                <ArrowRight className='size-4 shrink-0' />
-                                            </div>
+                                {item.subCategories.length > 0 && (
+                                    <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
+                                        {item.subCategories.map(item => (
+                                            <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopCategory"}>
+                                                {/* Sub Category List */}
+                                                <div className="flex items-center gap-base justify-between group-hover/subcategory:text-active">
+                                                    <span>{item.category_name}</span>
+                                                    <ArrowRight className='size-4 shrink-0' />
+                                                </div>
 
-                                            {/* Item */}
-                                            <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
-                                                {/* List */}
-                                                <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
+                                                {/* Item */}
+                                                {item.subSubCategories.length > 0 && (<div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
+                                                    {/* List */}
+                                                    <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
 
-                                                {item.subSubCategories.map(item => (
-                                                    <div className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.title + "DesketopCategory"}>
-                                                        <div className="flex items-center gap-base justify-between">
-                                                            <span>{item.title}</span>
+                                                    {item.subSubCategories.map(item => (
+                                                        <div className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.title + "DesketopCategory"}>
+                                                            <div className="flex items-center gap-base justify-between">
+                                                                <span>{item.title}</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    ))}
 
+                                                </div>)}
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
 
-                                </div>
+                                    </div>
+                                )}
                             </div>
                         ))}
 

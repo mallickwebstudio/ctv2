@@ -4,7 +4,7 @@ import LanguageSelect from '@/components/other/language-select';
 import AskUs from '@/components/other/ask-us';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const categories = [
     {
@@ -35,7 +35,24 @@ const categories = [
 
 export default function MobileSidebarNav({ setIsNavbarOpen }) {
     const [subNavOpen, setSubNavOpen] = useState(false);
-    const [subNavItems, setSubNavItems] = useState(categories[0].items);
+    const [subNavItems, setSubNavItems] = useState([]);
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const response = await fetch('/api/get-categories'); // Fetch data from API
+                const data = await response.json();
+                setCategories(data.data); // Set fetched data to state
+                console.log(data.data)
+            } catch (error) {
+                console.error('Error fetching Categories:', error);
+            }
+        };
+
+        fetchTestimonials();
+    }, []);
 
     const handleCategoryClick = (items) => {
         setSubNavItems(items);
@@ -75,11 +92,13 @@ export default function MobileSidebarNav({ setIsNavbarOpen }) {
                         {categories.map(item => (
                             <div
                                 className="flex-between cursor-pointer group"
-                                onClick={() => handleCategoryClick(item.items)}
-                                key={item.title + "SidebarNavCategory"}
+                                onClick={() => handleCategoryClick(item.subCategories)}
+                                key={item.category_name + "SidebarNavCategory"}
                             >
-                                <div>{item.title}</div>
-                                <ChevronRightIcon className="size-4 text-muted-foreground group-hover:text-foreground" />
+                                <div>{item.category_name}</div>
+                                {item.subCategories.length > 0 &&
+                                    <ChevronRightIcon className="size-4 text-muted-foreground group-hover:text-foreground" />
+                                }
                             </div>
                         ))}
                     </div>
@@ -110,8 +129,8 @@ function SidebarSubNav({ subNavItems, subNavOpen, setSubNavOpen }) {
             </div>
             <div className="p-base space-y-2">
                 {subNavItems.map((item, index) => (
-                    <div key={item.label + "SidebarSubNav"} className="">
-                        {item.label}
+                    <div key={item.category_name + "SidebarSubNav"} className="">
+                        {item.category_name}
                     </div>
                 ))}
             </div>
