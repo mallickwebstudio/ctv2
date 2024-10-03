@@ -116,7 +116,7 @@ export default function CoursesCategorySection({
             {/* Mobile Version */}
             <div className="block md:hidden">
                 <hr className='mt-base border-foreground/30' />
-                <Accordion type="multiple" >
+                <Accordion type="single" >
                     {data.length > 0 && data.map(item => (
                         <AccordionItem key={item.category_name + "CoursesAccordion"} value={item.category_name}>
                             <AccordionTrigger className="text-left font-bold capitalize" onClick={() => handleMobileCourseFetch(item.category_id)}>
