@@ -50,6 +50,17 @@ export default function CoursesCategorySection({
     }, [catId])
 
 
+    const [mobileCourseData, setMobileCourseData] = useState([])
+    const handleMobileCourseFetch = async (catId) => {
+        try {
+            const response = await fetch(`/api/get-courses/${catId}`); // Fetch data from API
+            const data = await response.json();
+            setMobileCourseData(data.data);
+        } catch (error) {
+            console.error('Error fetching testimonials:', error);
+        }
+    }
+
 
     return (
         <Section sectionClassName={sectionClassName} className={className}>
@@ -103,22 +114,28 @@ export default function CoursesCategorySection({
             </div>
 
             {/* Mobile Version */}
-            {/* <div className="block md:hidden">
+            <div className="block md:hidden">
                 <hr className='mt-base border-foreground/30' />
-                <Accordion type="multiple" defaultValue={data[0].category}>
-                    {data.map(item => (
-                        <AccordionItem key={item.category + "CoursesAccordion"} value={item.category}>
-                            <AccordionTrigger className="text-left font-bold capitalize">
-                                {item.category}
+                <Accordion type="multiple" >
+                    {data.length > 0 && data.map(item => (
+                        <AccordionItem key={item.category_name + "CoursesAccordion"} value={item.category_name}>
+                            <AccordionTrigger className="text-left font-bold capitalize" onClick={() => handleMobileCourseFetch(item.category_id)}>
+                                {item.category_name}
                             </AccordionTrigger>
 
                             <AccordionContent className="p-lg">
-                                <CourseCrousal datas={item.items} />
+                                {mobileCourseData.length > 0
+                                    ? (
+                                        <CourseCrousal datas={mobileCourseData} />
+                                    )
+                                    : (
+                                        <div className="">No Datas Found</div>
+                                    )}
                             </AccordionContent>
                         </AccordionItem>
                     ))}
                 </Accordion>
-            </div> */}
+            </div>
         </Section >
     )
 }
