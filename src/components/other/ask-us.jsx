@@ -29,7 +29,6 @@ export default function AskUs({ children }) {
         try {
             const response = await fetch(`/api/get-cities/${country || "India"}`); // Fetch from Next.js API route
             const data = await response.json();
-            // console.log("DATA~", Object.values(data.data))
             setCities(Object.values(data.data)); // Set fetched data to state
         } catch (error) {
             console.error('Error fetching Cities data:', error);

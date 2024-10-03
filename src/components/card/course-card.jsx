@@ -2,14 +2,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import RenderStars from "@/components/ui/render-stars";
+import { baseUrl } from "@/lib/datas/api";
 
 export default function CourseCard({ data = {}, i }) {
     const {
         courseHref = "#",
-        imageUrl = "/images/common/1.jpg",
-        instituteImageUrl = "/images/common/person.jpg",
-        title = "The Complete Python boot camp from zero to hero in just a few months.",
-        instructor = "Dr. Angela Yu, Developer and Leader of the community",
+        thumbnail = "/images/common/1.jpg",
+        image = "/images/common/person.jpg",
+        course_name = "The Complete Python boot camp from zero to hero in just a few months.",
+        instructor_name = "Dr. Angela Yu, Developer and Leader of the community",
         rating = 4.3,
         totalRatings = 42329,
         enrolled = 50000,
@@ -24,7 +25,7 @@ export default function CourseCard({ data = {}, i }) {
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                    src={i ? `/images/course/${i}.jpg` : "/images/common/1.jpg"}
+                    src={`${baseUrl+thumbnail}` || "/images/common/1.jpg"}
                     width={320}
                     height={180}
                     alt="Course Image"
@@ -34,19 +35,19 @@ export default function CourseCard({ data = {}, i }) {
             {/* Card Details */}
             <div className="relative p-xs bg-background rounded-bl-md rounded-br-md">
                 <div className="text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer group-hover:underline">
-                    {title}
+                    {course_name}
                 </div>
 
                 <div className="my-2 flex gap-xs items-center">
                     <Image
                         className="rounded-full size-5 aspect-square object-cover"
-                        src={i ? `/images/person/${i}.jpg` : instituteImageUrl}
+                        src={`${baseUrl+image}` || "/images/common/1.jpg"}
                         width={32}
                         height={32}
                         alt="Course Image"
                     />
                     <p className='text-sm line-clamp-1 text-muted-foreground'>
-                        {instructor}
+                        {instructor_name}
                     </p>
                 </div>
 

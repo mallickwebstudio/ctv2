@@ -41,7 +41,7 @@ export default function CourseCarousel({ datas }) {
                         <HoverCard className="z-[9999]" openDelay={0} closeDelay={0}>
                             <HoverCardTrigger asChild>
                                 <div>
-                                    <CourseCard i={index} />
+                                    <CourseCard i={index} data={item} />
                                 </div>
                             </HoverCardTrigger>
 

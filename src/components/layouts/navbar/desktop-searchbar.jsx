@@ -9,7 +9,7 @@ export default function DesktopSearchbar() {
     const [inputValue, setInputValue] = useState('');
     const [highlightedIndex, setHighlightedIndex] = useState(-1);
     const searchBarRef = useRef(null);
-    const { coursesList } = useSiteState();
+    const { searchList } = useSiteState();
 
     // Close search list when clicking outside
     useEffect(() => {
@@ -55,9 +55,10 @@ export default function DesktopSearchbar() {
         setHighlightedIndex(-1);
     };
 
-    const filteredItems = coursesList.filter(item =>
-        item.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredItems = searchList.filter(item =>
+        item.title.toLowerCase().includes(inputValue.toLowerCase())
     );
+
 
     return (
         <div
@@ -95,16 +96,16 @@ const SearchBarList = ({ searchListOpen, filteredItems, highlightedIndex, select
             <div className="">
                 <ul className="space-y-1">
                     {filteredItems.length > 0 ? (
-                        filteredItems.slice(0, 10).map((item, index) => (
+                        filteredItems.slice(0, 10).map((item, i) => (
                             <li
-                                key={index}
                                 className={cn(
                                     "p-sm cursor-pointer hover:bg-secondary",
-                                    highlightedIndex === index && "bg-secondary"
+                                    highlightedIndex === i && "bg-secondary"
                                 )}
+                                key={i}
                                 onClick={() => selectItem(item)}
                             >
-                                {item}
+                                {item.title}
                             </li>
                         ))
                     ) : (

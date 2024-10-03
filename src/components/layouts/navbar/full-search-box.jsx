@@ -7,9 +7,9 @@ import SelectCountry from '@/components/other/select-country';
 import { useSiteState } from '@/components/providers/site-state-provider';
 
 export default function FullSearchBox() {
-    const { searchbarOpen, setSearchbarOpen, coursesList } = useSiteState();
+    const { searchbarOpen, setSearchbarOpen, coursesList, searchList } = useSiteState();
     const [inputValue, setInputValue] = useState('');
-    const [filteredSuggestions, setFilteredSuggestions] = useState(coursesList);
+    const [filteredSuggestions, setFilteredSuggestions] = useState(searchList);
     const [searchListOpen, setSearchListOpen] = useState(false);
     const [highlightedIndex, setHighlightedIndex] = useState(-1);
     const searchBarRef = useRef(null);
@@ -69,11 +69,11 @@ export default function FullSearchBox() {
         const value = e.target.value;
         setInputValue(value);
         if (value.trim() === '') {
-            setFilteredSuggestions(coursesList);
+            setFilteredSuggestions(searchList);
         } else {
             setFilteredSuggestions(
-                coursesList.filter(item =>
-                    item.toLowerCase().includes(value.toLowerCase())
+                searchList.filter(item =>
+                    item.title.toLowerCase().includes(value.toLowerCase())
                 )
             );
         }
@@ -146,7 +146,7 @@ export default function FullSearchBox() {
                                             onClick={() => selectItem(item)}
                                         >
                                             <Search className='size-5 text-muted-foreground shrink-0' />
-                                            <span className='line-clamp-1'>{item}</span>
+                                            <span className='line-clamp-1'>{item.title}</span>
                                         </li>
                                     ))
                                 ) : (

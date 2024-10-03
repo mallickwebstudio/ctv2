@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import AskUs from "@/components/other/ask-us"
 import LanguageSelect from "@/components/other/language-select"
 import SelectCountry from '@/components/other/select-country';
-import DesktopSearchbar from '@/components/other/desktop-searchbar';
+import DesktopSearchbar from '@/components/layouts/navbar/desktop-searchbar';
 import CartButton from './cart-button';
 import { useSiteState } from '@/components/providers/site-state-provider';
 import { cn } from '@/lib/utils';

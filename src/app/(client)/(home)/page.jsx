@@ -17,6 +17,12 @@ export default function Page() {
   const { courses } = useData();
   const [testimonials, setTestimonials] = useState([]);
 
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+
+  }, []);
+
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
@@ -28,7 +34,18 @@ export default function Page() {
       }
     };
 
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/get-categories'); // Fetch data from API
+        const data = await response.json();
+        setCategories(data.data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching Categories:', error);
+      }
+    };
+
     fetchTestimonials();
+    fetchCategories();
   }, []);
 
   return (
@@ -44,7 +61,7 @@ export default function Page() {
       <CoursesCategorySection
         h2="Explore Our Course Categories"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
-        data={courses}
+        data={categories}
       />
 
       <Testimonial
@@ -68,7 +85,7 @@ export default function Page() {
         sectionClassName="bg-secondary"
         h2="Explore Our Wide Range of Courses"
         p="Discover courses to enhance your skills and knowledge across various fields. From web development to business management, CourseTakers offers expert-led courses to help you succeed. Start learning today!"
-        data={exploreCourse}
+        data={categories}
       />
 
       <BecomeInstructor />

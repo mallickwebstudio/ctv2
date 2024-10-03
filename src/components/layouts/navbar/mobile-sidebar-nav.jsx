@@ -91,7 +91,7 @@ export default function MobileSidebarNav({ setIsNavbarOpen }) {
                         {categories.map(item => (
                             <div
                                 className="flex-between cursor-pointer group"
-                                onClick={() => handleCategoryClick(item.subCategories)}
+                                onClick={() => {item.subCategories.length > 0 &&handleCategoryClick(item.subCategories)}}
                                 key={item.category_name + "SidebarNavCategory"}
                             >
                                 <div>{item.category_name}</div>

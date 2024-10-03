@@ -1,5 +1,5 @@
 "use client"
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 const SiteStateContext = createContext();
 
 const languages = [
@@ -181,6 +181,23 @@ export const SiteStateProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(0);
   const [categoryList, setCategoryList] = useState(categoriesLists);
 
+  const [searchList, setSearchList] = useState([]);
+
+  useEffect(() => {
+      const fetchSearchList = async () => {
+          try {
+              const response = await fetch('/api/get-search-list'); // Fetch data from API
+              const data = await response.json();
+              setSearchList(data.data); // Set fetched data to state
+          } catch (error) {
+              console.error('Error fetching Categories:', error);
+          }
+      };
+
+      fetchSearchList();
+  }, []);
+
+
   const values = {
     searchbarOpen, setSearchbarOpen,
     countries,
@@ -191,6 +208,7 @@ export const SiteStateProvider = ({ children }) => {
     setLanguage,
     cartItems, setCartItems,
     categoryList, setCategoryList,
+    searchList
   };
   return (
     <SiteStateContext.Provider value={values}>

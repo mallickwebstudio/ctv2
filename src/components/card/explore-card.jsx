@@ -10,11 +10,12 @@ import {
 } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
+import { baseUrl } from "@/lib/datas/api";
 
 export default function ExploreCard({ data }) {
     const {
-        iconUrl = "/images/svg/icon/plane.svg",
-        title = "Aviation and Management",
+        icon = "/images/svg/icon/plane.svg",
+        category_name = "Aviation and Management",
         href = "/",
         subTitle = "Pilot Training",
         subTitleHref = "/",
@@ -84,24 +85,24 @@ export default function ExploreCard({ data }) {
             <div className="h-8 md:h-20 shrink-0">
                 <Image
                     className="size-full object-contain object-center"
-                    src={iconUrl}
+                    src={baseUrl + icon}
                     width={40}
                     height={40}
-                    alt={title + " icon"}
+                    alt={category_name + " icon"}
                 />
             </div>
 
             <div className="flex flex-col">
                 <div className="hidden md:block flex-1" />
                 <Link className="font-semibold text-lg leading-5 line-clamp-2" href={href}>
-                    {title}
+                    {category_name}
                 </Link>
 
                 <Link className="mt-sm hidden md:block text-sm hover:underline w-fit" href={subTitleHref}>
                     {subTitle}
                 </Link>
 
-                <Dialog>
+                {/* <Dialog>
                     <DialogTrigger className="w-fit">
                         <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
                             View All
@@ -109,7 +110,7 @@ export default function ExploreCard({ data }) {
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>{title}</DialogTitle>
+                            <DialogTitle>{category_name}</DialogTitle>
                             <DialogDescription>
                                 <div className="flex gap-sm flex-wrap overflow-y-scroll">
                                     {links.map(item => (
@@ -121,7 +122,7 @@ export default function ExploreCard({ data }) {
                             </DialogDescription>
                         </DialogHeader>
                     </DialogContent>
-                </Dialog>
+                </Dialog> */}
             </div>
         </div>
     )

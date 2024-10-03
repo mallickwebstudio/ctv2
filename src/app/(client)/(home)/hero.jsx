@@ -7,7 +7,7 @@ import { useSiteState } from '@/components/providers/site-state-provider';
 import { cn } from '@/lib/utils';
 
 export default function Hero() {
-  const { setSearchbarOpen, coursesList } = useSiteState();
+  const { setSearchbarOpen, searchList } = useSiteState();
 
   const [searchListOpen, setSearchListOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -57,8 +57,8 @@ export default function Hero() {
     setHighlightedIndex(-1);
   };
 
-  const filteredItems = coursesList.filter(item =>
-    item.toLowerCase().includes(inputValue.toLowerCase())
+  const filteredItems = searchList.filter(item =>
+    item.title.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   return (
@@ -114,14 +114,13 @@ export default function Hero() {
             >
               <ul className="space-y-1">
                 {filteredItems.length > 0 ? (
-                  filteredItems.slice(0, 10).map((item, index) => (
+                  filteredItems.slice(0, 10).map((item, i) => (
                     <li
-                      key={index}
-                      className={`p-sm cursor-pointer hover:bg-secondary ${highlightedIndex === index ? 'bg-secondary' : ''
-                        }`}
+                      className={`p-sm cursor-pointer hover:bg-secondary ${highlightedIndex === i && 'bg-secondary'}`}
+                      key={i}
                       onClick={() => selectItem(item)}
                     >
-                      {item}
+                      {item.title}
                     </li>
                   ))
                 ) : (
