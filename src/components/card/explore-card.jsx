@@ -102,7 +102,7 @@ export default function ExploreCard({ data }) {
                     {subTitle}
                 </Link>
 
-                {/* <Dialog>
+                <Dialog>
                     <DialogTrigger className="w-fit">
                         <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
                             View All
@@ -122,7 +122,7 @@ export default function ExploreCard({ data }) {
                             </DialogDescription>
                         </DialogHeader>
                     </DialogContent>
-                </Dialog> */}
+                </Dialog> 
             </div>
         </div>
     )
