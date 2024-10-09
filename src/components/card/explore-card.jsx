@@ -85,7 +85,7 @@ export default function ExploreCard({ data }) {
             <div className="h-8 md:h-20 shrink-0">
                 <Image
                     className="size-full object-contain object-center"
-                    src={baseUrl + icon}
+                    src={icon&&baseUrl + icon}
                     width={40}
                     height={40}
                     alt={category_name + " icon"}
