@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react";
 import Hero from "./hero";
 import Authority from "./authority";
 import Testimonial from "@/components/section/testimonial-section";
@@ -10,14 +11,15 @@ import InstructorSection from "@/components/section/instructor-section";
 import CoursesSection from "@/components/section/courses-section";
 import { useData } from "@/components/providers/data-provider";
 import CoursesCategorySection from "@/components/section/courses-category-section";
-import { exploreCourse, instructors, testimonials } from "@/lib/datas/datas";
-import { useEffect, useState } from "react";
 
 export default function Page() {
   const { courses } = useData();
-  const [testimonials, setTestimonials] = useState([]);
 
+  const [testimonials, setTestimonials] = useState([]);
+  const [instructors, setInstructors] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [categoryCourses, setCategoryCourses] = useState([]);
+  const [featureCourses, setFeatureCourses] = useState([]);
 
   useEffect(() => {
 
@@ -26,9 +28,29 @@ export default function Page() {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('/api/datas'); // Fetch data from API
+        const response = await fetch('/api/get-testimonials'); // Fetch data from API
         const data = await response.json();
-        setTestimonials(data); // Set fetched data to state
+        setTestimonials(data.data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    const fetchFeatureCourses = async () => {
+      try {
+        const response = await fetch('/api/get-feature-courses'); // Fetch data from API
+        const data = await response.json();
+        setFeatureCourses(data.data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    const fetchInstructor = async () => {
+      try {
+        const response = await fetch('/api/get-instructors'); // Fetch data from API
+        const data = await response.json();
+        setInstructors(data.data); // Set fetched data to state
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -36,9 +58,16 @@ export default function Page() {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch('/api/get-categories'); // Fetch data from API
+      } catch (error) {
+        console.error('Error fetching Categories:', error);
+      }
+    };
+
+    const fetchCategoryCourses = async () => {
+      try {
+        const response = await fetch('/api/get-category-courses'); // Fetch data from API
         const data = await response.json();
-        setCategories(data.data); // Set fetched data to state
+        setCategoryCourses(data.data); // Set fetched data to state
       } catch (error) {
         console.error('Error fetching Categories:', error);
       }
@@ -46,6 +75,9 @@ export default function Page() {
 
     fetchTestimonials();
     fetchCategories();
+    fetchCategoryCourses();
+    fetchInstructor();
+    fetchFeatureCourses();
   }, []);
 
   return (
@@ -61,7 +93,7 @@ export default function Page() {
       <CoursesCategorySection
         h2="Explore Our Course Categories"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
-        data={categories}
+        data={categoryCourses}
       />
 
       <Testimonial
@@ -78,7 +110,7 @@ export default function Page() {
 
       <CoursesSection
         h2="Trending Courses on Coursetakers"
-        data={courses[1].items}
+        data={featureCourses}
       />
 
       <ExploreCourses

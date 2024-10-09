@@ -33,7 +33,7 @@ export default function CourseCarousel({ datas }) {
             opts={{ align: "start" }}
         >
             <CarouselContent className="md:py-[1rem] w-full">
-                {datas.map((item, index) => (
+                {datas && datas.map((item, index) => (
                     <CarouselItem
                         className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
                         key={`CourseCarousel-${index}`}

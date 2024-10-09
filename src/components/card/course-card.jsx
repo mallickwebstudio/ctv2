@@ -7,10 +7,10 @@ import { baseUrl } from "@/lib/datas/api";
 export default function CourseCard({ data = {}, i }) {
     const {
         courseHref = "#",
-        thumbnail = "/images/common/1.jpg",
+        imageUrl = "/images/common/1.jpg",
         image = "/images/common/person.jpg",
         course_name = "The Complete Python boot camp from zero to hero in just a few months.",
-        instructor_name = "Dr. Angela Yu, Developer and Leader of the community",
+        instructor = "Dr. Angela Yu, Developer and Leader of the community",
         rating = 4.3,
         totalRatings = 42329,
         enrolled = 50000,
@@ -25,7 +25,7 @@ export default function CourseCard({ data = {}, i }) {
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                    src={`${baseUrl+thumbnail}` || "/images/common/1.jpg"}
+                    src={imageUrl != null ? (imageUrl.includes(baseUrl) ? imageUrl : `${baseUrl + imageUrl}`) : "/images/common/1.jpg"}
                     width={320}
                     height={180}
                     alt="Course Image"
@@ -41,13 +41,13 @@ export default function CourseCard({ data = {}, i }) {
                 <div className="my-2 flex gap-xs items-center">
                     <Image
                         className="rounded-full size-5 aspect-square object-cover"
-                        src={`${baseUrl+image}` || "/images/common/1.jpg"}
+                        src={image !== null ? baseUrl + image : "/images/common/1.jpg"}
                         width={32}
                         height={32}
                         alt="Course Image"
                     />
                     <p className='text-sm line-clamp-1 text-muted-foreground'>
-                        {instructor_name}
+                        {instructor}
                     </p>
                 </div>
 

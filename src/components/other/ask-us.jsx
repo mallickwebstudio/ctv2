@@ -11,36 +11,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { useEffect, useState } from "react"
 
 export default function AskUs({ children }) {
-    // const { countries, cities } = useSiteState();
-    const [countries, setCountries] = useState([]);
-    const [cities, setCities] = useState([]);
-
-    const fetchCountries = async () => {
-        try {
-            const response = await fetch('/api/get-country'); // Fetch from Next.js API route
-            const data = await response.json();
-            setCountries(data.data); // Set fetched data to state
-        } catch (error) {
-            console.error('Error fetching Countries data:', error);
-        }
-    };
-
-    const fetchCities = async (country) => {
-        try {
-            const response = await fetch(`/api/get-cities/${country || "India"}`); // Fetch from Next.js API route
-            const data = await response.json();
-            setCities(Object.values(data.data)); // Set fetched data to state
-        } catch (error) {
-            console.error('Error fetching Cities data:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchCountries();
-        fetchCities();
-    }, []);
-
-
     const [formData, setFormData] = useState({
         firstname: "",
         contactNumber: "",
@@ -51,6 +21,42 @@ export default function AskUs({ children }) {
         message: "",
         content: false
     });
+
+    const [countries, setCountries] = useState([]);
+    const [cities, setCities] = useState([]);
+
+    const fetchCountries = async () => {
+        try {
+            const response = await fetch('/api/get-country'); // Fetch from Next.js API route
+            const data = await response.json();
+            setCountries(data.data); // Set fetched data to state
+            setFormData(prev => ({ ...prev, country: data.data[0].label }))
+        } catch (error) {
+            console.error('Error fetching Countries data:', error);
+        }
+    };
+    
+    const fetchCities = async (country) => {
+        try {
+            const response = await fetch(`/api/get-cities/${country || "India"}`); // Fetch from Next.js API route
+            const data = await response.json();
+            setCities(Object.values(data.data)); // Set fetched data to state
+            setFormData(prev => ({ ...prev, city: data.data[0].label }))
+        } catch (error) {
+            console.error('Error fetching Cities data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCountries();
+    }, []);
+
+    useEffect(() => {
+        fetchCities();
+    }, [countries]);
+
+
+
 
     const handleInputChange = (key, value) => {
         setFormData(prev => ({ ...prev, [key]: value }))
@@ -63,18 +69,13 @@ export default function AskUs({ children }) {
 
     const handleSubmit = () => {
         toast({
-            title: "🎉 You're on the Waitlist!",
-            description: <>
-                <div>
-                    Thank you for applying. We&apos;ll be in touch soon!,
-                    In the meantime, check out <Link className="underline underline-offset-2 hover:text-primary" href="/"> how it works </Link> for more info.
-                </div>
+            description: (
                 <div>
                     <pre className="mt-2">
                         <code>{JSON.stringify(formData, null, 2)}</code>
                     </pre>
                 </div>
-            </>,
+            ),
             duration: 15000
         });
     }
@@ -110,33 +111,36 @@ export default function AskUs({ children }) {
                             onValueChange={(value) => handleSelectChange('country', value)}
                         >
                             <SelectTrigger>
-                                <SelectValue placeholder="Select a Country" />
+                                <SelectValue placeholder={(formData.country) || "Loading..."} />
                             </SelectTrigger>
                             <SelectContent>
                                 {countries.length < 1
                                     ? <SelectItem value="Searching">Searching...</SelectItem>
 
                                     : countries.map(item => (
-                                        <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
-                                    ))}
+                                        <SelectItem value={item.label} key={item.label + "AskUs"}>{item.label}</SelectItem>
+                                    ))}{""}
                             </SelectContent>
                         </Select>
 
-                        <Select
-                            defaultValue={formData.city}
-                            onValueChange={(value) => handleInputChange('city', value)}
-                        >
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select a City" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {cities.length < 1
-                                    ? <SelectItem value="Searching">Searching...</SelectItem>
-                                    : cities.map(item => (
-                                        <SelectItem value={item} key={item + "AskUs"}>{item}</SelectItem>
-                                    ))}
-                            </SelectContent>
-                        </Select>
+                        {formData.country !== "Online" && (
+                            <Select
+                                defaultValue={formData.city}
+                                onValueChange={(value) => handleInputChange('city', value)}
+                            >
+                                <SelectTrigger>
+                                    {/* <SelectValue placeholder={formData.city} /> */}
+                                    <div className="">{formData.city}</div>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {cities.length < 1
+                                        ? <SelectItem value="Searching">Searching...</SelectItem>
+                                        : cities.map(item => (
+                                            <SelectItem value={item.label} key={item.label + "AskUs"}>{item.label}</SelectItem>
+                                        ))}
+                                </SelectContent>
+                            </Select>
+                        )}
 
                         <Input
                             placeholder="Type a course Name"

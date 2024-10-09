@@ -6,78 +6,38 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import LanguageSelect from "@/components/other/language-select";
 import { useSiteState } from "@/components/providers/site-state-provider";
-
-const coursesLinks = [
-  {
-    label: "Online",
-    href: "/"
-  },
-  {
-    label: "Professional",
-    href: "/"
-  },
-  {
-    label: "Academic",
-    href: "/"
-  },
-  {
-    label: "Language",
-    href: "/"
-  },
-  {
-    label: "Dance",
-    href: "/"
-  },
-  {
-    label: "Music",
-    href: "/"
-  },
-  {
-    label: "Lifestyle",
-    href: "/"
-  },
-  {
-    label: "Sports",
-    href: "/"
-  },
-]
-
-const quickLinks = [
-  {
-    label: "Professional",
-    href: "/"
-  },
-  {
-    label: "Online",
-    href: "/"
-  },
-  {
-    label: "Language",
-    href: "/"
-  },
-  {
-    label: "Dance",
-    href: "/"
-  },
-  {
-    label: "Academic",
-    href: "/"
-  },
-  {
-    label: "Music",
-    href: "/"
-  },
-  {
-    label: "Lifestyle",
-    href: "/"
-  },
-  {
-    label: "Sports",
-    href: "/"
-  },
-]
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const [parentsCategories, setParentsCategories] = useState([]);
+  const [quickLinks, setQuickLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchQuickLinks = async () => {
+      try {
+        const response = await fetch('/api/get-quick-links/Online'); // Fetch data from API
+        const data = await response.json();
+        setQuickLinks(data.data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    const fetchParentsCategories = async () => {
+      try {
+        const response = await fetch('/api/get-parents-categories/Online'); // Fetch data from API
+        const data = await response.json();
+        setParentsCategories(data.data); // Set fetched data to state
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+
+    fetchQuickLinks();
+    fetchParentsCategories();
+  }, []);
+
+
   const currentYear = new Date().getFullYear();
   const { language } = useSiteState();
 
@@ -133,7 +93,7 @@ export default function Footer() {
             <div className="self-start">
               <div className="font-bold">Courses</div>
               <ul className="mt-base space-y-2">
-                {coursesLinks.map(item => (
+                {parentsCategories && parentsCategories.map(item => (
                   <li key={item.label + "FooterCourseLinks"}>
                     <Link className="text-muted/80 hover:text-muted hover:underline cursor-pointer" href={item.href}>
                       {item.label}
@@ -146,9 +106,9 @@ export default function Footer() {
             <div className="self-start">
               <div className="font-bold">Quick Links</div>
               <ul className="mt-base space-y-2">
-                {quickLinks.map(item => (
+                {quickLinks && quickLinks.map(item => (
                   <li key={item.label + "FooterQuickLinks"}>
-                    <Link className="text-muted/80 hover:text-muted hover:underline cursor-pointer" href={item.href}>
+                    <Link className="text-muted/80 hover:text-muted hover:underline cursor-pointer" href={item.slug}>
                       {item.label}
                     </Link>
                   </li>

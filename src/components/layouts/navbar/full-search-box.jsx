@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import SelectCountry from '@/components/other/select-country';
 import { useSiteState } from '@/components/providers/site-state-provider';
+import SearchInput from '@/components/other/search-input';
 
 export default function FullSearchBox() {
     const { searchbarOpen, setSearchbarOpen, coursesList, searchList } = useSiteState();
@@ -105,33 +106,31 @@ export default function FullSearchBox() {
     };
 
     return (
-        <div className="fixed inset-0 size-full lg:hidden bg-background z-[9999] select-none" ref={searchBarRef}>
+        <div className="fixed inset-0 size-full lg:hidden bg-background z-[999] select-none" ref={searchBarRef}>
             <div className="relative p-sm">
                 <div className="pb-sm flex-between">
                     <div />
                     <XIcon className='size-4 text-secondary-foreground shrink-0' onClick={() => setSearchbarOpen(false)} />
                 </div>
-                <div className="sticky top-base flex items-center gap-xs">
-                    <div className="py-1 pl-2 h-10 w-full bg-secondary flex items-center flex-1 overflow-hidden rounded-md">
-                        <Search className='size-5 text-secondary-foreground shrink-0' />
-                        <Input
-                            ref={inputRef}
-                            className="pl-sm h-auto bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 flex-1"
-                            placeholder="Type a course name..."
-                            value={inputValue}
-                            onChange={handleInputChange}
-                            onKeyDown={handleKeyDown}
-                        />
-                        <SelectCountry
-                            className="w-fit"
-                            triggerClassName="focus:ring-0 focus-within:ring-0 rounded-tr-none rounded-br-none"
-                            contentClassName="z-[10000]"
-                        />
+                <div className="sticky top-base">
+                    <SearchInput className="flex items-center gap-xs">
+                        <div className="py-1 pl-2 h-10 w-full bg-secondary flex items-center flex-1 overflow-hidden rounded-md">
+                            <Search className='size-5 text-secondary-foreground shrink-0' />
+                            <input
+                                className="pl-sm h-auto bg-transparent border-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 flex-1"
+                                placeholder="Type a course name..."
+                            />
+                            <SelectCountry
+                                className="w-fit"
+                                triggerClassName="focus:ring-0 focus-within:ring-0 rounded-tr-none rounded-br-none"
+                                contentClassName="z-[10000]"
+                            />
 
-                        <Button className="h-10 font-medium text-base rounded-tl-none rounded-bl-none" variant="tertiary" size="sm">
-                            <Search />
-                        </Button>
-                    </div>
+                            <Button className="h-10 font-medium text-base rounded-tl-none rounded-bl-none" variant="tertiary" size="sm">
+                                <Search />
+                            </Button>
+                        </div>
+                    </SearchInput>
 
                     {/* Search Selection List */}
                     {searchListOpen && (

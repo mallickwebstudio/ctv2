@@ -63,7 +63,7 @@ export default function DesktopSearchbar() {
     return (
         <div
             ref={searchBarRef}
-            className="relative h-14 bg-[#f7f9fa] flex-1"
+            className="relative h-14 bg-background flex-1"
         >
             <div className="h-full px-sm py-xs flex items-center gap-2 border border-foreground rounded-xl overflow-hidden">
                 <Search className="mr-xs size-6 text-muted-foreground shrink-0" />

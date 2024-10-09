@@ -1,16 +1,16 @@
 "use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Search } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import AskUs from "@/components/other/ask-us"
 import LanguageSelect from "@/components/other/language-select"
 import SelectCountry from '@/components/other/select-country';
 import DesktopSearchbar from '@/components/layouts/navbar/desktop-searchbar';
 import CartButton from './cart-button';
-import { useSiteState } from '@/components/providers/site-state-provider';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import SearchInput from '@/components/other/search-input';
 
 export default function DesktopNav() {
     return (
@@ -38,7 +38,16 @@ export default function DesktopNav() {
 
 
                 {/* Search Bar */}
-                <DesktopSearchbar />
+                {/* <DesktopSearchbar /> */}
+                <SearchInput className="flex-1 h-14">
+                    <div className="h-full px-sm py-xs flex items-center gap-2 border border-foreground rounded-xl overflow-hidden">
+                        <Search className="mr-xs size-6 text-muted-foreground shrink-0" />
+                        <input
+                            className="min-w-12 w-full focus:outline-offset-0 focus:outline-none bg-transparent"
+                            placeholder="Type A Course Name"
+                        />
+                    </div>
+                </SearchInput>
 
                 {/* Teach On Coursetakers */}
                 <div className="hover:text-active-hover hover:underline cursor-pointer peer text-nowrap">Teach On Coursetakers</div>

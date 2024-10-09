@@ -1,16 +1,12 @@
-
-
-export async function GET(request,{params}) {
-    const slug = params.slug;
-
+export async function GET() {
     try {
-        const response = await fetch(`http://52.215.93.118/api/get-cities/${slug}`);
+        const response = await fetch('http://52.215.93.118/api/get-instructors');
         const data = await response.json();
 
         return new Response(JSON.stringify(data), {
             status: 200,
             headers: {
-                'Content-Type': 'application/json', // Explicitly specify content type
+                'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',

@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button'
+import AskUs from '@/components/other/ask-us'
+import { Button, buttonVariants } from '@/components/ui/button'
 import Section from '@/components/ui/section'
 import Image from 'next/image'
 
@@ -54,7 +55,9 @@ export default function CompareCourse() {
         </div>
 
         <div className="mt-block flex-center">
-          <Button size="cta">Share Your Requirements</Button>
+          <AskUs>
+            <div className={buttonVariants({ size: "cta" })}>Share Your Requirements</div>
+          </AskUs>
         </div>
       </div>
     </Section>

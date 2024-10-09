@@ -3,6 +3,7 @@ import { StarFull } from "@/components/ui/svgs";
 import { formatNumber } from "@/lib/utils";
 import { GraduationCap, Users } from "lucide-react";
 import Link from "next/link";
+import { baseUrl } from "@/lib/datas/api";
 
 export default function InstructorCard({ data, i }) {
     const {
@@ -21,7 +22,7 @@ export default function InstructorCard({ data, i }) {
             <div className="absolute inset-0 size-full z-0">
                 <Image
                     className="size-full object-cover object-center"
-                    src={`/images/person/${id}.jpg`||imageUrl}
+                    src={imageUrl ? (baseUrl + imageUrl) : `/images/common/person.jpg`}
                     width={250}
                     height={250}
                     alt={name + " Image"}
