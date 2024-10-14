@@ -1,9 +1,10 @@
 import { Check } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { useData } from "@/components/providers/data-provider";
+import { useData } from "@/hooks/data-provider";
 import { toast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { baseUrl } from "@/lib/datas/api";
 
 export default function PopOverCard({ data }) {
     const {
@@ -14,13 +15,7 @@ export default function PopOverCard({ data }) {
         courseHour = 15,
         level = "Beginner",
         subtitles = true,
-        instituteImageUrl = "/images/common/person.jpg",
-        benefits = [
-            "FULLY UPDATED FOR CLF-CO2 Pass the AWS Certified Cloud Practitioner Certification",
-            "Full Practice Exam with Explanations included!",
-            "Learn the AWS Fundamentals (EC2, ELB, ASG, RDS, ElastiCache, S3)",
-        ],
-        bestseller,
+        image = "/images/common/person.jpg",
     } = data
 
     const { cartItems, addToCart } = useData();
@@ -37,10 +32,10 @@ export default function PopOverCard({ data }) {
         <div className={cn("w-[240px] lg:w-[270px] h-fit bg-background select-none")}>
             <div className="text-lg leading-5 font-bold">{title}</div>
 
-            <div className="flex gap-xs items-center">
+            <div className="my-xs flex gap-xs items-center">
                 <Image
                     className="rounded-full size-8 aspect-square object-cover"
-                    src={instituteImageUrl}
+                    src={image !== null ? baseUrl + image : "/images/common/1.jpg"}
                     width={32}
                     height={32}
                     alt="Course Image"

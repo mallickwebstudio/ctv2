@@ -4,8 +4,9 @@ import CourseCard from "@/components/card/course-card";
 import PopOverCard from "@/components/card/pop-over-card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
-export default function CourseCarousel({ datas }) {
+export default function CourseCarousel({ itemClassName, datas }) {
     const [carouselIndex, setCarouselIndex] = useState(0);
     const carouselRef = useRef(null);
 
@@ -35,7 +36,7 @@ export default function CourseCarousel({ datas }) {
             <CarouselContent className="md:py-[1rem] w-full">
                 {datas && datas.map((item, index) => (
                     <CarouselItem
-                        className="basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                        className={cn("basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4", itemClassName)}
                         key={`CourseCarousel-${index}`}
                     >
                         <HoverCard className="z-[9999]" openDelay={0} closeDelay={0}>

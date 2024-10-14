@@ -153,9 +153,6 @@ export default function Browse({
 
     return (
         <section className={cn('mx-auto container p-6 sm:py-12 md:py-16 lg:py-20', className)}>
-            <h2>All Accounting, Banking and Finance courses in
-                Johannesburg, South Africa</h2>
-            <p className='sub-heading md:w-3/5'>See why millions of people turn to Udemy&apos;s real-world experts to learn Python. Learn at your own pace with hands-on exercises and quizzes. Our courses are frequently updated so you&apos;ll always be working from the latest information. This is the training you&apos;ll need to become a professional Python developer.</p>
 
             <div className="my-base p-sm flex items-center gap-base bg-info  rounded-md">
                 <Info className='shrink-0 size-6' />
@@ -257,8 +254,23 @@ export default function Browse({
 
                 {/* CourseCards */}
                 <div className="flex-1">
-                    <div className="">
-                        <FilterCourseCard />
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-base">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        {/* <FilterCourseCard />
                         <FilterCourseCard />
                         <FilterCourseCard />
                         <BrowseTestimony />
@@ -272,7 +284,7 @@ export default function Browse({
                         <FilterCourseCard />
                         <FilterCourseCard />
                         <FilterCourseCard />
-                        <FilterCourseCard />
+                        <FilterCourseCard /> */}
                     </div>
                     <div className="mt-base">
                         <Pagination>

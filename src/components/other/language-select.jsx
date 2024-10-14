@@ -1,6 +1,6 @@
 "use client"
 import { Globe } from "lucide-react"
-import { useSiteState } from "@/components/providers/site-state-provider"
+import { useSiteState } from "@/hooks/site-state-provider"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"

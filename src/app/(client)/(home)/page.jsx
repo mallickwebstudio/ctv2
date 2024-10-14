@@ -2,20 +2,19 @@
 import { useEffect, useState } from "react";
 import Hero from "./hero";
 import Authority from "./authority";
-import Testimonial from "@/components/section/testimonial-section";
 import ExploreCourses from "./explore-courses";
 import BecomeInstructor from "./become-instructor";
 import CompareCourse from "./compare-course";
 import OverscreenAskus from "@/components/other/overscreen-askus";
 import InstructorSection from "@/components/section/instructor-section";
 import CoursesSection from "@/components/section/courses-section";
-import { useData } from "@/components/providers/data-provider";
+import { useData } from "@/hooks/data-provider";
 import CoursesCategorySection from "@/components/section/courses-category-section";
+import Testimonial from "@/components/section/testimonial-section";
 
 export default function Page() {
   const { courses } = useData();
 
-  const [testimonials, setTestimonials] = useState([]);
   const [instructors, setInstructors] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categoryCourses, setCategoryCourses] = useState([]);
@@ -26,21 +25,12 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    const fetchTestimonials = async () => {
-      try {
-        const response = await fetch('/api/get-testimonials'); // Fetch data from API
-        const data = await response.json();
-        setTestimonials(data.data); // Set fetched data to state
-      } catch (error) {
-        console.error('Error fetching testimonials:', error);
-      }
-    };
-    
+
     const fetchCategories = async () => {
       try {
         const response = await fetch('/api/get-categories'); // Fetch data from API
         const data = await response.json();
-        setCategories(data.data); // Set fetched data to state
+        setCategories(data.data);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -50,7 +40,7 @@ export default function Page() {
       try {
         const response = await fetch('/api/get-feature-courses'); // Fetch data from API
         const data = await response.json();
-        setFeatureCourses(data.data); // Set fetched data to state
+        setFeatureCourses(data.data);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -60,7 +50,7 @@ export default function Page() {
       try {
         const response = await fetch('/api/get-instructors'); // Fetch data from API
         const data = await response.json();
-        setInstructors(data.data); // Set fetched data to state
+        setInstructors(data.data);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -76,7 +66,6 @@ export default function Page() {
       }
     };
 
-    fetchTestimonials();
     fetchCategories();
     fetchCategoryCourses();
     fetchInstructor();
@@ -102,7 +91,7 @@ export default function Page() {
       <Testimonial
         sectionClassName="bg-secondary"
         h2={<span className="block text-center">See what others are achieving through learning</span>}
-        data={testimonials}
+      // data={testimonials}
       />
 
       <InstructorSection

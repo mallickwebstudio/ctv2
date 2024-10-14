@@ -1,13 +1,17 @@
+"use client"
 import AskUs from '@/components/other/ask-us'
 import { Button, buttonVariants } from '@/components/ui/button'
 import Section from '@/components/ui/section'
+import { useSiteState } from '@/hooks/site-state-provider';
 import Image from 'next/image'
 
 export default function CompareCourse() {
+  const { selectedCountry } = useSiteState();
+
   return (
     <Section>
       <div className="md:text-center">
-        <h2>Compare Course Prices And Know Your Options In USA</h2>
+        <h2>Compare Course Prices And Know Your Options In {selectedCountry||"Online"}</h2>
         <p className='sub-heading'>let us know which course you are looking for and we will connect wuth top insitute and universities in USA</p>
       </div>
 

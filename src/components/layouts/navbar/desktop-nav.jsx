@@ -89,9 +89,9 @@ const DesktopCategory = () => {
 
     return (
         <div className="relative group/categorybox">
-            <div className='px-xs py-base relative group-hover/categorybox:text-active cursor-pointer peer/button transition-all'>
+            <Link className='block px-xs py-base relative group-hover/categorybox:text-active cursor-pointer peer/button transition-all' href="/courses">
                 Categories
-            </div>
+            </Link>
 
             <div className="absolute right-0 left-0 top-full hidden peer-hover/button:scale-100  hover:block peer-hover/button:block transition-all z-[9999]">
 

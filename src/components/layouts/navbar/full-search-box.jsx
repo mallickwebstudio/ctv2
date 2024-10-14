@@ -4,7 +4,7 @@ import { Search, XIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import SelectCountry from '@/components/other/select-country';
-import { useSiteState } from '@/components/providers/site-state-provider';
+import { useSiteState } from '@/hooks/site-state-provider';
 import SearchInput from '@/components/other/search-input';
 
 export default function FullSearchBox() {
@@ -103,6 +103,7 @@ export default function FullSearchBox() {
         setInputValue(item);
         setSearchListOpen(false);
         setHighlightedIndex(-1);
+        setSearchbarOpen(false);
     };
 
     return (

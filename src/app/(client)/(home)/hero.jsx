@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Search } from "lucide-react";
 import Section from "@/components/ui/section";
-import { useSiteState } from '@/components/providers/site-state-provider';
+import { useSiteState } from '@/hooks/site-state-provider';
 import SearchInput from "@/components/other/search-input";
 
 export default function Hero() {

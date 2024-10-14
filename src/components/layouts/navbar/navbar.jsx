@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { useSiteState } from '@/components/providers/site-state-provider';
+import { useSiteState } from '@/hooks/site-state-provider';
 import FullSearchBox from '@/components/layouts/navbar/full-search-box';
 import DesktopNav from './desktop-nav';
 import MobileNav from './mobile-nav';

@@ -76,20 +76,25 @@ export default function ExploreCard({ data }) {
                 label: "Link 14",
                 href: "/"
             },
-        ]
-
+        ],
+        subSubCategories = []
     } = data;
+    console.log(data)
 
     return (
         <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md">
             <div className="h-8 md:h-20 shrink-0">
-                <Image
-                    className="size-full object-contain object-center"
-                    src={icon&&baseUrl + icon}
-                    width={40}
-                    height={40}
-                    alt={category_name + " icon"}
-                />
+                {icon
+                    ?
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                        className="size-full object-contain object-center"
+                        src={icon && baseUrl + icon}
+                        alt={" icon"}
+                    />
+                    :
+                    <div className="">No Icon  </div>
+                }
             </div>
 
             <div className="flex flex-col">
@@ -98,31 +103,35 @@ export default function ExploreCard({ data }) {
                     {category_name}
                 </Link>
 
-                <Link className="mt-sm hidden md:block text-sm hover:underline w-fit" href={subTitleHref}>
-                    {subTitle}
-                </Link>
+                {subSubCategories.length > 0 && (
+                    <Link className="mt-sm hidden md:block text-sm hover:underline w-fit" href={`/courses/${subSubCategories[0].slug}`}>
+                        {subSubCategories[0].slug}
+                    </Link>
+                )}
 
-                <Dialog>
-                    <DialogTrigger className="w-fit">
-                        <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
-                            View All
-                        </div>
-                    </DialogTrigger>
-                    <DialogContent>
-                        <DialogHeader>
-                            <DialogTitle>{category_name}</DialogTitle>
-                            <DialogDescription>
-                                <div className="flex gap-sm flex-wrap overflow-y-scroll">
-                                    {links.map(item => (
-                                        <Link className={cn(buttonVariants({ variant: "outline", size: "sm" }))} href={item.href} key={item.label + "CategoryLinks"}>
-                                            {item.label}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </DialogDescription>
-                        </DialogHeader>
-                    </DialogContent>
-                </Dialog> 
+                {subSubCategories.length > 0 && (
+                    <Dialog>
+                        <DialogTrigger className="w-fit">
+                            <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
+                                View All
+                            </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>{category_name}</DialogTitle>
+                                <DialogDescription>
+                                    <div className="flex gap-sm flex-wrap overflow-y-scroll">
+                                        {subSubCategories.map(item => (
+                                            <Link className={cn(buttonVariants({ variant: "outline", size: "sm" }))} href={`/courses/${item.slug}`} key={item.slug + "CategoryLinks"}>
+                                                {item.slug}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </DialogDescription>
+                            </DialogHeader>
+                        </DialogContent>
+                    </Dialog>
+                )}
             </div>
         </div>
     )

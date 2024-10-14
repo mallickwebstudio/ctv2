@@ -1,7 +1,8 @@
 "use client";
 import React,{ useEffect, useRef, useState, cloneElement } from "react";
-import { useSiteState } from '@/components/providers/site-state-provider';
+import { useSiteState } from '@/hooks/site-state-provider';
 import { cn } from '@/lib/utils';
+import { useRouter } from "next/navigation";
 
 export default function SearchInput({ children, className }) {
     const [searchListOpen, setSearchListOpen] = useState(false);
@@ -9,6 +10,7 @@ export default function SearchInput({ children, className }) {
     const [highlightedIndex, setHighlightedIndex] = useState(-1);
     const searchBarRef = useRef(null);
     const { searchList } = useSiteState();
+    const router = useRouter();
 
     // Close search list when clicking outside
     useEffect(() => {
@@ -44,14 +46,16 @@ export default function SearchInput({ children, className }) {
             );
         } else if (e.key === 'Enter' && highlightedIndex >= 0) {
             e.preventDefault();
-            selectItem(filteredItems[highlightedIndex].title);
+            handleSelectItem(filteredItems[highlightedIndex].title);
+            console.log(filteredItems[highlightedIndex].title)
         }
     };
-
-    const selectItem = (item) => {
+    
+    const handleSelectItem = (item) => {
         setInputValue(item);
         setSearchListOpen(false);
         setHighlightedIndex(-1);
+        router.push(`/courses/${item}`)
     };
 
     const filteredItems = searchList.filter(item =>
@@ -93,7 +97,7 @@ export default function SearchInput({ children, className }) {
                                         highlightedIndex === i && "bg-secondary"
                                     )}
                                     key={i}
-                                    onClick={() => selectItem(item.title)}
+                                    onClick={() => handleSelectItem(item.title)}
                                 >
                                     {item.title}
                                 </li>

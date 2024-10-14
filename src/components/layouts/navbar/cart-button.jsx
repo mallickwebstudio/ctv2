@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
-import { useData } from '@/components/providers/data-provider';
+import { useData } from '@/hooks/data-provider';
 import CartCard from '@/components/card/cart-card';
 import { cn } from '@/lib/utils';
 

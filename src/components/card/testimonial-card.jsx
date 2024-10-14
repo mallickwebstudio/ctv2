@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function TestimonialCard({ data }) {
     const {
-        id,
+        id = 1,
         testimonial = (
             <>
                 This UX/UI course was fantastic! <b>It helped me enhance my design skills and understand user experience better</b>. The practical exercises and real-world examples were incredibly useful. Thanks to this course, I now feel confident in creating intuitive and engaging interfaces.
@@ -13,7 +13,7 @@ export default function TestimonialCard({ data }) {
         testimonialBy = "James Taylor",
         courseTitle = "Mastering UX/UI Design: From Basics to Advanced Techniques and Methods",
         courseHref = "/",
-    } = data;
+    } = data||{};
 
     return (
         <div className="relative p-base bg-background rounded border overflow-hidden">
@@ -32,7 +32,7 @@ export default function TestimonialCard({ data }) {
             <div className="flex items-center gap-xs">
                 <Image
                     className="aspect-square w-8 object-cover rounded-full border"
-                    src={`/images/person/${id}.jpg`||imageUrl}
+                    src={`/images/person/${id}.jpg` || imageUrl}
                     width={32}
                     height={32}
                     alt="Person Avatar"

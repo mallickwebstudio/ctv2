@@ -20,14 +20,14 @@ export default function CourseCard({ data = {}, i }) {
     } = data;
 
     return (
-        <Link className="relative block rounded group transition-all" href={courseHref}>
+        <Link className="relative block rounded group transition-all" href={`/courses/${course_name}`}>
             {/* Card Image */}
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
                     src={imageUrl != null ? (imageUrl.includes(baseUrl) ? imageUrl : `${baseUrl + imageUrl}`) : "/images/common/1.jpg"}
-                    width={320}
-                    height={180}
+                    width={160}
+                    height={90}
                     alt="Course Image"
                 />
             </div>
@@ -39,11 +39,9 @@ export default function CourseCard({ data = {}, i }) {
                 </div>
 
                 <div className="my-2 flex gap-xs items-center">
-                    <Image
+                    <img
                         className="rounded-full size-5 aspect-square object-cover"
                         src={image !== null ? baseUrl + image : "/images/common/1.jpg"}
-                        width={32}
-                        height={32}
                         alt="Course Image"
                     />
                     <p className='text-sm line-clamp-1 text-muted-foreground'>

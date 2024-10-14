@@ -5,7 +5,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import LanguageSelect from "@/components/other/language-select";
-import { useSiteState } from "@/components/providers/site-state-provider";
+import { useSiteState } from "@/hooks/site-state-provider";
 import { useEffect, useState } from "react";
 
 export default function Footer() {
@@ -49,7 +49,7 @@ export default function Footer() {
           <div>
             <Link className="w-fit block" href="/">
               <Image
-                className='h-20 w-fit object-contain'
+                className='w-28 object-contain'
                 src="/logo-horizontal-dark.png"
                 width={200}
                 height={100}
