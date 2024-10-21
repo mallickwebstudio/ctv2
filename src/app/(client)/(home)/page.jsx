@@ -4,25 +4,19 @@ import Hero from "./hero";
 import Authority from "./authority";
 import ExploreCourses from "./explore-courses";
 import BecomeInstructor from "./become-instructor";
-import CompareCourse from "./compare-course";
+import CTA from "./cta";
 import OverscreenAskus from "@/components/other/overscreen-askus";
 import InstructorSection from "@/components/section/instructor-section";
 import CoursesSection from "@/components/section/courses-section";
-import { useData } from "@/hooks/data-provider";
 import CoursesCategorySection from "@/components/section/courses-category-section";
 import Testimonial from "@/components/section/testimonial-section";
 
 export default function Page() {
-  const { courses } = useData();
-
   const [instructors, setInstructors] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categoryCourses, setCategoryCourses] = useState([]);
   const [featureCourses, setFeatureCourses] = useState([]);
 
-  useEffect(() => {
-
-  }, []);
 
   useEffect(() => {
 
@@ -78,7 +72,7 @@ export default function Page() {
 
       <Hero />
 
-      <CompareCourse />
+      <CTA />
 
       <Authority />
 

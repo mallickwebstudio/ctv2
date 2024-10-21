@@ -20,10 +20,10 @@ export default function FeatureCard({ i, data = {} }) {
 
     return (
         <div className="p-base border border-border-light bg-background rounded-md">
-            <Link className="absolute inset-0 " href="#">
+            <Link className="absolute block inset-0 " href="#">
                 <span className="sr-only">Visit</span>
             </Link>
-            <div className="relative py-sm flex flex-col md:flex-row group transition-all">
+            <div className="relative flex flex-col md:flex-row group transition-all">
                 {/* Card Image */}
                 <div className="relative w-full md:w-[25rem] lg:w-[30rem] aspect-[1/.5625] overflow-hidden shrink-0">
                     <Image

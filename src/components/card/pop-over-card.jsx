@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { baseUrl } from "@/lib/datas/api";
 
-export default function PopOverCard({ data }) {
+export default function PopOverCard({ data={} }) {
     const {
         id = null,
         title = "The Complete Python boot camp from zero to hero in just a few months.",

@@ -15,12 +15,10 @@ export default function CoursesCategorySection({
     data
 }) {
     const [tab, setTab] = useState(data.length > 0 ? data[0].category_name : "");
-    const [catId, setCatId] = useState(data.length > 0 ? data[0].category_id : "")
     const [currentData, setCurrentData] = useState([])
 
     useEffect(() => {
         setTab(data.length > 0 && data[0].category_name)
-        setCatId(data.length > 0 && data[0].category_id)
     }, [data])
 
     useEffect(() => {

@@ -32,6 +32,7 @@ import { StarEmpty, StarFull, StarHalf } from '@/components/ui/svgs'
 import { Checkbox } from "@/components/ui/checkbox"
 import Link from 'next/link'
 import CourseCard from '@/components/card/course-card'
+import Image from 'next/image'
 
 const cities = [
     { id: 'dubai', label: 'Dubai', count: 1234 },
@@ -129,7 +130,7 @@ const subtitle = [
     { id: "korean", label: "Korean", count: 1234 },
 ];
 
-export default function Browse({
+export default function FilterCourse({
     className,
 }) {
     const [filterOpen, setFilterOpen] = useState(false);
@@ -152,7 +153,10 @@ export default function Browse({
     }, []);
 
     return (
-        <section className={cn('mx-auto container p-6 sm:py-12 md:py-16 lg:py-20', className)}>
+        <>
+            <h2 className='md:w-3/5'>All Accounting, Banking and Finance courses in
+                Johannesburg, South Africa</h2>
+            <p className='sub-heading md:w-3/5'>See why millions of people turn to Udemy&apos;s real-world experts to learn Python. Learn at your own pace with hands-on exercises and quizzes. Our courses are frequently updated so you&apos;ll always be working from the latest information. This is the training you&apos;ll need to become a professional Python developer.</p>
 
             <div className="my-base p-sm flex items-center gap-base bg-info  rounded-md">
                 <Info className='shrink-0 size-6' />
@@ -254,38 +258,23 @@ export default function Browse({
 
                 {/* CourseCards */}
                 <div className="flex-1">
-                    <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-base">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        {/* <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <BrowseTestimony />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <BrowseComboCourse />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard />
-                        <FilterCourseCard /> */}
-                    </div>
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <BrowseAuthority />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <BrowseTestimony />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <BrowseComboCourse />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+                    <FilterCourseCard />
+
                     <div className="mt-base">
                         <Pagination>
                             <PaginationContent>
@@ -310,7 +299,7 @@ export default function Browse({
                     </div>
                 </div>
             </div>
-        </section>
+        </>
     )
 }
 
@@ -405,6 +394,54 @@ const BrowseComboCourse = () => {
 
                     <Button>Buy Now</Button>
                 </div>
+            </div>
+        </div>
+    )
+}
+const BrowseAuthority = () => {
+    return (
+        <div className="relative py-sm border-b flex group transition-all">
+            <div className="p-base w-full border">
+                <div className="h3">Top companies trust Courseakers</div>
+                <p>Get your team access to Coursetakers&apos;s top 27,000+ courses</p>
+                <div className="my-xl w-full flex justify-center sm:justify-start gap-base flex-wrap">
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/volkswagen.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/samsung.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/cisco.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/vimeo.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                    <Image
+                        className="max-h-8 w-fit select-none"
+                        src="/images/svg/authority/pg.svg"
+                        width={200}
+                        height={100}
+                        alt="volkswagen Logo"
+                    />
+                </div>
+                <Button variant="outlineSecondary">Try Coursetakers Business</Button>
             </div>
         </div>
     )

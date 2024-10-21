@@ -1,11 +1,11 @@
 "use client"
 import AskUs from '@/components/other/ask-us'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import Section from '@/components/ui/section'
 import { useSiteState } from '@/hooks/site-state-provider';
 import Image from 'next/image'
 
-export default function CompareCourse() {
+export default function CTA() {
   const { selectedCountry } = useSiteState();
 
   return (
