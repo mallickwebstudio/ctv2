@@ -25,9 +25,9 @@ export default function FeatureCard({ i, data = {} }) {
             </Link>
             <div className="relative flex flex-col md:flex-row group transition-all">
                 {/* Card Image */}
-                <div className="relative w-full md:w-[25rem] lg:w-[30rem] aspect-[1/.5625] overflow-hidden shrink-0">
+                <div className="relative w-full md:w-[25rem] lg:w-[30rem] aspect-[1/.5625] rounded-md overflow-hidden shrink-0">
                     <Image
-                        className="object-cover object-center w-full select-none transition-all group-hover:brightness-75 rounded-md"
+                        className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
                         src={`/images/common/${i}.jpg`}
                         width={320}
                         height={180}

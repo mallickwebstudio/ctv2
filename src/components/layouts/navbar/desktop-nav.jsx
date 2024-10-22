@@ -132,9 +132,9 @@ const DesktopCategory = () => {
                                                     <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
 
                                                     {item.subSubCategories.map(item => (
-                                                        <div className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.title + "DesketopCategory"}>
+                                                        <div className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name	 + "DesketopCategory"}>
                                                             <div className="flex items-center gap-base justify-between">
-                                                                <span>{item.title}</span>
+                                                                <span>{item.category_name}</span>
                                                             </div>
                                                         </div>
                                                     ))}

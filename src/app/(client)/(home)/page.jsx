@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Hero from "./hero";
 import Authority from "./authority";
-import ExploreCourses from "./explore-courses";
+import ExploreCategories from "./explore-categories";
 import BecomeInstructor from "./become-instructor";
 import CTA from "./cta";
 import OverscreenAskus from "@/components/other/overscreen-askus";
@@ -80,6 +80,7 @@ export default function Page() {
         h2="Explore Our Course Categories"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
         data={categoryCourses}
+        subHeadings
       />
 
       <Testimonial
@@ -99,7 +100,7 @@ export default function Page() {
         data={featureCourses}
       />
 
-      <ExploreCourses
+      <ExploreCategories
         sectionClassName="bg-secondary"
         h2="Explore Our Wide Range of Courses"
         p="Discover courses to enhance your skills and knowledge across various fields. From web development to business management, CourseTakers offers expert-led courses to help you succeed. Start learning today!"

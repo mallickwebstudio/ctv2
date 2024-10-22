@@ -19,7 +19,7 @@ export default function FilterCourseCard({ data = {} }) {
     } = data;
 
     return (
-        <HoverCard className="z-[9999]" openDelay={0} closeDelay={0}>
+        <HoverCard className="z-[9999]" openDelay={0} closeDelay={0} >
             <HoverCardTrigger asChild>
                 
                 <div className="relative py-sm border-b flex group transition-all">
@@ -69,11 +69,11 @@ export default function FilterCourseCard({ data = {} }) {
             <HoverCardContent
                 className="hidden lg:block w-fit"
                 avoidCollisions={false}
-                side={"left"}
-                sideOffset={-600}
-                direction="right"
+                side={"top"}
+                // sideOffset={-600}
+                direction="bottom"
             >
-                <PopOverCard  />
+                <PopOverCard className=" lg:w-80" />
             </HoverCardContent>
         </HoverCard>
     )

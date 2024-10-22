@@ -79,7 +79,6 @@ export default function ExploreCard({ data }) {
         ],
         subSubCategories = []
     } = data;
-    console.log(data)
 
     return (
         <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md">

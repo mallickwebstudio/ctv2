@@ -7,11 +7,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CourseCrousal from '@/components/other/course-crousal'
 import { cn } from '@/lib/utils'
 
-export default function CoursesCategorySection({
+export default function     CoursesCategorySection({
     sectionClassName,
     className,
     h2,
     p,
+    subHeadings = false,
     data
 }) {
     const [tab, setTab] = useState(data.length > 0 ? data[0].category_name : "");
@@ -57,7 +58,7 @@ export default function CoursesCategorySection({
                 </div>
 
                 <div className="relative mt-xs p-base border rounded-md">
-                    {currentData ? (
+                    {currentData ? subHeadings && (
                         <div className="relative mb-base">
                             <div className="flex items-center gap-base">
                                 <h3>{currentData.title}</h3>

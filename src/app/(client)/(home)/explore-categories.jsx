@@ -4,7 +4,7 @@ import Section from "@/components/ui/section";
 import ExploreCard from "@/components/card/explore-card";
 import { cn } from "@/lib/utils";
 
-export default function ExploreCourses({
+export default function ExploreCategories({
   sectionClassName,
   className,
   h2,

@@ -29,7 +29,8 @@ const HoverCardContent = React.forwardRef(({
     {direction && (
       direction === "right"
         ? <div className={`absolute top-[50%] -left-2 size-4 border-l border-b border-border bg-popover rotate-45`} />
-        : <div className={`absolute top-[50%] -right-2 size-4 border-t border-r border-border bg-popover rotate-45`} />
+        : direction === "left" ? <div className={`absolute top-[50%] -right-2 size-4 border-t border-r border-border bg-popover rotate-45`} />
+          : <div className={`absolute -bottom-2 left-1/2 size-4 border-b border-r border-border bg-popover rotate-45`} />
     )}
     {children}
   </HoverCardPrimitive.Content>

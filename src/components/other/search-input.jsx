@@ -47,7 +47,6 @@ export default function SearchInput({ children, className }) {
         } else if (e.key === 'Enter' && highlightedIndex >= 0) {
             e.preventDefault();
             handleSelectItem(filteredItems[highlightedIndex].title);
-            console.log(filteredItems[highlightedIndex].title)
         }
     };
     
