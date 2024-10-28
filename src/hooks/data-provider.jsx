@@ -7,8 +7,8 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
     const LOCAL_STORAGE_CART_ITEMS_KEY = "CT.Cart-Items";
 
-    // Initialize courses state
     const [courses, setCourses] = useState(datas);
+    const [cartCourses, setCartCourses] = useState([]);
 
     // Initialize cartItems state, loading from local storage if available
     const [cartItems, setCartItems] = useState(() => {
@@ -41,7 +41,8 @@ export const DataProvider = ({ children }) => {
     const values = {
         courses, setCourses,
         cartItems, setCartItems,
-        addToCart, removeFromCart
+        addToCart, removeFromCart,
+        cartCourses,
     };
 
     return (

@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogClose } from "@/components/ui/dialog"
 import { useEffect, useState } from "react"
 
-export default function AskUs({ children }) {
+export default function AskUs({ children, inquiryType, isAskus }) {
     const [formData, setFormData] = useState({
         firstname: "",
         contactNumber: "",
@@ -19,7 +19,9 @@ export default function AskUs({ children }) {
         courseName: "",
         email: "",
         message: "",
-        content: false
+        content: false,
+        inquiryType: inquiryType ? inquiryType : "",
+        isAskus: isAskus ? isAskus : "",
     });
 
     const [countries, setCountries] = useState([]);
@@ -35,7 +37,7 @@ export default function AskUs({ children }) {
             console.error('Error fetching Countries data:', error);
         }
     };
-    
+
     const fetchCities = async (country) => {
         try {
             const response = await fetch(`/api/get-cities/${country || "India"}`); // Fetch from Next.js API route

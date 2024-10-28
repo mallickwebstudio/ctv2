@@ -81,7 +81,7 @@ export default function ExploreCard({ data }) {
     } = data;
 
     return (
-        <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md">
+        <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md w-full overflow-hidden">
             <div className="h-8 md:h-20 shrink-0">
                 {icon
                     ?
@@ -92,7 +92,7 @@ export default function ExploreCard({ data }) {
                         alt={" icon"}
                     />
                     :
-                    <div className="">No Icon  </div>
+                    <div className="">No Icon </div>
                 }
             </div>
 
@@ -103,15 +103,15 @@ export default function ExploreCard({ data }) {
                 </Link>
 
                 {subSubCategories.length > 0 && (
-                    <Link className="mt-sm hidden md:block text-sm hover:underline w-fit" href={`/courses/${subSubCategories[0].slug}`}>
+                    <Link className="mt-sm hidden md:block text-sm hover:underline" href={`/courses/${subSubCategories[0].slug}`}>
                         {subSubCategories[0].slug}
                     </Link>
                 )}
 
                 {subSubCategories.length > 0 && (
                     <Dialog>
-                        <DialogTrigger className="w-fit">
-                            <div className="hidden w-fit md:block text-link hover:underline cursor-pointer">
+                        <DialogTrigger>
+                            <div className="hidden md:block text-link hover:underline cursor-pointer">
                                 View All
                             </div>
                         </DialogTrigger>

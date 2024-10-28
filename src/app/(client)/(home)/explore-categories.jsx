@@ -45,7 +45,7 @@ export default function ExploreCategories({
         </div>
       </div>
 
-      <div className="mt-xs grid gap-xs md:gap-base sm:grid-cols-2 md:grid-cols-3">
+      <div className="mt-xs grid gap-xs md:gap-base sm:grid-cols-2 md:grid-cols-3 w-full overflow-x-scroll">
         {currentData.length > 0 && currentData.map((item, i) => (
           <ExploreCard data={item} key={item + i + "ExploreCard"} />
         ))}

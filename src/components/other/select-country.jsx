@@ -1,19 +1,22 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useSiteState } from "@/hooks/site-state-provider";
 import { cn } from "@/lib/utils"
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function SelectCountry({ className, triggerClassName, contentClassName }) {
+export default function SelectCountry({ className, triggerClassName, contentClassName, redirect }) {
     const { countries, selectedCountry, setSelectedCountry } = useSiteState();
+    const router = useRouter();
 
     return (
-        <Select className={className} onValueChange={(value)=>setSelectedCountry(value)}>
+        <Select className={className} onValueChange={(value) => { setSelectedCountry(value); (redirect && router.replace(value)) }}>
             <SelectTrigger className={cn("w-fit", triggerClassName)}>
                 <SelectValue placeholder={selectedCountry || "Loading..."} />
             </SelectTrigger>
             <SelectContent className={contentClassName}>
                 {countries.length > 0 && countries.map(item => (
-                    <SelectItem value={item.label} key={item.label + "DesktopNavbar"}>{item.label}</SelectItem>
+                    <SelectItem value={item.href} key={item.label + "DesktopNavbar"}>
+                        {item.label}
+                    </SelectItem>
                 ))}
             </SelectContent>
         </Select>

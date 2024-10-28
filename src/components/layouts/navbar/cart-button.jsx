@@ -57,10 +57,10 @@ export default function CartButton({ children, className }) {
                                 ))}
                             </div>
                             <div className="p-base bg-background border-t shadow-md">
-                                <div className="text-left text-xl leading-6 font-bold">
+                                {/* <div className="text-left text-xl leading-6 font-bold">
                                     <span>Total: ${totalPrice}</span>
                                     <s className="ml-1 text-base text-muted-foreground">${totalOriginalPrice}</s>
-                                </div>
+                                </div> */}
                                 <Link className={cn(buttonVariants({ variant: "tertiary" }), "mt-xs text-xl w-full")} href="/">
                                     Go To Cart
                                 </Link>

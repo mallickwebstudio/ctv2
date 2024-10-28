@@ -31,7 +31,7 @@ export default function DesktopNav() {
                 </Link>
 
                 {/* Select Country */}
-                <SelectCountry />
+                <SelectCountry redirect="true" />
 
                 {/* Select Category */}
                 <DesktopCategory />
@@ -74,17 +74,17 @@ const DesktopCategory = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const fetchTestimonials = async () => {
+        const fetchCategories = async () => {
             try {
-                const response = await fetch('/api/get-categories'); // Fetch data from API
+                const response = await fetch('/api/get-categories'); 
                 const data = await response.json();
-                setCategories(data.data); // Set fetched data to state
+                setCategories(data.data);
             } catch (error) {
                 console.error('Error fetching Categories:', error);
             }
         };
 
-        fetchTestimonials();
+        fetchCategories();
     }, []);
 
     return (
@@ -106,12 +106,12 @@ const DesktopCategory = () => {
                         : categories.map(item => (
                             <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category" key={item.category_name + "DesketopCategory"}>
                                 {/* Category List */}
-                                <div className="flex items-center gap-base justify-between group-hover/category:text-active">
+                                <Link className="flex items-center gap-base justify-between group-hover/category:text-active" href={`/${item.href}`}>
                                     <span>{item.category_name}</span>
                                     {item.subCategories.length > 0 &&
                                         <ArrowRight className='size-4 shrink-0' />
                                     }
-                                </div>
+                                </Link>
 
                                 {/* Sub Category */}
                                 {item.subCategories.length > 0 && (
@@ -119,12 +119,12 @@ const DesktopCategory = () => {
                                         {item.subCategories.map(item => (
                                             <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopCategory"}>
                                                 {/* Sub Category List */}
-                                                <div className="flex items-center gap-base justify-between group-hover/subcategory:text-active">
+                                                <Link className="flex items-center gap-base justify-between group-hover/subcategory:text-active" href={`/${item.href}`}>
                                                     <span>{item.category_name}</span>
                                                     {item.subSubCategories.length > 0 &&
                                                         <ArrowRight className='size-4 shrink-0' />
                                                     }
-                                                </div>
+                                                </Link>
 
                                                 {/* Item */}
                                                 {item.subSubCategories.length > 0 && (<div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
@@ -132,11 +132,11 @@ const DesktopCategory = () => {
                                                     <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
 
                                                     {item.subSubCategories.map(item => (
-                                                        <div className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name	 + "DesketopCategory"}>
+                                                        <Link className="px-base py-xs text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopCategory"} href={`/${item.href}`}>
                                                             <div className="flex items-center gap-base justify-between">
                                                                 <span>{item.category_name}</span>
                                                             </div>
-                                                        </div>
+                                                        </Link>
                                                     ))}
 
                                                 </div>)}
