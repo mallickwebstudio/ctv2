@@ -46,15 +46,15 @@ export default function SearchInput({ children, className }) {
             );
         } else if (e.key === 'Enter' && highlightedIndex >= 0) {
             e.preventDefault();
-            handleSelectItem(filteredItems[highlightedIndex].title);
+            handleSelectItem(filteredItems[highlightedIndex].title, filteredItems[highlightedIndex].link);
         }
     };
     
-    const handleSelectItem = (item) => {
+    const handleSelectItem = (item, link) => {
         setInputValue(item);
         setSearchListOpen(false);
         setHighlightedIndex(-1);
-        router.push(`/courses/${item}`)
+        router.push(`${link}`)
     };
 
     const filteredItems = searchList.filter(item =>
