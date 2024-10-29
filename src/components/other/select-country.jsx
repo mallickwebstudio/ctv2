@@ -14,7 +14,7 @@ export default function SelectCountry({ className, triggerClassName, contentClas
             </SelectTrigger>
             <SelectContent className={contentClassName}>
                 {countries.length > 0 && countries.map(item => (
-                    <SelectItem value={item.href} key={item.label + "DesktopNavbar"}>
+                    <SelectItem className="cursor-pointer" value={item.href} key={item.label + "DesktopNavbar"}>
                         {item.label}
                     </SelectItem>
                 ))}

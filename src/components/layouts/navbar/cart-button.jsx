@@ -8,7 +8,7 @@ import CartCard from '@/components/card/cart-card';
 import { cn } from '@/lib/utils';
 
 export default function CartButton({ children, className }) {
-    const { cartItems, courses, cartCourses } = useData();
+    const { cartItems, cartCourses } = useData();
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -16,13 +16,13 @@ export default function CartButton({ children, className }) {
     }, []);
 
     // Filter the course data based on cartItems
-    const cartItemsDatas = courses.flatMap(courseCategory =>
-        courseCategory.items.filter(item => cartItems.includes(item.id))
-    );
+    // const cartItemsDatas = courses.flatMap(courseCategory =>
+    //     courseCategory.items.filter(item => cartItems.includes(item.id))
+    // );
 
     // Calculate total price and original price for the cart items
-    const totalPrice = cartItemsDatas.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
-    const totalOriginalPrice = cartItemsDatas.reduce((total, item) => total + parseFloat(item.originalPrice), 0).toFixed(2);
+    // const totalPrice = cartItemsDatas.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
+    // const totalOriginalPrice = cartItemsDatas.reduce((total, item) => total + parseFloat(item.originalPrice), 0).toFixed(2);
 
     // Prevents rendering on the server
     if (!isMounted) {
@@ -37,9 +37,9 @@ export default function CartButton({ children, className }) {
     return (
         <div className='relative'>
             <Link className={cn("relative block peer hover:text-active", className)} href="/">
-                {cartCourses.length > 0 && (
+                {cartItems.length > 0 && (
                     <div className="absolute -top-2 -right-2 w-5 aspect-square flex-center text-sm bg-primary text-primary-foreground font-bold rounded-full">
-                        {cartCourses.length}
+                        {cartItems.length}
                     </div>
                 )}
                 {children || <ShoppingCart className='size-6' />}
@@ -48,7 +48,7 @@ export default function CartButton({ children, className }) {
 
             <div className="hidden md:peer-hover:block hover:block absolute top-[100%] right-0 w-72">
                 <div className="h-2xl" />
-                {cartCourses.length > 0
+                {cartItems.length > 0
                     ? (
                         <>
                             <div className="max-h-96 bg-background shadow-md divide-y rounded-md overflow-y-scroll">
