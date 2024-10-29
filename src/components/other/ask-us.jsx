@@ -10,8 +10,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogClose } from "@/components/ui/dialog"
 import { useEffect, useState } from "react"
 
+
 export default function AskUs({ children, inquiryType, isAskus }) {
-    const [formData, setFormData] = useState({
+    const initialFormState = {
         firstname: "",
         contactNumber: "",
         country: "",
@@ -22,9 +23,11 @@ export default function AskUs({ children, inquiryType, isAskus }) {
         content: false,
         inquiryType: inquiryType ? inquiryType : "",
         isAskus: isAskus ? isAskus : "",
-    });
+    }
+    const [formData, setFormData] = useState(initialFormState);
 
     const [countries, setCountries] = useState([]);
+    const [error, setError] = useState(false);
     const [cities, setCities] = useState([]);
     const [courseSuggestionLists, setCourseSuggestionLists] = useState([]);
 
@@ -87,18 +90,29 @@ export default function AskUs({ children, inquiryType, isAskus }) {
         fetchCountriesCategories(value);
     }
 
-    const handleSubmit = () => {
-        toast({
-            description: (
-                <div>
-                    <pre className="mt-2">
-                        <code>{JSON.stringify(formData, null, 2)}</code>
-                    </pre>
-                </div>
-            ),
-            duration: 15000
-        });
+    const handleSubmit = async () => {
+        try {
+            if (error) {
+                return
+            }
+            const response = await fetch('/save-inquiryrequest', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+            const data = await response.json();
+            console.log(data)
+            toast({
+                description: (
+                    <div>Askus Form Submitted Successfully</div>
+                ),
+                duration: 15000
+            });
+        } catch (error) {
+            console.error('Error Submitting Askus Form:', error);
+        }
     }
+
 
     return (
         <Dialog>
@@ -138,7 +152,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                                     ? <SelectItem value="Searching">Searching...</SelectItem>
 
                                     : countries.map(item => (
-                                        <SelectItem value={item.label} key={item.label + "AskUs"}>
+                                        <SelectItem value={item.label} key={item.label + "AskUsCountry"}>
                                             {item.label}
                                         </SelectItem>
                                     ))}
@@ -151,20 +165,19 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                                 onValueChange={(value) => handleInputChange('city', value)}
                             >
                                 <SelectTrigger>
-                                    {/* <SelectValue placeholder={formData.city} /> */}
                                     <div className="">{formData.city}</div>
                                 </SelectTrigger>
                                 <SelectContent>
                                     {cities.length < 1
                                         ? <SelectItem value="Searching">Searching...</SelectItem>
                                         : cities.map(item => (
-                                            <SelectItem value={item.label} key={item.label + "AskUs"}>{item.label}</SelectItem>
+                                            <SelectItem value={item.label} key={item.label + "AskUsCity"}>{item.label}</SelectItem>
                                         ))}
                                 </SelectContent>
                             </Select>
                         )}
 
-                        <Select
+                        {/* <Select
                             defaultValue={formData.courseName}
                             onValueChange={(value) => handleSelectChange('courseName', value)}
                         >
@@ -175,13 +188,13 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                                 {courseSuggestionLists.length < 1
                                     ? <SelectItem value="Searching">Searching...</SelectItem>
 
-                                    : courseSuggestionLists.map(item => (
-                                        <SelectItem value={item.title} key={item.title + "AskUs"}>
+                                    : courseSuggestionLists.map((item, i) => (
+                                        <SelectItem value={item.title} key={item.title + i + "AskUsCourseName" + i}>
                                             {item.title}
                                         </SelectItem>
                                     ))}
                             </SelectContent>
-                        </Select>
+                        </Select> */}
 
                         <Input
                             type="email"
@@ -196,7 +209,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                             onChange={(e) => handleInputChange('message', e.target.value)}
                         />
 
-                        <div className="p-sm w-full border">Captcha</div>
+                        {/* <div className="p-sm w-full border">Captcha</div> */}
 
                         <div className="flex items-center space-x-2">
                             <Checkbox
@@ -211,6 +224,8 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                                 I consent to be contacted by the institutes.
                             </label>
                         </div>
+
+                        {error && <div className="text-center text-red-500">Please fill all the fields</div>}
 
                         <div className="flex-center">
                             <div className={buttonVariants({ variant: "tertiary" })} onClick={handleSubmit}>

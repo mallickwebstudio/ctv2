@@ -116,8 +116,8 @@ const DesktopCategory = () => {
                                 {/* Sub Category */}
                                 {item.subCategories.length > 0 && (
                                     <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
-                                        {item.subCategories.map(item => (
-                                            <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopCategory"}>
+                                        {item.subCategories.map((item,i) => (
+                                            <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopSubCategory"+i}>
                                                 {/* Sub Category List */}
                                                 <Link className="flex items-center gap-base justify-between group-hover/subcategory:text-active" href={`/${item.href}`}>
                                                     <span>{item.category_name}</span>
@@ -132,7 +132,7 @@ const DesktopCategory = () => {
                                                     <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
 
                                                     {item.subSubCategories.map(item => (
-                                                        <Link className="px-base py-xs block text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopCategory"} href={`/${item.href}`}>
+                                                        <Link className="px-base py-xs block text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopSubSubCategory"} href={`/${item.href}`}>
                                                             <div className="flex items-center gap-base justify-between">
                                                                 <span>{item.category_name}</span>
                                                             </div>
