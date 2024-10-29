@@ -26,6 +26,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
 
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
+    const [courseSuggestionLists, setCourseSuggestionLists] = useState([]);
 
     const fetchCountries = async () => {
         try {
@@ -33,6 +34,17 @@ export default function AskUs({ children, inquiryType, isAskus }) {
             const data = await response.json();
             setCountries(data.data); // Set fetched data to state
             setFormData(prev => ({ ...prev, country: data.data[0].label }))
+        } catch (error) {
+            console.error('Error fetching Countries data:', error);
+        }
+    };
+
+    const fetchCountriesCategories = async (countryName) => {
+        try {
+            const response = await fetch(`/api/get-search-list/${countryName}`); // Fetch from Next.js API route
+            const data = await response.json();
+            setCourseSuggestionLists(data.data); // Set fetched data to state
+            setFormData(prev => ({ ...prev, courseName: data.data[0].title }))
         } catch (error) {
             console.error('Error fetching Countries data:', error);
         }
@@ -51,6 +63,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
 
     useEffect(() => {
         fetchCountries();
+        fetchCountriesCategories("online");
     }, []);
 
     useEffect(() => {
@@ -66,7 +79,12 @@ export default function AskUs({ children, inquiryType, isAskus }) {
 
     const handleSelectChange = (key, value) => {
         setFormData(prev => ({ ...prev, [key]: value }));
+    }
+
+    const handleCountrySelectChange = (key, value) => {
+        setFormData(prev => ({ ...prev, [key]: value }));
         fetchCities(value);
+        fetchCountriesCategories(value);
     }
 
     const handleSubmit = () => {
@@ -110,18 +128,20 @@ export default function AskUs({ children, inquiryType, isAskus }) {
 
                         <Select
                             defaultValue={formData.country}
-                            onValueChange={(value) => handleSelectChange('country', value)}
+                            onValueChange={(value) => handleCountrySelectChange('country', value)}
                         >
                             <SelectTrigger>
-                                <SelectValue placeholder={(formData.country) || "Loading..."} />
+                                <SelectValue placeholder={(formData.country) || "Select Country"} />
                             </SelectTrigger>
                             <SelectContent>
                                 {countries.length < 1
                                     ? <SelectItem value="Searching">Searching...</SelectItem>
 
                                     : countries.map(item => (
-                                        <SelectItem value={item.label} key={item.label + "AskUs"}>{item.label}</SelectItem>
-                                    ))}{""}
+                                        <SelectItem value={item.label} key={item.label + "AskUs"}>
+                                            {item.label}
+                                        </SelectItem>
+                                    ))}
                             </SelectContent>
                         </Select>
 
@@ -144,11 +164,24 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                             </Select>
                         )}
 
-                        <Input
-                            placeholder="Type a course Name"
-                            value={formData.courseName}
-                            onChange={(e) => handleInputChange('courseName', e.target.value)}
-                        />
+                        <Select
+                            defaultValue={formData.courseName}
+                            onValueChange={(value) => handleSelectChange('courseName', value)}
+                        >
+                            <SelectTrigger>
+                                <SelectValue placeholder={(formData.courseName) || "Select Course Name"} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {courseSuggestionLists.length < 1
+                                    ? <SelectItem value="Searching">Searching...</SelectItem>
+
+                                    : courseSuggestionLists.map(item => (
+                                        <SelectItem value={item.title} key={item.title + "AskUs"}>
+                                            {item.title}
+                                        </SelectItem>
+                                    ))}
+                            </SelectContent>
+                        </Select>
 
                         <Input
                             type="email"
