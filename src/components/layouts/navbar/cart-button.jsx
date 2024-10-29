@@ -8,7 +8,7 @@ import CartCard from '@/components/card/cart-card';
 import { cn } from '@/lib/utils';
 
 export default function CartButton({ children, className }) {
-    const { cartItems, courses } = useData();
+    const { cartItems, courses, cartCourses } = useData();
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -37,9 +37,9 @@ export default function CartButton({ children, className }) {
     return (
         <div className='relative'>
             <Link className={cn("relative block peer hover:text-active", className)} href="/">
-                {cartItems.length > 0 && (
+                {cartCourses.length > 0 && (
                     <div className="absolute -top-2 -right-2 w-5 aspect-square flex-center text-sm bg-primary text-primary-foreground font-bold rounded-full">
-                        {cartItems.length}
+                        {cartCourses.length}
                     </div>
                 )}
                 {children || <ShoppingCart className='size-6' />}
@@ -48,11 +48,11 @@ export default function CartButton({ children, className }) {
 
             <div className="hidden md:peer-hover:block hover:block absolute top-[100%] right-0 w-72">
                 <div className="h-2xl" />
-                {cartItems.length > 0
+                {cartCourses.length > 0
                     ? (
                         <>
                             <div className="max-h-96 bg-background shadow-md divide-y rounded-md overflow-y-scroll">
-                                {cartItemsDatas.map((item) => (
+                                {cartCourses.map((item) => (
                                     <CartCard data={item} key={item.id + "NavCart"} />
                                 ))}
                             </div>

@@ -1,8 +1,9 @@
 "use client";
-import React,{ useEffect, useRef, useState, cloneElement } from "react";
+import React, { useEffect, useRef, useState, cloneElement } from "react";
 import { useSiteState } from '@/hooks/site-state-provider';
 import { cn } from '@/lib/utils';
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SearchInput({ children, className }) {
     const [searchListOpen, setSearchListOpen] = useState(false);
@@ -44,17 +45,26 @@ export default function SearchInput({ children, className }) {
             setHighlightedIndex((prevIndex) =>
                 prevIndex > 0 ? prevIndex - 1 : filteredItems.length - 1
             );
-        } else if (e.key === 'Enter' && highlightedIndex >= 0) {
+        } else if (e.key === 'Enter') {
             e.preventDefault();
-            handleSelectItem(filteredItems[highlightedIndex].title, filteredItems[highlightedIndex].link);
+            if (highlightedIndex >= 0) {
+                // Select the highlighted suggestion
+                handleSelectItem(filteredItems[highlightedIndex].title, filteredItems[highlightedIndex].link);
+            } else {
+                // Format input value with commas replaced by `+`
+                const formattedValue = inputValue.replace(/,\s*/g, '+').replace(/\s+/g, '+');
+                // Redirect based on input value if no suggestion is highlighted
+                router.push(`/online/search/courses?title=${formattedValue}`);
+                setSearchListOpen(false);
+            }
         }
     };
-    
+
     const handleSelectItem = (item, link) => {
         setInputValue(item);
         setSearchListOpen(false);
         setHighlightedIndex(-1);
-        router.push(`${link}`)
+        router.push(link);
     };
 
     const filteredItems = searchList.filter(item =>
@@ -67,10 +77,10 @@ export default function SearchInput({ children, className }) {
         children: React.Children.map(children.props.children, (child) =>
             child.type === "input"
                 ? cloneElement(child, {
-                      value: inputValue,
-                      onChange: handleInputChange,
-                      onKeyDown: handleKeyDown,
-                  })
+                    value: inputValue,
+                    onChange: handleInputChange,
+                    onKeyDown: handleKeyDown,
+                })
                 : child
         )
     });
@@ -90,15 +100,17 @@ export default function SearchInput({ children, className }) {
                     <ul className="space-y-1">
                         {filteredItems.length > 0 ? (
                             filteredItems.slice(0, 10).map((item, i) => (
-                                <li
-                                    className={cn(
-                                        "p-sm cursor-pointer hover:bg-secondary",
-                                        highlightedIndex === i && "bg-secondary"
-                                    )}
-                                    key={i}
-                                    onClick={() => handleSelectItem(item.title)}
-                                >
-                                    {item.title}
+                                <li key={i}>
+                                    <Link
+                                        className={cn(
+                                            "p-sm block cursor-pointer hover:bg-secondary",
+                                            highlightedIndex === i && "bg-secondary"
+                                        )}
+                                        onClick={() => handleSelectItem(item.title, item.link)}
+                                        href={item.link}
+                                    >
+                                        {item.title}
+                                    </Link>
                                 </li>
                             ))
                         ) : (

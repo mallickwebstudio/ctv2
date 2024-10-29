@@ -7,14 +7,13 @@ import { baseUrl } from "@/lib/datas/api";
 export default function CourseCard({ data = {}, i }) {
     const {
         courseHref = "#",
-        imageUrl = "/images/common/1.jpg",
         totalRatings = 42329,
         enrolled = 50000,
         price = 99.99,
         originalPrice = 99.99,
         bestseller = true,
         rating = "4.3",
-        thumbnailUrl = "/store/1016/1.jpg",
+        thumbnailUrl = "/images/common/error.png",
         courseName = "Become a Product Manager",
         instructorName = "Ricardo dave",
         instructorImageUrl = "/store/1016/avatar/617a4f17c8e72.png",
@@ -26,7 +25,7 @@ export default function CourseCard({ data = {}, i }) {
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                    src={thumbnailUrl != null ? (thumbnailUrl.includes(baseUrl) ? thumbnailUrl : `${baseUrl + thumbnailUrl}`) : "/images/common/1.jpg"}
+                    src={thumbnailUrl != null ? (thumbnailUrl.includes(baseUrl) ? thumbnailUrl : `${baseUrl + thumbnailUrl}`) : thumbnailUrl}
                     width={160}
                     height={90}
                     alt="Course Image"
