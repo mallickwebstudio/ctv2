@@ -13,16 +13,15 @@ import { useEffect, useState } from "react"
 
 export default function AskUs({ children, inquiryType, isAskus }) {
     const initialFormState = {
-        firstname: "",
+        name: "",
         contactNumber: "",
         country: "",
         city: "",
         courseName: "",
         email: "",
         message: "",
-        content: false,
-        inquiryType: inquiryType ? inquiryType : "",
-        isAskus: isAskus ? isAskus : "",
+        inquiry_type: inquiryType ? inquiryType : "Ask Us",
+        is_askus: isAskus ? isAskus : "",
     }
     const [formData, setFormData] = useState(initialFormState);
 
@@ -95,16 +94,17 @@ export default function AskUs({ children, inquiryType, isAskus }) {
             if (error) {
                 return
             }
-            const response = await fetch('/save-inquiryrequest', {
+            const response = await fetch('/api/save-inquiry', {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "form-data" },
                 body: JSON.stringify(formData)
             });
             const data = await response.json();
-            console.log(data)
+            console.log("Response Data~",data)
             toast({
                 description: (
-                    <div>Askus Form Submitted Successfully</div>
+                    // data.message
+                    "Message Sent"
                 ),
                 duration: 15000
             });
@@ -131,8 +131,8 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                     <form className="space-y-base">
                         <Input
                             placeholder="Your Full Name*"
-                            value={formData.firstname}
-                            onChange={(e) => handleInputChange('firstname', e.target.value)}
+                            value={formData.name}
+                            onChange={(e) => handleInputChange('name', e.target.value)}
                         />
                         <Input
                             placeholder="Your Contact Number*"
@@ -177,7 +177,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                             </Select>
                         )}
 
-                        {/* <Select
+                        <Select
                             defaultValue={formData.courseName}
                             onValueChange={(value) => handleSelectChange('courseName', value)}
                         >
@@ -194,7 +194,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                                         </SelectItem>
                                     ))}
                             </SelectContent>
-                        </Select> */}
+                        </Select>
 
                         <Input
                             type="email"

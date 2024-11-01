@@ -1,24 +1,22 @@
-
 export async function POST(request) {
     try {
         const body = await request.json();
-
+        console.log(body)
         // Make the POST request to the external API with the form data
-        const response = await fetch('http://52.215.93.118/save-inquiryrequest', {
+        const response = await fetch('http://52.215.93.118/api/save-inquiry', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'form-data',
             },
-            body: new URLSearchParams(body),
+            body
         });
 
         const data = await response.json();
-        console.log(data)
 
         return new Response(JSON.stringify(data), {
             status: 200,
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'form-data',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',

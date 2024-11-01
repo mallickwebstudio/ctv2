@@ -26,14 +26,13 @@ export const DataProvider = ({ children }) => {
 
     const fetchCartItems = async (p_ids) => {
         try {
-            const response = await fetch('/api/get-cart-items', {
+            const response = await fetch('/api/get-products', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ p_ids })
             });
             const data = await response.json();
             setCartCourses(data.data); 
-            console.log(data.data)
         } catch (error) {
             console.error('Error fetching cart items:', error);
         }

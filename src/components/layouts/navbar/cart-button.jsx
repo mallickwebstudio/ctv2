@@ -48,11 +48,11 @@ export default function CartButton({ children, className }) {
 
             <div className="hidden md:peer-hover:block hover:block absolute top-[100%] right-0 w-72">
                 <div className="h-2xl" />
-                {cartItems.length > 0
+                {cartCourses && cartCourses.length > 0 && cartItems.length > 0
                     ? (
                         <>
                             <div className="max-h-96 bg-background shadow-md divide-y rounded-md overflow-y-scroll">
-                                {cartCourses.map((item) => (
+                                {cartCourses && cartCourses.map((item) => (
                                     <CartCard data={item} key={item.id + "NavCart"} />
                                 ))}
                             </div>

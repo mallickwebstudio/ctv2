@@ -82,7 +82,7 @@ export default function ExploreCard({ data }) {
 
     return (
         <div className="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md w-full overflow-hidden">
-            <div className="h-8 md:h-20 shrink-0">
+            <div className="size-8 md:size-20 shrink-0">
                 {icon
                     ?
                     // eslint-disable-next-line @next/next/no-img-element
@@ -102,18 +102,20 @@ export default function ExploreCard({ data }) {
                     {category_name}
                 </Link>
 
-                {subSubCategories.length > 0 && (
-                    <Link className="mt-sm hidden md:block text-sm hover:underline" href={`/courses/${subSubCategories[0].slug}`}>
-                        {subSubCategories[0].slug}
-                    </Link>
-                )}
+                <div className="line-clamp-2 w-full overflow-hidden">
+                    {subSubCategories.length > 0 && subSubCategories.map(item => (
+                        <Link className="mt-sm hidden md:inline text-sm hover:underline text-nowrap" href={`/courses/${item.slug}`} key={item.slug + "ExploreCategoryCard"}>
+                            {item.slug},{" "}
+                        </Link>
+                    ))}
+                </div>
 
                 {subSubCategories.length > 0 && (
                     <Dialog>
                         <DialogTrigger>
-                            <div className="hidden md:block text-link hover:underline cursor-pointer">
+                            <span className="hidden md:block w-12 text-nowrap text-link hover:underline cursor-pointer">
                                 View All
-                            </div>
+                            </span>
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>

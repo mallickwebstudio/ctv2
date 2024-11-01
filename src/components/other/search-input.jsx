@@ -67,7 +67,7 @@ export default function SearchInput({ children, className }) {
         router.push(link);
     };
 
-    const filteredItems = searchList.filter(item =>
+    const filteredItems = searchList?.filter(item =>
         item.title.toLowerCase().includes(inputValue.toLowerCase())
     );
 
@@ -98,7 +98,7 @@ export default function SearchInput({ children, className }) {
             >
                 <div className="">
                     <ul className="space-y-1">
-                        {filteredItems.length > 0 ? (
+                        {filteredItems && filteredItems.length > 0 ? (
                             filteredItems.slice(0, 10).map((item, i) => (
                                 <li key={i}>
                                     <Link

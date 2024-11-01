@@ -76,7 +76,7 @@ const DesktopCategory = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('/api/get-categories'); 
+                const response = await fetch('/api/get-categories');
                 const data = await response.json();
                 setCategories(data.data);
             } catch (error) {
@@ -99,58 +99,61 @@ const DesktopCategory = () => {
 
                 {/* Category */}
                 <div className="relative w-64 h-[40rem] bg-background border shadow-md">
-                    {categories.length < 0
-                        ? <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category">
-                            Loading...
-                        </div>
-                        : categories.map(item => (
-                            <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category" key={item.category_name + "DesketopCategory"}>
-                                {/* Category List */}
-                                <Link className="flex items-center gap-base justify-between group-hover/category:text-active" href={`/${item.href}`}>
-                                    <span>{item.category_name}</span>
-                                    {item.subCategories.length > 0 &&
-                                        <ArrowRight className='size-4 shrink-0' />
-                                    }
-                                </Link>
+                    <div className="h-full overflow-y-scroll">
 
-                                {/* Sub Category */}
-                                {item.subCategories.length > 0 && (
-                                    <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
-                                        {item.subCategories.map((item,i) => (
-                                            <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopSubCategory"+i}>
-                                                {/* Sub Category List */}
-                                                <Link className="flex items-center gap-base justify-between group-hover/subcategory:text-active" href={`/${item.href}`}>
-                                                    <span>{item.category_name}</span>
-                                                    {item.subSubCategories.length > 0 &&
-                                                        <ArrowRight className='size-4 shrink-0' />
-                                                    }
-                                                </Link>
-
-                                                {/* Item */}
-                                                {item.subSubCategories.length > 0 && (<div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
-                                                    {/* List */}
-                                                    <div className="px-base py-xs bg-secondary text-muted-foreground font-bold">Popular Topics</div>
-
-                                                    {item.subSubCategories.map(item => (
-                                                        <Link className="px-base py-xs block text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopSubSubCategory"} href={`/${item.href}`}>
-                                                            <div className="flex items-center gap-base justify-between">
-                                                                <span>{item.category_name}</span>
-                                                            </div>
-                                                        </Link>
-                                                    ))}
-
-                                                </div>)}
-                                            </div>
-                                        ))}
-
-                                    </div>
-                                )}
+                        {categories.length < 0
+                            ? <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category">
+                                Loading...
                             </div>
-                        ))}
+                            : categories.map(item => (
+                                <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category" key={item.category_name + "DesketopCategory"}>
+                                    {/* Category List */}
+                                    <Link className="flex items-center gap-base justify-between group-hover/category:text-active" href={`/${item.href}`}>
+                                        <span>{item.category_name}</span>
+                                        {item.subCategories.length > 0 &&
+                                            <ArrowRight className='size-4 shrink-0' />
+                                        }
+                                    </Link>
 
+                                    {/* Sub Category */}
+                                    {item.subCategories.length > 0 && (
+                                        <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
+                                            <div className="h-full overflow-y-scroll">
+                                                {item.subCategories.map((item, i) => (
+                                                    <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopSubCategory" + i}>
+                                                        {/* Sub Category List */}
+                                                        <Link className="flex items-center gap-base justify-between group-hover/subcategory:text-active" href={`/${item.href}`}>
+                                                            <span>{item.category_name}</span>
+                                                            {item.subSubCategories.length > 0 &&
+                                                                <ArrowRight className='size-4 shrink-0' />
+                                                            }
+                                                        </Link>
+
+                                                        {/* Item */}
+                                                        {item.subSubCategories.length > 0 && (<div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
+                                                            {/* List */}
+                                                            <div className="px-base py-xs h-12 bg-secondary text-muted-foreground font-bold">Popular Topics</div>
+                                                            <div className="h-[calc(100%_-_3rem)] overflow-y-scroll">
+                                                                {item.subSubCategories.map(item => (
+                                                                    <Link className="px-base py-xs block text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopSubSubCategory"} href={`/${item.href}`}>
+                                                                        <div className="flex items-center gap-base justify-between">
+                                                                            <span>{item.category_name}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+
+                                                        </div>)}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                    </div>
                 </div>
             </div>
-
         </div>
     )
 }
