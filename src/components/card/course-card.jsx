@@ -40,8 +40,8 @@ export default function CourseCard({ data = {}, i }) {
 
                 <div className="my-2 flex gap-xs items-center">
                     <img
-                        className="rounded-full size-5 aspect-square object-cover"
-                        src={instructorImageUrl !== null ? baseUrl + instructorImageUrl : "/images/common/1.jpg"}
+                        className="rounded-full size-5 aspect-square object-cover overflow-hidden"
+                        src={instructorImageUrl !== null ? (instructorImageUrl.includes(baseUrl)) ? instructorImageUrl : (baseUrl + instructorImageUrl) : instructorImageUrl}
                         alt="Course Image"
                     />
                     <p className='text-sm line-clamp-1 text-muted-foreground'>

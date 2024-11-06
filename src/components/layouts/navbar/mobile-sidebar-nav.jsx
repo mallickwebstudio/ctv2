@@ -40,7 +40,7 @@ export default function MobileSidebarNav({ setIsNavbarOpen }) {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const fetchTestimonials = async () => {
+        const fetchCategories = async () => {
             try {
                 const response = await fetch('/api/get-categories'); // Fetch data from API
                 const data = await response.json();
@@ -50,7 +50,7 @@ export default function MobileSidebarNav({ setIsNavbarOpen }) {
             }
         };
 
-        fetchTestimonials();
+        fetchCategories();
     }, []);
 
     const handleCategoryClick = (items) => {
@@ -128,9 +128,9 @@ function SidebarSubNav({ subNavItems, subNavOpen, setSubNavOpen }) {
             </div>
             <div className="p-base space-y-2">
                 {subNavItems.map((item, index) => (
-                    <div key={item.category_name + "SidebarSubNav"} className="">
+                    <Link key={item.category_name + "SidebarSubNav"} className="block" href={item.href}>
                         {item.category_name}
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

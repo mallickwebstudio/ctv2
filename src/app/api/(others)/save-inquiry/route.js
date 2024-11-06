@@ -1,7 +1,7 @@
 export async function POST(request) {
     try {
         const body = await request.json();
-        console.log(body)
+        console.log(body)   
         // Make the POST request to the external API with the form data
         const response = await fetch('http://52.215.93.118/api/save-inquiry', {
             method: 'POST',
