@@ -34,7 +34,7 @@ export default function PopOverCard({ className, data = {} }) {
             <div className="my-xs flex gap-xs items-center">
                 <Image
                     className="rounded-full size-8 aspect-square object-cover overflow-hidden"
-                    src={instructorImageUrl !== null ? baseUrl + instructorImageUrl : "/images/common/1.jpg"}
+                    src={instructorImageUrl !== null ? (instructorImageUrl.includes(baseUrl)) ? instructorImageUrl : (baseUrl + instructorImageUrl) : instructorImageUrl}
                     width={32}
                     height={32}
                     alt="Course Image"
