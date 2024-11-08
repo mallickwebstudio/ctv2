@@ -29,7 +29,7 @@ export default function CartCard({ data }) {
                         src={thumbnailUrl != null ? (thumbnailUrl.includes(baseUrl) ? thumbnailUrl : `${baseUrl + thumbnailUrl}`) : thumbnailUrl}
                         width={64}
                         height={64}
-                        alt="person"
+                        alt="Course Image"
                     />
                 </div>
                 <div className="flex-1">
