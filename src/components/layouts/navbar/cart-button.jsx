@@ -37,9 +37,9 @@ export default function CartButton({ children, className }) {
     return (
         <div className='relative'>
             <Link className={cn("relative block peer hover:text-active", className)} href="/">
-                {cartItems.length > 0 && (
+                {cartCourses.length > 0 && (
                     <div className="absolute -top-2 -right-2 w-5 aspect-square flex-center text-sm bg-primary text-primary-foreground font-bold rounded-full">
-                        {cartItems.length}
+                        {cartCourses.length}
                     </div>
                 )}
                 {children || <ShoppingCart className='size-6' />}

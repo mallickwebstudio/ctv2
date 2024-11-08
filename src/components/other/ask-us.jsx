@@ -100,7 +100,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
                 body: JSON.stringify(formData)
             });
             const data = await response.json();
-            console.log("Response Data~",data)
+            // console.log("Response Data~",data)
             toast({
                 description: (
                     // data.message
