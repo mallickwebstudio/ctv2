@@ -5,6 +5,7 @@ import RenderStars from "@/components/ui/render-stars";
 import { baseUrl } from "@/lib/datas/api";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { Clock, MapPin } from "lucide-react";
 
 export default function CourseCard({ className, data = {}, i }) {
     const {
@@ -21,6 +22,7 @@ export default function CourseCard({ className, data = {}, i }) {
         instructorImageUrl = "/store/1016/avatar/617a4f17c8e72.png",
         location = ["Delhi", "Mumbai"],
         localCourse = false,
+        duration="10"
     } = data;
 
     const path = usePathname();
@@ -70,9 +72,27 @@ export default function CourseCard({ className, data = {}, i }) {
                     <div className='font-xs text-muted-foreground'>({totalRatings})</div>
                 </div>
 
-                <div className="font-xs text-muted-foreground">
-                    {enrolled} {" "}  Enrolled
+                <div className="font-xs">
+                    {enrolled} {" "} <span className="text-muted-foreground">Enrolled</span>
                 </div>
+
+                {localCourse && (<>
+                    <div className="flex gap-1 items-center">
+                        <MapPin className='size-base shrink- text-muted-foreground0' />
+                        <div className="flex font-xs gap-[2px] line-clamp-1">
+                            {location.map(item => (
+                                <span className="after:content-[','] last:after:content-['']" key={item + "FeatureCardLocarion"}>{item}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="flex gap-1 items-center">
+                        <Clock className='size-base shrink-0 text-muted-foreground' />
+                        <div className="flex font-xs gap-[2px] line-clamp-1">
+                            {duration} hours
+                        </div>
+                    </div>
+                </>)}
 
                 <div className="my-1">
                     <span className="text-2xl font-bold">${price}</span>
