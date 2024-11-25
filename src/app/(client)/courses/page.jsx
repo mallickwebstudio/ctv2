@@ -13,6 +13,120 @@ import CoursesCategorySection from "@/components/section/courses-category-sectio
 import { useEffect, useState } from "react"
 import FilterTab from "./filter-tab"
 
+const instructorData = [
+  {
+    href: "#",
+    imageUrl: "/images/common/0.jpg",
+    name: " ETTFOS (Expert Trading Techniques: Crypto, Commodities, Forex, Stocks)",
+    profession: "Website Developer",
+    rating: 4.9,
+    students: 3323429,
+    courses: 14,
+    location: ["Delhi", "Mumbai"],
+    localCourse: true,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/person/1.jpg",
+    name: "Alice Johnson",
+    profession: "Data Scientist",
+    rating: 4.8,
+    students: 527934,
+    courses: 18,
+    location: ["Chennai", "Hyderabad"],
+    localCourse: true,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/common/2.jpg",
+    name: "ETTFOS (Expert Trading Techniques: Crypto, Commodity",
+    profession: "Graphic Designer",
+    rating: 4.7,
+    students: 284728,
+    courses: 10,
+    location: ["Bangalore", "Kolkata"],
+    localCourse: false,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/person/3.jpg",
+    name: "Jane Smith",
+    profession: "Digital Marketer",
+    rating: 4.6,
+    students: 182472,
+    courses: 12,
+    location: ["Pune", "Lucknow"],
+    localCourse: false,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/common/4.jpg",
+    name: "Certified Management Accountant (CMA) Course",
+    profession: "Cybersecurity Expert",
+    rating: 4.9,
+    students: 472819,
+    courses: 8,
+    location: ["Ahmedabad", "Jaipur"],
+    localCourse: true,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/person/5.jpg",
+    name: "Diana Prince",
+    profession: "AI Specialist",
+    rating: 4.8,
+    students: 829384,
+    courses: 15,
+    location: ["Delhi", "Mumbai"],
+    localCourse: false,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/common/6.jpg",
+    name: "CAMS (Certified Anti-Money Laundering Specialist)",
+    profession: "Project Manager",
+    rating: 4.7,
+    students: 273910,
+    courses: 7,
+    location: ["Chennai", "Kolkata"],
+    localCourse: true,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/person/7.jpg",
+    name: "Fiona Gallagher",
+    profession: "Entrepreneur",
+    rating: 4.5,
+    students: 394728,
+    courses: 5,
+    location: ["Hyderabad", "Pune"],
+    localCourse: false,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/common/8.jpg",
+    name: "Tally",
+    profession: "SEO Expert",
+    rating: 4.8,
+    students: 127384,
+    courses: 6,
+    location: ["Lucknow", "Ahmedabad"],
+    localCourse: true,
+  },
+  {
+    href: "#",
+    imageUrl: "/images/person/9.jpg",
+    name: "Hannah Montana",
+    profession: "Content Creator",
+    rating: 4.9,
+    students: 937482,
+    courses: 20,
+    location: ["Jaipur", "Delhi"],
+    localCourse: false,
+  },
+];
+
+
 const tabData = [
   {
     "category_id": "520",
@@ -25,15 +139,155 @@ const tabData = [
     "subTitle": "Learn to extract insights from data and make informed decisions Professional",
     "items": [
       {
-        "course_id": "2005",
-        "slug": "Web-Design-for-Beginners",
-        "price": "10.00",
-        "category_id": "520",
-        "imageUrl": "/store/4/Web-Design-for-Beginnerrs.jpg",
-        "course_name": "Web Design for Beginners",
-        "instructor": "King Pictures",
-        "image": "/store/4/avatar/617a50568d8a8.png"
-      }
+        courseHref: "#",
+        totalRatings: 42329,
+        enrolled: 50000,
+        price: 99.99,
+        originalPrice: 99.99,
+        bestseller: true,
+        rating: "4.3",
+        thumbnailUrl: "/images/common/1.jpg",
+        courseName: "Become a Product Manager",
+        instructorName: "Ricardo Dave",
+        instructorImageUrl: "/store/1016/avatar/617a4f17c8e72.png",
+        location: ["Delhi", "Mumbai"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 57340,
+        enrolled: 75000,
+        price: 199.99,
+        originalPrice: 249.99,
+        bestseller: false,
+        rating: "4.7",
+        thumbnailUrl: "/images/common/2.jpg",
+        courseName: "Master Data Science",
+        instructorName: "Alice Harper",
+        instructorImageUrl: "/store/1017/avatar/617a4f17c8e73.png",
+        location: ["Bangalore", "Hyderabad"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 23958,
+        enrolled: 40000,
+        price: 49.99,
+        originalPrice: 99.99,
+        bestseller: true,
+        rating: "4.8",
+        thumbnailUrl: "/images/common/3.jpg",
+        courseName: "Learn Graphic Design",
+        instructorName: "Bob Martin",
+        instructorImageUrl: "/store/1018/avatar/617a4f17c8e74.png",
+        location: ["Chennai", "Kolkata"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 15029,
+        enrolled: 30000,
+        price: 79.99,
+        originalPrice: 99.99,
+        bestseller: false,
+        rating: "4.5",
+        thumbnailUrl: "/images/common/4.jpg",
+        courseName: "SEO Mastery",
+        instructorName: "Jane Simmons",
+        instructorImageUrl: "/store/1019/avatar/617a4f17c8e75.png",
+        location: ["Lucknow", "Pune"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 64237,
+        enrolled: 85000,
+        price: 149.99,
+        originalPrice: 199.99,
+        bestseller: true,
+        rating: "4.9",
+        thumbnailUrl: "/images/common/5.jpg",
+        courseName: "Introduction to Cybersecurity",
+        instructorName: "Ethan Brown",
+        instructorImageUrl: "/store/1020/avatar/617a4f17c8e76.png",
+        location: ["Ahmedabad", "Delhi"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 33021,
+        enrolled: 60000,
+        price: 119.99,
+        originalPrice: 149.99,
+        bestseller: false,
+        rating: "4.6",
+        thumbnailUrl: "/images/common/6.jpg",
+        courseName: "Digital Marketing Basics",
+        instructorName: "Hannah Lee",
+        instructorImageUrl: "/store/1021/avatar/617a4f17c8e77.png",
+        location: ["Mumbai", "Chennai"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 41032,
+        enrolled: 70000,
+        price: 199.99,
+        originalPrice: 299.99,
+        bestseller: true,
+        rating: "4.7",
+        thumbnailUrl: "/images/common/7.jpg",
+        courseName: "Artificial Intelligence for Beginners",
+        instructorName: "Chris Evans",
+        instructorImageUrl: "/store/1022/avatar/617a4f17c8e78.png",
+        location: ["Bangalore", "Jaipur"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 50321,
+        enrolled: 90000,
+        price: 89.99,
+        originalPrice: 129.99,
+        bestseller: false,
+        rating: "4.4",
+        thumbnailUrl: "/images/common/8.jpg",
+        courseName: "Advanced Python Programming",
+        instructorName: "Fiona Gallagher",
+        instructorImageUrl: "/store/1023/avatar/617a4f17c8e79.png",
+        location: ["Kolkata", "Hyderabad"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 32948,
+        enrolled: 45000,
+        price: 69.99,
+        originalPrice: 99.99,
+        bestseller: true,
+        rating: "4.5",
+        thumbnailUrl: "/images/common/9.jpg",
+        courseName: "Freelancing 101",
+        instructorName: "George Miller",
+        instructorImageUrl: "/store/1024/avatar/617a4f17c8e80.png",
+        location: ["Delhi", "Pune"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 29010,
+        enrolled: 50000,
+        price: 99.99,
+        originalPrice: 129.99,
+        bestseller: false,
+        rating: "4.2",
+        thumbnailUrl: "/images/common/10.jpg",
+        courseName: "Leadership and Management",
+        instructorName: "Diana Prince",
+        instructorImageUrl: "/store/1025/avatar/617a4f17c8e81.png",
+        location: ["Ahmedabad", "Chennai"],
+        localCourse: false,
+      },
     ]
   },
   {
@@ -47,25 +301,50 @@ const tabData = [
     "subTitle": "Learn to extract insights from data and make informed decisions Language",
     "items": [
       {
-        "course_id": "1995",
-        "slug": "Become-a-Product-Manager",
-        "price": "0.00",
-        "category_id": "611",
-        "imageUrl": "/store/1016/1.jpg",
-        "course_name": "Become a Product Manager",
-        "instructor": "Ricardo dave",
-        "image": "/store/1016/avatar/617a4f17c8e72.png"
+        courseHref: "#",
+        totalRatings: 50321,
+        enrolled: 90000,
+        price: 89.99,
+        originalPrice: 129.99,
+        bestseller: false,
+        rating: "4.4",
+        thumbnailUrl: "/images/common/8.jpg",
+        courseName: "Advanced Python Programming",
+        instructorName: "Fiona Gallagher",
+        instructorImageUrl: "/store/1023/avatar/617a4f17c8e79.png",
+        location: ["Kolkata", "Hyderabad"],
+        localCourse: false,
       },
       {
-        "course_id": "2022",
-        "slug": "Installment-feature",
-        "price": "100.00",
-        "category_id": "611",
-        "imageUrl": "/store/870/Installment.jpg",
-        "course_name": "Installment and Secure Host",
-        "instructor": "Jessica Wray",
-        "image": "/store/870/avatar/617a4f7c09d61.png"
-      }
+        courseHref: "#",
+        totalRatings: 32948,
+        enrolled: 45000,
+        price: 69.99,
+        originalPrice: 99.99,
+        bestseller: true,
+        rating: "4.5",
+        thumbnailUrl: "/images/common/9.jpg",
+        courseName: "Freelancing 101",
+        instructorName: "George Miller",
+        instructorImageUrl: "/store/1024/avatar/617a4f17c8e80.png",
+        location: ["Delhi", "Pune"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 29010,
+        enrolled: 50000,
+        price: 99.99,
+        originalPrice: 129.99,
+        bestseller: false,
+        rating: "4.2",
+        thumbnailUrl: "/images/common/10.jpg",
+        courseName: "Leadership and Management",
+        instructorName: "Diana Prince",
+        instructorImageUrl: "/store/1025/avatar/617a4f17c8e81.png",
+        location: ["Ahmedabad", "Chennai"],
+        localCourse: false,
+      },
     ]
   },
   {
@@ -79,15 +358,80 @@ const tabData = [
     "subTitle": "Learn to extract insights from data and make informed decisions Cooking",
     "items": [
       {
-        "course_id": "2028",
-        "slug": "sp32-databases-to-control-anything-anywhere",
-        "price": "9.99",
-        "category_id": "608",
-        "imageUrl": "/store/1/default_images/blogs/home2.png",
-        "course_name": "ESP32 + Databases to Control Anything Anywhere",
-        "instructor": "Ashraf Said AlMadhoun",
-        "image": "/store/1/default_images/instructor_finder_wizard.jpg"
-      }
+        courseHref: "#",
+        totalRatings: 15029,
+        enrolled: 30000,
+        price: 79.99,
+        originalPrice: 99.99,
+        bestseller: false,
+        rating: "4.5",
+        thumbnailUrl: "/images/common/4.jpg",
+        courseName: "SEO Mastery",
+        instructorName: "Jane Simmons",
+        instructorImageUrl: "/store/1019/avatar/617a4f17c8e75.png",
+        location: ["Lucknow", "Pune"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 64237,
+        enrolled: 85000,
+        price: 149.99,
+        originalPrice: 199.99,
+        bestseller: true,
+        rating: "4.9",
+        thumbnailUrl: "/images/common/5.jpg",
+        courseName: "Introduction to Cybersecurity",
+        instructorName: "Ethan Brown",
+        instructorImageUrl: "/store/1020/avatar/617a4f17c8e76.png",
+        location: ["Ahmedabad", "Delhi"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 33021,
+        enrolled: 60000,
+        price: 119.99,
+        originalPrice: 149.99,
+        bestseller: false,
+        rating: "4.6",
+        thumbnailUrl: "/images/common/6.jpg",
+        courseName: "Digital Marketing Basics",
+        instructorName: "Hannah Lee",
+        instructorImageUrl: "/store/1021/avatar/617a4f17c8e77.png",
+        location: ["Mumbai", "Chennai"],
+        localCourse: false,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 41032,
+        enrolled: 70000,
+        price: 199.99,
+        originalPrice: 299.99,
+        bestseller: true,
+        rating: "4.7",
+        thumbnailUrl: "/images/common/7.jpg",
+        courseName: "Artificial Intelligence for Beginners",
+        instructorName: "Chris Evans",
+        instructorImageUrl: "/store/1022/avatar/617a4f17c8e78.png",
+        location: ["Bangalore", "Jaipur"],
+        localCourse: true,
+      },
+      {
+        courseHref: "#",
+        totalRatings: 50321,
+        enrolled: 90000,
+        price: 89.99,
+        originalPrice: 129.99,
+        bestseller: false,
+        rating: "4.4",
+        thumbnailUrl: "/images/common/8.jpg",
+        courseName: "Advanced Python Programming",
+        instructorName: "Fiona Gallagher",
+        instructorImageUrl: "/store/1023/avatar/617a4f17c8e79.png",
+        location: ["Kolkata", "Hyderabad"],
+        localCourse: false,
+      },
     ]
   }
 ]
@@ -154,35 +498,38 @@ export default function Page() {
 
   return (
     <main>
-      <Header
-        sectionClassName="bg-secondary"
-      />
+      <Header />
 
       <CoursesCategorySection
+        sectionClassName="bg-secondary"
         h2="Explore Our Course Categories"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
         data={tabData}
       />
 
       <FeatureSection
-        sectionClassName="bg-secondary"
         h2="Featured courses"
         p="Many learners enjoyed this highly rated course for its engaging content."
       />
 
-      <FilterTab />
+      <LinksSection
+        sectionClassName="bg-secondary"
+        h2="Python students also learn"
+      />
 
       <CoursesSection
         h2={<>Top courses in <Link className="text-link underline" href="#">Python</Link> and <Link className="text-link underline" href="#">Machine Learning</Link></>}
         data={courses[1].items}
       />
 
-
       <InstructorSection
+        sectionClassName="bg-secondary"
         h2="Study with Top Creative Specialists"
         p="Learn directly from top creative experts on CourseTakers. Enhance your skills with their practical insights and experience."
-        data={instructors}
+        data={instructorData}
       />
+
+      <FilterTab />
 
 
       {/* <CoursesCategorySection
@@ -191,15 +538,7 @@ export default function Page() {
         data={datas}
       /> */}
 
-      <LinksSection
-        sectionClassName="bg-secondary"
-        h2="Python students also learn"
-      />
 
-      {/* <CoursesSection
-        h2={<>Top courses in Python and <Link className="text-link underline" href="#">Django</Link></>}
-        data={courses[0].items}
-      /> */}
 
       {/* <InstructorSection
         className="md:pt-0 lg:pt-0"

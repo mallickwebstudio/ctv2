@@ -62,7 +62,7 @@ export default function FreeLesson({ sectionClassName, className, data = {} }) {
           <CarouselContent className="py-1">
             {items.map((item, i) => (
               <CarouselItem
-                className="basis-[80%] sm:basis-[40%] md:basis-[30%]"
+                className="basis-[80%] sm:basis-[40%]"
                 key={item.title + "FreeVideoCard" + i}
               >
 

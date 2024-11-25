@@ -15,6 +15,7 @@ export default function PopOverCard({ className, data = {} }) {
         level = null,
         subtitles = true,
         instructorImageUrl = "/images/common/person.jpg",
+        localCourse = false,
     } = data
 
     const { cartItems, addToCart } = useData();
@@ -63,9 +64,11 @@ export default function PopOverCard({ className, data = {} }) {
                 onClick={handleAddToCart}
                 disabled={cartItems.includes(courseId)}
             >
-                {cartItems.includes(courseId)
-                    ? "Added to cart"
-                    : "Add to cart"
+                {localCourse
+                    ? cartItems.includes(courseId)
+                        ? "Added to cart"
+                        : "Add to cart"
+                    : "Contact Now"
                 }
             </Button>
         </div>

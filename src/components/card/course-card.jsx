@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import RenderStars from "@/components/ui/render-stars";
 import { baseUrl } from "@/lib/datas/api";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
-export default function CourseCard({ data = {}, i }) {
+export default function CourseCard({ className, data = {}, i }) {
     const {
         courseHref = "#",
         totalRatings = 42329,
@@ -17,15 +19,25 @@ export default function CourseCard({ data = {}, i }) {
         courseName = "Become a Product Manager",
         instructorName = "Ricardo dave",
         instructorImageUrl = "/store/1016/avatar/617a4f17c8e72.png",
+        location = ["Delhi", "Mumbai"],
+        localCourse = false,
     } = data;
 
+    const path = usePathname();
+
     return (
-        <Link className="relative block rounded group transition-all" href={`/courses/${courseName}`}>
+        <Link className={cn("relative block rounded group transition-all", className)} href={`/courses/${courseName}`}>
             {/* Card Image */}
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
                     className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
-                    src={thumbnailUrl != null ? (thumbnailUrl.includes(baseUrl) ? thumbnailUrl : `${baseUrl + thumbnailUrl}`) : thumbnailUrl}
+                    src={thumbnailUrl != null
+                        ? (thumbnailUrl.includes(baseUrl)
+                            ? thumbnailUrl
+                            : path.includes("courses")
+                                ? thumbnailUrl
+                                : `${baseUrl + thumbnailUrl}`)
+                        : thumbnailUrl}
                     width={160}
                     height={90}
                     alt="Course Image"

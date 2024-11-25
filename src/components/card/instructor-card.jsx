@@ -7,14 +7,15 @@ import { baseUrl } from "@/lib/datas/api";
 
 export default function InstructorCard({ data, i }) {
     const {
-        id,
         href = "#",
         imageUrl = "/images/common/person.jpg",
         name = "John Doe",
         profession = "Website Developer",
         rating = 4.9,
         students = 3323429,
-        courses = 14,
+        courses = 14,       
+        location = ["Delhi", "Mumbai"],
+        localCourse = false,
     } = data;
 
     return (
@@ -36,10 +37,17 @@ export default function InstructorCard({ data, i }) {
 
             <div className="relative size-full text-white flex flex-col justify-end p-xs overflow-hidden z-20">
                 <div className="flex justify-between gap-base">
-                    <div className="font-bold text-lg leading-6 line-clamp-1">{name}</div>
+                    <div className="font-bold text-md leading-5 line-clamp-2">{name}</div>
                 </div>
 
-                <p className="text-white/90 text-sm line-clamp-2">{profession}</p>
+                <p className="text-white/90 text-sm line-clamp-2">{localCourse
+                    ? <span className="flex font-xs gap-[2px] line-clamp-1">
+                        {location.map(item => (
+                            <span className="after:content-[','] last:after:content-['']" key={item + "FeatureCardLocarion"}>{item}</span>
+                        ))}
+                    </span>
+                    : profession
+                }</p>
 
                 <div className="mt-1 text-sm flex">
                     <div className="pr-2 border-r">

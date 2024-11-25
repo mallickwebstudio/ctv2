@@ -50,8 +50,8 @@ const PaginationPrevious = ({
     aria-label="Go to previous page"
     size="default"
     className={cn(
-      buttonVariants({ variant: "outlineSecondary" }),
-      "p-2 size-10 aspect-square text-foreground rounded-full",
+      buttonVariants({ variant: "tertiary" }),
+      "p-2 size-10 aspect-square rounded-full",
       className
     )}
     {...props}>
@@ -70,8 +70,8 @@ const PaginationNext = ({
     aria-label="Go to next page"
     size="default"
     className={cn(
-      buttonVariants({ variant: "outlineSecondary" }),
-      "p-2 size-10 aspect-square text-foreground rounded-full",
+      buttonVariants({ variant: "tertiary" }),
+      "p-2 size-10 aspect-square rounded-full",
       className
     )}
     {...props}>

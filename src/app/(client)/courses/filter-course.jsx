@@ -279,7 +279,7 @@ export default function FilterCourse({
                         <Pagination>
                             <PaginationContent>
                                 <PaginationItem>
-                                    <PaginationPrevious href="#" />
+                                    <PaginationPrevious variant="secondary" href="#" />
                                 </PaginationItem>
                                 <PaginationItem>
                                     <PaginationLink href="#">1</PaginationLink>
@@ -373,12 +373,12 @@ const BrowseTestimony = () => {
 
 const BrowseComboCourse = () => {
     return (
-        <div className="relative py-sm border-b flex transition-all">
+        <div className="relative hidden py-sm border-b md:flex transition-all">
             <div className="p-base w-full  border rounded-md">
                 <h2>Frequently Bought Together</h2>
                 <div className="relative flex z-0 gap-2">
                     {/* Card */}
-                    <CourseCard />
+                    <CourseCard className="flex-1" />
 
                     {/* Plus icon */}
                     <div className="-mx-6 size-12 aspect-square flex-center bg-background rounded-full border shadow-md self-center z-10">
@@ -386,13 +386,13 @@ const BrowseComboCourse = () => {
                     </div>
 
                     {/* Card */}
-                    <CourseCard />
+                    <CourseCard className="flex-1" />
                 </div>
 
                 <div className="mt-base pt-base flex-between border-t">
                     <div className="text-2xl">Total: <b>199.98</b></div>
 
-                    <Button>Buy Now</Button>
+                    <Button>Add All to Cart</Button>
                 </div>
             </div>
         </div>
