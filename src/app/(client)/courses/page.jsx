@@ -8,10 +8,9 @@ import CoursesSection from "@/components/section/courses-section"
 import InstructorSection from "@/components/section/instructor-section"
 import { useData } from "@/hooks/data-provider"
 import FeatureSection from "@/components/section/feature-section"
-import { courseOne, courseTwo } from '@/lib/datas/courseDatas'
 import CoursesCategorySection from "@/components/section/courses-category-section"
-import { useEffect, useState } from "react"
 import FilterTab from "./filter-tab"
+import { Suspense } from "react"
 
 const instructorData = [
   {
@@ -436,65 +435,65 @@ const tabData = [
   }
 ]
 
-const datas = [
-  {
-    category: "Most Popular",
-    items: [
-      courseOne,
-      courseTwo,
-      courseOne,
-      courseOne,
-      courseOne,
-      courseOne,
-      courseOne,
-    ]
-  },
-  {
-    category: "Latest",
-    items: [
-      courseTwo,
-      courseOne,
-      courseTwo,
-      courseTwo,
-      courseTwo,
-      courseTwo,
-      courseTwo,
-      courseTwo,
-      courseTwo,
-    ]
-  },
-  {
-    category: "Beginner Friendly",
-    items: [
-      courseOne,
-      courseTwo,
-      courseOne,
-      courseOne,
-      courseOne,
-      courseOne,
-      courseOne,
-    ]
-  },
-]
+// const datas = [
+//   {
+//     category: "Most Popular",
+//     items: [
+//       courseOne,
+//       courseTwo,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//     ]
+//   },
+//   {
+//     category: "Latest",
+//     items: [
+//       courseTwo,
+//       courseOne,
+//       courseTwo,
+//       courseTwo,
+//       courseTwo,
+//       courseTwo,
+//       courseTwo,
+//       courseTwo,
+//       courseTwo,
+//     ]
+//   },
+//   {
+//     category: "Beginner Friendly",
+//     items: [
+//       courseOne,
+//       courseTwo,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//       courseOne,
+//     ]
+//   },
+// ]
 export default function Page() {
   const { courses } = useData();
-  const [instructors, setInstructors] = useState([]);
+  // const [instructors, setInstructors] = useState([]);
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const fetchInstructor = async () => {
-      try {
-        const response = await fetch('/api/get-instructors'); // Fetch data from API
-        const data = await response.json();
-        setInstructors(data.data);
-      } catch (error) {
-        console.error('Error fetching testimonials:', error);
-      }
-    };
+  //   const fetchInstructor = async () => {
+  //     try {
+  //       const response = await fetch('/api/get-instructors'); // Fetch data from API
+  //       const data = await response.json();
+  //       setInstructors(data.data);
+  //     } catch (error) {
+  //       console.error('Error fetching testimonials:', error);
+  //     }
+  //   };
 
-    fetchInstructor();
-  }, []);
+  //   fetchInstructor();
+  // }, []);
 
   return (
     <main>
@@ -529,7 +528,9 @@ export default function Page() {
         data={instructorData}
       />
 
-      <FilterTab />
+      <Suspense fallback={<div>Loading...</div>}>
+        <FilterTab />
+      </Suspense>
 
 
       {/* <CoursesCategorySection
