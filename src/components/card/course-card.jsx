@@ -37,7 +37,8 @@ export default function CourseCard({ className, data = {}, i }) {
                             : path.includes("courses")
                                 ? thumbnailUrl
                                 : `${baseUrl + thumbnailUrl}`)
-                        : thumbnailUrl}
+                        : thumbnailUrl
+                    }
                     width={160}
                     height={90}
                     alt="Course Image"

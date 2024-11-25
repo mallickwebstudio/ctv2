@@ -13,7 +13,7 @@ export default function InstructorCard({ data, i }) {
         profession = "Website Developer",
         rating = 4.9,
         students = 3323429,
-        courses = 14,       
+        courses = 14,
         location = ["Delhi", "Mumbai"],
         localCourse = false,
     } = data;
@@ -23,7 +23,14 @@ export default function InstructorCard({ data, i }) {
             <div className="absolute inset-0 size-full z-0">
                 <img
                     className="size-full object-cover object-center"
-                    src={imageUrl ? (baseUrl + imageUrl) : `/images/common/person.jpg`}
+                    srcsrc={thumbnailUrl != null
+                        ? (thumbnailUrl.includes(baseUrl)
+                            ? thumbnailUrl
+                            : path.includes("courses")
+                                ? thumbnailUrl
+                                : `${baseUrl + thumbnailUrl}`)
+                        : thumbnailUrl
+                    }
                     alt={name + " Image"}
                 />
             </div>
