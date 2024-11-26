@@ -32,7 +32,7 @@ export default function CourseCard({ className, data = {}, i }) {
             {/* Card Image */}
             <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-tr-md ">
                 <Image
-                    className="object-cover object-center w-full select-none transition-all group-hover:brightness-75"
+                    className="object-cover object-center size-full select-none transition-all group-hover:brightness-75"
                     src={thumbnailUrl != null
                         ? (thumbnailUrl.includes(baseUrl)
                             ? thumbnailUrl
@@ -55,7 +55,7 @@ export default function CourseCard({ className, data = {}, i }) {
 
                 <div className="my-2 flex gap-xs items-center">
                     <img
-                        className="rounded-full size-5 aspect-square object-cover overflow-hidden"
+                        className="rounded-full size-5 aspect-square object-cover object-center overflow-hidden"
                         src={instructorImageUrl !== null ? (instructorImageUrl.includes(baseUrl)) ? instructorImageUrl : (baseUrl + instructorImageUrl) : instructorImageUrl}
                         alt="Course Image"
                     />
@@ -78,7 +78,7 @@ export default function CourseCard({ className, data = {}, i }) {
 
                 {localCourse && (<>
                     <div className="flex gap-1 items-center">
-                        <MapPin className='size-base shrink- text-muted-foreground0' />
+                        <MapPin className='size-base shrink-0 text-muted-foreground' />
                         <div className="flex font-xs gap-[2px] line-clamp-1">
                             {location.map(item => (
                                 <span className="after:content-[','] last:after:content-['']" key={item + "FeatureCardLocarion"}>{item}</span>

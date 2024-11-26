@@ -23,7 +23,7 @@ export default function InstructorCard({ data, i }) {
             <div className="absolute inset-0 size-full z-0">
                 <img
                     className="size-full object-cover object-center"
-                    srcsrc={imageUrl != null
+                    src={imageUrl != null
                         ? (imageUrl.includes(baseUrl)
                             ? imageUrl
                             : path.includes("courses")

@@ -78,8 +78,8 @@ export default function FeatureCard({ i, data = {} }) {
                         </div>
 
                         <div className="flex gap-1 items-center">
-                            <MapPin className='size-base shrink-0' />
-                            <div className="flex font-xs gap-[2px] text-muted-foreground line-clamp-1">
+                            <MapPin className='size-base shrink-0  text-muted-foreground' />
+                            <div className="flex font-xs gap-[2px] line-clamp-1">
                                 {location.map(item => (
                                     <span className="after:content-[','] last:after:content-['']" key={item + "FeatureCardLocarion"}>{item}</span>
                                 ))}
@@ -87,8 +87,8 @@ export default function FeatureCard({ i, data = {} }) {
                         </div>
 
                         <div className="flex gap-1 items-center">
-                            <Clock className='size-base shrink-0' />
-                            <div className="flex font-xs gap-[2px] text-muted-foreground line-clamp-1">
+                            <Clock className='size-base shrink-0  text-muted-foreground' />
+                            <div className="flex font-xs gap-[2px] line-clamp-1">
                                 {duration} hours
                             </div>
                         </div>
