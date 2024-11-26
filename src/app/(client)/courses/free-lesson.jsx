@@ -9,6 +9,8 @@ import {
 import { Play } from "@/components/ui/svgs";
 import Link from "next/link";
 import Image from "next/image";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const demoItems = [
   {
@@ -81,8 +83,8 @@ export default function FreeLesson({ sectionClassName, className, data = {} }) {
                     <div className="p-1 size-fit bg-black rounded-full">
                       <Play className="shrink-0 size-4 text-neutral-950" />
                     </div>
-                    <div className="text-sm font-bold text-white/90">{item.title}</div>
-                    <div className="text-xs text-white/90">{item.minutes}min video</div>
+                    <div className="font-semibold text-white/90">{item.title}</div>
+                    <div className="text-sm text-white/90">{item.minutes}min video</div>
                   </div>
                 </Link>
 
@@ -93,7 +95,7 @@ export default function FreeLesson({ sectionClassName, className, data = {} }) {
           <CarouselNext variant="tertiary" />
         </Carousel>
 
-        <Link className="text-link font-bold" href="/">View Free Python Courses</Link>
+        <Link className={cn(buttonVariants({ variant: "secondary" }),"mt-xs")} href="/">View Free Python Courses</Link>
       </div>
     </Section>
   )

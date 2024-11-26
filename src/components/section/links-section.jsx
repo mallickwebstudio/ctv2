@@ -66,7 +66,7 @@ export default function LinksSection({ sectionClassName, className, h2, p, data 
         <div className="flex flex-wrap gap-sm w-[130rem]">
           {links.map(item => (
             <Link
-              className={cn(buttonVariants({ variant: "outlineSecondary" }), "w-fit rounded-full")}
+              className={cn(buttonVariants({ variant: "outlineSecondary" }), "w-fit")}
               href={item.href}
               key={item.label + "MobileLinksCrousal"}
             >
@@ -87,7 +87,7 @@ export default function LinksSection({ sectionClassName, className, h2, p, data 
               >
                 {subItem.map(item => (
                   <Link
-                    className={cn(buttonVariants({ variant: "outlineSecondaryLight" }), "min-h-14 h-auto w-full border-[1.5px] leading-5 text-wrap text-center rounded-full")}
+                    className={cn(buttonVariants({ variant: "outlineSecondaryLight" }), "min-h-14 h-auto w-full border-[1.5px] leading-5 text-wrap text-center")}
                     href={item.href}
                     key={item.label + "LinksCrousal"}
                   >

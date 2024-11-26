@@ -1,6 +1,6 @@
 import Section from "@/components/ui/section";
 import { cn, formatNumber } from "@/lib/utils";
-import { ChevronRight, UserRound, Users, UsersRound } from "lucide-react";
+import { BookOpenCheck, ChevronRight, UserRound, Users, UsersRound } from "lucide-react";
 import Link from "next/link";
 
 export default function Header({ sectionClassName }) {
@@ -21,11 +21,9 @@ export default function Header({ sectionClassName }) {
             )}>
                 <h1 className="my-base h2 leading-8 md:w-2/3 capitalize">Top - 10 Accounting, Finance and Banking courses in dubai, Abu dhabi, Sharjha - UAE</h1>
 
-                <p className=" sub-heading flex items-center gap-1">
-                    <Users className="size-base shrink-0" strokeWidth={2} />
-                    <UsersRound className="size-base shrink-0" strokeWidth={2} />
-                    <UsersRound className="size-base shrink-0 fill-foreground" strokeWidth={2} />
-                    {formatNumber(32189798)} students enrolled
+                <p className=" sub-heading flex items-center gap-2">
+                    <BookOpenCheck className="size-lg shrink-0 text-muted-foreground" strokeWidth={2} />
+                    {formatNumber(32189798)} <span className="text-muted-foreground">students enrolled</span>
                 </p>
             </div>
         </section>

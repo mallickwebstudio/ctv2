@@ -22,7 +22,7 @@ export default function CourseCard({ className, data = {}, i }) {
         instructorImageUrl = "/store/1016/avatar/617a4f17c8e72.png",
         location = ["Delhi", "Mumbai"],
         localCourse = false,
-        duration="10"
+        duration = "10"
     } = data;
 
     const path = usePathname();
@@ -45,6 +45,7 @@ export default function CourseCard({ className, data = {}, i }) {
                     height={90}
                     alt="Course Image"
                 />
+                {bestseller && <div className="absolute top-xs left-xs py-[2px] px-2 text-sm size-fit flex-center bg-info font-semibold rounded-md">Bestseller</div>}
             </div>
 
             {/* Card Details */}
@@ -99,7 +100,6 @@ export default function CourseCard({ className, data = {}, i }) {
                     <s className="text-lg ml-1 font-semibold text-muted-foreground">${originalPrice}</s>
                 </div>
 
-                {bestseller && <div className="py-[2px] px-2 text-sm size-fit flex-center bg-info font-semibold rounded-md">Bestseller</div>}
             </div>
         </Link>
     );

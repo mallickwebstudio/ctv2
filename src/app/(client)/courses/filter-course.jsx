@@ -1,6 +1,6 @@
 "use client"
 import { Button, buttonVariants } from '@/components/ui/button'
-import { Info, ListFilter, Plus, X } from 'lucide-react'
+import { HandCoins, Info, ListFilter, Plus, X } from 'lucide-react'
 import {
     Select,
     SelectContent,
@@ -158,8 +158,8 @@ export default function FilterCourse({
                 Johannesburg, South Africa</h2>
             <p className='sub-heading md:w-3/5'>See why millions of people turn to Udemy&apos;s real-world experts to learn Python. Learn at your own pace with hands-on exercises and quizzes. Our courses are frequently updated so you&apos;ll always be working from the latest information. This is the training you&apos;ll need to become a professional Python developer.</p>
 
-            <div className="my-base p-sm flex items-center gap-base bg-info  rounded-md">
-                <Info className='shrink-0 size-6' />
+            <div className="my-base p-sm flex items-center gap-xs bg-info  rounded-md">
+                <HandCoins className='shrink-0 size-6' />
                 <div className="font-bold">Not sure? All courses have a 30-day money-back guarantee</div>
             </div>
 
