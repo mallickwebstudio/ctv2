@@ -45,7 +45,7 @@ export default function CourseCard({ className, data = {}, i }) {
                     height={90}
                     alt="Course Image"
                 />
-                {bestseller && <div className="absolute top-xs left-xs py-[2px] px-2 text-sm size-fit flex-center bg-info font-semibold rounded-md">Bestseller</div>}
+                {bestseller && <div className="absolute top-xs left-xs py-[2px] px-2 text-sm size-fit flex-center bg-bestseller font-semibold rounded-md">Bestseller</div>}
             </div>
 
             {/* Card Details */}
@@ -77,7 +77,14 @@ export default function CourseCard({ className, data = {}, i }) {
                     {enrolled} {" "} <span className="text-muted-foreground">Enrolled</span>
                 </div>
 
-                {localCourse && (<>
+                <div className="flex gap-1 items-center">
+                    <Clock className='size-base shrink-0 text-muted-foreground' />
+                    <div className="flex font-xs gap-[2px] line-clamp-1">
+                        {duration} hours
+                    </div>
+                </div>
+                
+                {localCourse && (
                     <div className="flex gap-1 items-center">
                         <MapPin className='size-base shrink-0 text-muted-foreground' />
                         <div className="flex font-xs gap-[2px] line-clamp-1">
@@ -86,14 +93,7 @@ export default function CourseCard({ className, data = {}, i }) {
                             ))}
                         </div>
                     </div>
-
-                    <div className="flex gap-1 items-center">
-                        <Clock className='size-base shrink-0 text-muted-foreground' />
-                        <div className="flex font-xs gap-[2px] line-clamp-1">
-                            {duration} hours
-                        </div>
-                    </div>
-                </>)}
+                )}
 
                 <div className="my-1">
                     <span className="text-2xl font-bold">${price}</span>

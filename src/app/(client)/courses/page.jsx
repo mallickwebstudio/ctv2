@@ -132,7 +132,7 @@ const tabData = [
     "slug": "professional",
     "icon": "/store/1/default_images/categories_icons/feather.png",
     "parent_id": null,
-    "category_name": "Most Popular",
+    "category_name": "Top Choices",
     "href": "/",
     "title": "Enhance Your Skills in Professional",
     "subTitle": "Learn to extract insights from data and make informed decisions Professional",
@@ -294,7 +294,7 @@ const tabData = [
     "slug": "language",
     "icon": "/store/1/default_images/categories_icons/anchor.png",
     "parent_id": null,
-    "category_name": "Trending",
+    "category_name": "Learners Favourites",
     "href": "/",
     "title": "Enhance Your Skills in Language",
     "subTitle": "Learn to extract insights from data and make informed decisions Language",
@@ -367,7 +367,7 @@ const tabData = [
     "slug": "cooking",
     "icon": "/store/1/default_images/categories_icons/code.png",
     "parent_id": null,
-    "category_name": "New",
+    "category_name": "New Courses",
     "href": "/",
     "title": "Enhance Your Skills in Cooking",
     "subTitle": "Learn to extract insights from data and make informed decisions Cooking",
@@ -517,7 +517,7 @@ export default function Page() {
 
       <CoursesCategorySection
         sectionClassName="bg-secondary"
-        h2="Explore Our Course Categories"
+        h2="Discover Courses Tailored For You"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
         data={tabData}
       />

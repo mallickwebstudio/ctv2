@@ -70,6 +70,9 @@ module.exports = {
     			info: {
     				DEFAULT: 'hsl(var(--info))'
     			},
+    			bestseller: {
+    				DEFAULT: 'hsl(var(--bestseller))'
+    			},
     			popover: {
     				DEFAULT: 'hsl(var(--popover))',
     				foreground: 'hsl(var(--popover-foreground))'

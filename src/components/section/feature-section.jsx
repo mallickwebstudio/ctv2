@@ -22,10 +22,8 @@ export default function FeatureSection({ sectionClassName, className, h2, p }) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <div className="opacity-0 md:opacity-100">
-                    <CarouselPrevious variant="tertiary" />
-                    <CarouselNext variant="tertiary" />
-                </div>
+                <CarouselPrevious variant="tertiary" />
+                <CarouselNext variant="tertiary" />
             </Carousel>
 
         </Section >

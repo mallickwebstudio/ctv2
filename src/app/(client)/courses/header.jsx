@@ -19,7 +19,7 @@ export default function Header({ sectionClassName }) {
             <div className={cn(
                 "mx-auto container p-6 md:px-12",
             )}>
-                <h1 className="my-base h2 leading-8 md:w-2/3 capitalize">Top - 10 Accounting, Finance and Banking courses in dubai, Abu dhabi, Sharjha - UAE</h1>
+                <h1 className="my-base h2 leading-8 capitalize">Top - 10 Accounting, Finance and Banking courses in dubai, Abu dhabi, Sharjha - UAE</h1>
 
                 <p className=" sub-heading flex items-center gap-2">
                     <BookOpenCheck className="size-lg shrink-0 text-muted-foreground" strokeWidth={2} />
