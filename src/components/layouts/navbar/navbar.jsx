@@ -19,11 +19,11 @@ export default function Navbar() {
       {/* Mobile Nav */}
       <MobileNav setIsNavbarOpen={setIsNavbarOpen} setSearchbarOpen={setSearchbarOpen} />
 
-      {/* Search Area */}
-      {searchbarOpen && <FullSearchBox />}
-
       {/* Mobile Sidebar Nav */}
       {isNavbarOpen && <MobileSidebarNav setIsNavbarOpen={setIsNavbarOpen} />}
+
+      {/* Search Area */}
+      {searchbarOpen && <FullSearchBox />}
     </>
   )
 }

@@ -1,4 +1,3 @@
-import Section from "@/components/ui/section";
 import { cn, formatNumber } from "@/lib/utils";
 import { BookOpenCheck, ChevronRight, UserRound, Users, UsersRound } from "lucide-react";
 import Link from "next/link";

@@ -95,7 +95,7 @@ export default function FreeLesson({ sectionClassName, className, data = {} }) {
           <CarouselNext variant="tertiary" />
         </Carousel>
 
-        <Link className={cn(buttonVariants({ variant: "outlineSecondary" }),"mt-xs")} href="/">View Free Python Courses</Link>
+        <Link className={cn(buttonVariants({ variant: "outlineSecondary" }),"mt-xs w-full")} href="/">View Free Python Courses</Link>
       </div>
     </Section>
   )

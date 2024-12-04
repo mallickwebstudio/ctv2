@@ -15,12 +15,12 @@ import SearchInput from '@/components/other/search-input';
 export default function DesktopNav() {
     return (
         <div className={cn("hidden lg:block p-0 w-full bg-background md:border-0 shadow-md")}>
-            <nav className="px-2xl py-3 size-full flex gap-xs lg:gap-base items-center">
+            <nav className="flex items-center gap-xs lg:gap-base px-2xl py-3 size-full">
 
                 {/* Logo */}
-                <Link className='-mt-base block h-14' href="/">
+                <Link className='block -mt-base h-14' href="/">
                     <Image
-                        className='h-14 min-w-20 w-fit object-contain'
+                        className='w-fit min-w-20 h-14 object-contain'
                         src="/logo-horizontal.png"
                         width={200}
                         height={100}
@@ -40,17 +40,17 @@ export default function DesktopNav() {
                 {/* Search Bar */}
                 {/* <DesktopSearchbar /> */}
                 <SearchInput className="flex-1 h-14">
-                    <div className="h-full px-sm py-xs flex items-center gap-2 border border-foreground rounded-xl overflow-hidden">
-                        <Search className="mr-xs size-6 text-muted-foreground shrink-0" />
+                    <div className="flex items-center gap-2 border-foreground px-sm py-xs border rounded-xl h-full overflow-hidden">
+                        <Search className="mr-xs text-muted-foreground shrink-0 size-6" />
                         <input
-                            className="min-w-12 w-full focus:outline-offset-0 focus:outline-none bg-transparent"
+                            className="w-full min-w-12 focus:outline-offset-0 focus:outline-none bg-transparent"
                             placeholder="Type A Course Name"
                         />
                     </div>
                 </SearchInput>
 
                 {/* Teach On Coursetakers */}
-                <div className="hover:text-active-hover hover:underline cursor-pointer peer text-nowrap">Teach On Coursetakers</div>
+                <div className="text-nowrap hover:text-active-hover hover:underline cursor-pointer peer">Teach On Coursetakers</div>
 
                 {/* Cart */}
                 <CartButton />
@@ -89,54 +89,53 @@ const DesktopCategory = () => {
 
     return (
         <div className="relative group/categorybox">
-            <div className='block px-xs py-base relative group-hover/categorybox:text-active cursor-pointer peer/button transition-all'>
+            <div className='group-hover/categorybox:text-active block relative px-xs py-base transition-all cursor-pointer peer/button'>
                 Categories
             </div>
 
-            <div className="absolute right-0 left-0 top-full hidden peer-hover/button:scale-100  hover:block peer-hover/button:block transition-all z-[9999]">
+            <div className="hover:block peer-hover/button:block top-full right-0 left-0 absolute hidden peer-hover/button:scale-100 z-[9999] transition-all">
 
-                <div className="bg-transparent h-base w-28" />
+                <div className="bg-transparent w-28 h-base" />
 
                 {/* Category */}
-                <div className="relative w-64 h-[40rem] bg-background border shadow-md">
+                <div className="relative bg-background shadow-md border w-64 h-[40rem]">
                     <div className="h-full overflow-y-scroll">
-
                         {categories.length < 0
-                            ? <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category">
+                            ? <div>
                                 Loading...
                             </div>
                             : categories.map(item => (
-                                <div className="px-base py-xs cursor-pointer hover:bg-secondary group/category" key={item.category_name + "DesketopCategory"}>
+                                <div className="hover:bg-secondary px-base py-xs cursor-pointer group/category" key={item.category_name + "DesketopCategory"}>
                                     {/* Category List */}
-                                    <Link className="flex items-center gap-base justify-between group-hover/category:text-active" href={`/${item.href}`}>
+                                    <Link className="group-hover/category:text-active flex justify-between items-center gap-base" href={`/${item.href}`}>
                                         <span>{item.category_name}</span>
                                         {item.subCategories.length > 0 &&
-                                            <ArrowRight className='size-4 shrink-0' />
+                                            <ArrowRight className='shrink-0 size-4' />
                                         }
                                     </Link>
 
                                     {/* Sub Category */}
                                     {item.subCategories.length > 0 && (
-                                        <div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/category:block border shadow-md">
+                                        <div className="group-hover/category:block left-full absolute -inset-px hidden bg-background shadow-md border size-[calc(100%_+_2px)]">
                                             <div className="h-full overflow-y-scroll">
                                                 {item.subCategories.map((item, i) => (
-                                                    <div className="px-base py-xs hover:text-active hover:bg-secondary cursor-pointer group/subcategory" key={item.category_name + "DesketopSubCategory" + i}>
+                                                    <div className="hover:bg-secondary px-base py-xs hover:text-active cursor-pointer group/subcategory" key={item.category_name + "DesketopSubCategory" + i}>
                                                         {/* Sub Category List */}
-                                                        <Link className="flex items-center gap-base justify-between group-hover/subcategory:text-active" href={`/${item.href}`}>
+                                                        <Link className="group-hover/subcategory:text-active flex justify-between items-center gap-base" href={`/${item.href}`}>
                                                             <span>{item.category_name}</span>
                                                             {item.subSubCategories.length > 0 &&
-                                                                <ArrowRight className='size-4 shrink-0' />
+                                                                <ArrowRight className='shrink-0 size-4' />
                                                             }
                                                         </Link>
 
                                                         {/* Item */}
-                                                        {item.subSubCategories.length > 0 && (<div className="absolute -inset-px left-full size-[calc(100%_+_2px)] bg-background hidden group-hover/subcategory:block border shadow-md">
+                                                        {item.subSubCategories.length > 0 && (<div className="group-hover/subcategory:block left-full absolute -inset-px hidden bg-background shadow-md border size-[calc(100%_+_2px)]">
                                                             {/* List */}
-                                                            <div className="px-base py-xs h-12 bg-secondary text-muted-foreground font-bold">Popular Topics</div>
+                                                            <div className="bg-secondary px-base py-xs h-12 font-bold text-muted-foreground">Popular Topics</div>
                                                             <div className="h-[calc(100%_-_3rem)] overflow-y-scroll">
                                                                 {item.subSubCategories.map(item => (
-                                                                    <Link className="px-base py-xs block text-foreground  hover:text-active hover:bg-secondary cursor-pointer" key={item.category_name + "DesketopSubSubCategory"} href={`/${item.href}`}>
-                                                                        <div className="flex items-center gap-base justify-between">
+                                                                    <Link className="block hover:bg-secondary px-base py-xs text-foreground hover:text-active cursor-pointer" key={item.category_name + "DesketopSubSubCategory"} href={`/${item.href}`}>
+                                                                        <div className="flex justify-between items-center gap-base">
                                                                             <span>{item.category_name}</span>
                                                                         </div>
                                                                     </Link>

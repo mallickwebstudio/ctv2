@@ -4,6 +4,7 @@ import { toast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { baseUrl } from "@/lib/datas/api";
+import AskUs from "../other/ask-us";
 
 export default function PopOverCard({ className, data = {} }) {
     const {
@@ -57,20 +58,22 @@ export default function PopOverCard({ className, data = {} }) {
 
             <div className="my-3 leading-5">{courseDescription}</div>
 
-            <Button
-                className={cn(buttonVariants(),
-                    "mt-1 w-full hidden md:block text-center cursor-pointer font-bold",
-                )}
-                onClick={handleAddToCart}
-                disabled={cartItems.includes(courseId)}
-            >
-                {localCourse
-                    ? cartItems.includes(courseId)
+            {localCourse
+                ? <AskUs className="w-full">
+                    <div className={cn(buttonVariants(), "w-full")}>Contact Now</div>
+                </AskUs>
+                : <Button
+                    className={cn(buttonVariants(),
+                        "mt-1 w-full hidden md:block text-center cursor-pointer font-bold",
+                    )}
+                    onClick={handleAddToCart}
+                    disabled={cartItems.includes(courseId)}
+                >
+                    {cartItems.includes(courseId)
                         ? "Added to cart"
                         : "Add to cart"
-                    : "Contact Now"
-                }
-            </Button>
+                    }
+                </Button>}
         </div>
     );
 }

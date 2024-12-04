@@ -1,7 +1,5 @@
-import Image from "next/image";
 import { StarFull } from "@/components/ui/svgs";
 import { formatNumber } from "@/lib/utils";
-import { GraduationCap, Users } from "lucide-react";
 import Link from "next/link";
 import { baseUrl } from "@/lib/datas/api";
 

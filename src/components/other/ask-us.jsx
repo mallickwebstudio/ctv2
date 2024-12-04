@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { useEffect, useState } from "react"
 
 
-export default function AskUs({ children, inquiryType, isAskus }) {
+export default function AskUs({ children, inquiryType, isAskus, className }) {
     const initialFormState = {
         name: "",
         contactNumber: "",
@@ -116,7 +116,7 @@ export default function AskUs({ children, inquiryType, isAskus }) {
 
     return (
         <Dialog>
-            <DialogTrigger>
+            <DialogTrigger className={className}>
                 {children}
             </DialogTrigger>
 

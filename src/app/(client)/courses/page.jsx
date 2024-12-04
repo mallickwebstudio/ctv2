@@ -516,7 +516,7 @@ export default function Page() {
       <Header />
 
       <CoursesCategorySection
-        sectionClassName="bg-secondary"
+        // sectionClassName="bg-secondary"
         h2="Discover Courses Tailored For You"
         p="Find the best courses to enhance your skills in various domains. Our diverse selection of courses will help you achieve your professional and personal goals."
         data={tabData}
@@ -528,7 +528,7 @@ export default function Page() {
       />
 
       <LinksSection
-        sectionClassName="bg-secondary"
+        // sectionClassName="bg-secondary"
         h2="Python students also learn"
       />
 
@@ -538,7 +538,7 @@ export default function Page() {
       />
 
       <InstructorSection
-        sectionClassName="bg-secondary"
+        // sectionClassName="bg-secondary"
         h2="Study with Top Creative Specialists"
         p="Learn directly from top creative experts on CourseTakers. Enhance your skills with their practical insights and experience."
         data={instructorData}
@@ -564,10 +564,10 @@ export default function Page() {
         data={instructors}
       /> */}
 
+      <FreeLesson className="md:pt-0 lg:pt-0" />
 
       <FAQ />
 
-      <FreeLesson className="md:pt-0 lg:pt-0" />
     </main>
   )
 }

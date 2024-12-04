@@ -33,6 +33,8 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Link from 'next/link'
 import CourseCard from '@/components/card/course-card'
 import Image from 'next/image'
+import Testimonial from '@/components/section/testimonial-section'
+import TestimonialCard from '@/components/card/testimonial-card'
 
 const cities = [
     { id: 'dubai', label: 'Dubai', count: 1234 },
@@ -257,15 +259,22 @@ export default function FilterCourse({
                     <FilterCourseCard />
                     <FilterCourseCard />
                     <FilterCourseCard />
+
                     <BrowseAuthority />
+
                     <FilterCourseCard />
                     <FilterCourseCard />
                     <FilterCourseCard />
+
                     <BrowseTestimony />
+                    {/* <Testimonial /> */}
+
                     <FilterCourseCard />
                     <FilterCourseCard />
                     <FilterCourseCard />
+
                     <BrowseComboCourse />
+
                     <FilterCourseCard />
                     <FilterCourseCard />
                     <FilterCourseCard />
@@ -349,8 +358,11 @@ const CheckboxItem = ({ value, id, label, count }) => (
 
 const BrowseTestimony = () => {
     return (
-        <div className="relative py-sm border-b flex group transition-all">
-            <div className="p-base w-full bg-secondary rounded-md border">
+        <div className="relative py-sm border-b flex gap-base group transition-all">
+            {[1, 2, 3].map((item, i) => (
+                <TestimonialCard key={i + "Browse Testimony"} />
+            ))}
+            {/* <div className="p-base w-full bg-secondary rounded-md border">
                 <div className="size-16">
                     <svg className="size-full" width="20" height="20" viewBox="0 0 20 20" fill="#78787835" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14.6846 16.599C16.2946 16.599 17.6006 15.256 17.6006 13.599C17.6006 11.943 16.2946 10.599 14.6846 10.599C11.7696 10.599 13.612 4 17.5 4L17.6006 3.4C10.6616 3.399 7.94259 16.599 14.6846 16.599ZM6.28459 16.599C7.89359 16.599 9.19959 15.256 9.19959 13.599C9.19959 11.943 7.89359 10.599 6.28459 10.599C3.36859 10.599 5.112 4 9 4L9.19959 3.4C2.26159 3.399 -0.457414 16.599 6.28459 16.599Z" fill="" />
@@ -362,7 +374,7 @@ const BrowseTestimony = () => {
 
                 <Link className='mt-base block w-fit text-link underline underline-offset-4' href="#">The Complete Python Bootcamp From Zero to Hero in Python</Link>
 
-            </div>
+            </div> */}
         </div>
     )
 }

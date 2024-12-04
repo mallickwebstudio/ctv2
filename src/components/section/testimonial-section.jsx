@@ -13,8 +13,6 @@ export default function Testimonial({
 }) {
     const [testimonials, setTestimonials] = useState([]);
 
-
-
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {

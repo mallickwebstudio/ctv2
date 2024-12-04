@@ -6,6 +6,8 @@ import { baseUrl } from "@/lib/datas/api";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Clock, MapPin } from "lucide-react";
+import AskUs from "../other/ask-us";
+import { buttonVariants } from "../ui/button";
 
 export default function CourseCard({ className, data = {}, i }) {
     const {
@@ -83,7 +85,7 @@ export default function CourseCard({ className, data = {}, i }) {
                         {duration} hours
                     </div>
                 </div>
-                
+
                 {localCourse && (
                     <div className="flex gap-1 items-center">
                         <MapPin className='size-base shrink-0 text-muted-foreground' />
@@ -100,6 +102,11 @@ export default function CourseCard({ className, data = {}, i }) {
                     <s className="text-lg ml-1 font-semibold text-muted-foreground">${originalPrice}</s>
                 </div>
 
+                {localCourse && (
+                    <AskUs className="w-full">
+                        <div className={cn(buttonVariants(), "w-full")}>Contact Now</div>
+                    </AskUs>
+                )}
             </div>
         </Link>
     );

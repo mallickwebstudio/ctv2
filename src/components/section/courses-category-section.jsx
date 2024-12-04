@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CourseCrousal from '@/components/other/course-crousal'
 import { cn } from '@/lib/utils'
 
-export default function     CoursesCategorySection({
+export default function CoursesCategorySection({
     sectionClassName,
     className,
     h2,
